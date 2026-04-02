@@ -1,0 +1,30 @@
+{
+  "components": {
+    "link": {
+      "padding": {
+        "$value": "0 {grid.padding.medium}"
+      },
+      "font": {
+        "$value": "{font.family.sans}"
+      },
+
+      "light": {
+        "text": {
+          "$value": "{color.blue.600}"
+        },
+        "surface": {
+          "$value": "transparent"
+        }
+      },
+
+      "dark": {
+        "text": {
+          "$value": "{color.lightBlue.400}"
+        },
+        "surface": {
+          "$value": "transparent"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@use '@/sass/tokens.static' as *;
+
+.root {
+  width: auto;
+}
+
+.mobileOnly {
+  @media (min-width: #{$layout_breakpoints_tablet}) {
+    display: none !important;
+  }
+}
+
+.tabletOnly {
+  @media (max-width: calc(#{$layout_breakpoints_tablet} - 1px)),
+    (min-width: #{$layout_breakpoints_desktop}) {
+    display: none !important;
+  }
+}
+
+.desktopOnly {
+  @media (max-width: calc(#{$layout_breakpoints_desktop} - 1px)) {
+    display: none !important;
+  }
+}
+
+.belowDesktop {
+  @media (min-width: #{$layout_breakpoints_desktop}) {
+    display: none !important;
+  }
+}
+
+.fromTablet {
+  @media (max-width: calc(#{$layout_breakpoints_tablet} - 1px)) {
+    display: none !important;
+  }
+}

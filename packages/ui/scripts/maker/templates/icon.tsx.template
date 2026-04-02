@@ -1,0 +1,10 @@
+import { Icon, type IconProps } from './Icon';
+
+export const Icon__NAME__ = (props: IconProps) => (
+  <Icon {...props} viewBox="0 0 640 640">
+    <path
+      d=""
+      fill="currentColor"
+    />
+  </Icon>
+);

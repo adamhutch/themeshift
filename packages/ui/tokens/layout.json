@@ -1,0 +1,25 @@
+{
+  "layout": {
+    "breakpoints": {
+      "mobile": {
+        "$type": "dimension",
+        "$value": "0px"
+      },
+      "tablet": {
+        "$type": "dimension",
+        "$value": "768px"
+      },
+      "desktop": {
+        "$type": "dimension",
+        "$value": "1024px"
+      }
+    },
+
+    "site": {
+      "maxWidth": {
+        "$type": "dimension",
+        "$value": "1200px"
+      }
+    }
+  }
+}

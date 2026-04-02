@@ -1,0 +1,17 @@
+.pinkButton {
+  background: hotpink;
+
+  &:hover {
+    background: orange;
+  }
+}
+
+.headerBar {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    outline: 1px dashed hotpink;
+  }
+}

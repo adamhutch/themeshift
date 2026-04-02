@@ -1,0 +1,16 @@
+.DS_Store
+.turbo
+.git-standalone-backup
+**/.git-standalone-backup
+node_modules
+**/node_modules
+coverage
+**/coverage
+dist
+**/dist
+dist-app
+**/dist-app
+storybook-static
+**/storybook-static
+.netlify
+*.tsbuildinfo

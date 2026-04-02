@@ -1,0 +1,83 @@
+{
+  "components": {
+    "button": {
+      "padding": {
+        "$value": "0 {grid.padding.medium}"
+      },
+      "font": {
+        "$value": "{font.family.sans}"
+      },
+
+      "sizes": {
+        "$type": "dimension",
+        "small": { "$value": "32px" },
+        "medium": { "$value": "40px" },
+        "large": { "$value": "48px" }
+      },
+
+      "light": {
+        "intents": {
+          "primary": {
+            "surface": { "$value": "{color.blue.400}" },
+            "fg": { "$value": "{color.blue.400.fg}" },
+            "hover": { "$value": "{color.blue.300}" },
+            "pressed": { "$value": "{color.blue.500}" }
+          },
+
+          "secondary": {
+            "surface": { "$value": "{color.gray.400}" },
+            "fg": { "$value": "{color.gray.400.fg}" },
+            "hover": { "$value": "{color.gray.300}" },
+            "pressed": { "$value": "{color.gray.500}" }
+          },
+
+          "constructive": {
+            "surface": { "$value": "{color.green.400}" },
+            "fg": { "$value": "{color.green.400.fg}" },
+            "hover": { "$value": "{color.green.300}" },
+            "pressed": { "$value": "{color.green.500}" }
+          },
+
+          "destructive": {
+            "surface": { "$value": "{color.red.400}" },
+            "fg": { "$value": "{color.red.400.fg}" },
+            "hover": { "$value": "{color.red.300}" },
+            "pressed": { "$value": "{color.red.500}" }
+          }
+        }
+      },
+
+      "dark": {
+        "intents": {
+          "primary": {
+            "surface": { "$value": "{color.blue.400}" },
+            "fg": { "$value": "{color.blue.400.fg}" },
+            "hover": { "$value": "{color.blue.300}" },
+            "pressed": { "$value": "{color.blue.500}" }
+          },
+
+          "secondary": {
+            "surface": { "$value": "{color.gray.400}" },
+            "fg": { "$value": "{color.gray.400.fg}" },
+            "hover": { "$value": "{color.gray.300}" },
+            "pressed": { "$value": "{color.gray.500}" }
+          },
+
+          "constructive": {
+            "surface": { "$value": "{color.green.400}" },
+            "fg": { "$value": "{color.green.400.fg}" },
+            "hover": { "$value": "{color.green.300}" },
+            "pressed": { "$value": "{color.green.500}" }
+          },
+
+          "destructive": {
+            "surface": { "$value": "{color.red.400}" },
+            "fg": { "$value": "{color.red.400.fg}" },
+            "hover": { "$value": "{color.red.300}" },
+            "pressed": { "$value": "{color.red.500}" }
+          }
+        }
+      }
+    }
+  }
+}

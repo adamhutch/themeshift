@@ -1,0 +1,11 @@
+{
+  "theme": {
+    "dark": {
+      "surface": {
+        "base": {
+          "$value": "#13171b"
+        }
+      }
+    }
+  }
+}

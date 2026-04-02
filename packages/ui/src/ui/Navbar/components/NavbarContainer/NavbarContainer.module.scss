@@ -1,0 +1,15 @@
+.container {
+  --navbar-container-gap: #{token('components.navbar.container.gap')};
+  --navbar-max-width: #{token('layout.site.maxWidth')};
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: var(--navbar-container-gap);
+  width: 100%;
+  max-width: var(--navbar-max-width);
+  min-height: token('components.navbar.minHeight');
+  margin-inline: auto;
+  padding-block: token('components.navbar.padding.block');
+  padding-inline: token('components.navbar.padding.inline');
+}

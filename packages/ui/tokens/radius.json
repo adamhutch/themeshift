@@ -1,0 +1,9 @@
+{
+  "radius": {
+    "$type": "dimension",
+
+    "small": { "$value": ".5rem" },
+    "medium": { "$value": "1rem" },
+    "large": { "$value": "2rem" }
+  }
+}

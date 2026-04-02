@@ -1,0 +1,295 @@
+:root {
+  /* Colors */
+  --themeshift-color-black: #000000;
+  --themeshift-color-blue-100: #c5cae9;
+  --themeshift-color-blue-200: #9fa8da;
+  --themeshift-color-blue-300: #7986cb;
+  --themeshift-color-blue-400: #5c6bc0;
+  --themeshift-color-blue-50: #ede7f6;
+  --themeshift-color-blue-500: #3f51b5;
+  --themeshift-color-blue-600: #3949ab;
+  --themeshift-color-blue-700: #303f9f;
+  --themeshift-color-blue-800: #283593;
+  --themeshift-color-blue-900: #1a237e;
+  --themeshift-color-blue-grey-100: #cfd8dc;
+  --themeshift-color-blue-grey-200: #b0bec5;
+  --themeshift-color-blue-grey-300: #90a4ae;
+  --themeshift-color-blue-grey-400: #78909c;
+  --themeshift-color-blue-grey-50: #eceff1;
+  --themeshift-color-blue-grey-500: #607d8b;
+  --themeshift-color-blue-grey-600: #546e7a;
+  --themeshift-color-blue-grey-700: #455a64;
+  --themeshift-color-blue-grey-800: #37474f;
+  --themeshift-color-blue-grey-900: #263238;
+  --themeshift-color-gray-100: #f5f5f5;
+  --themeshift-color-gray-200: #eeeeee;
+  --themeshift-color-gray-300: #e0e0e0;
+  --themeshift-color-gray-400: #bdbdbd;
+  --themeshift-color-gray-50: #fafafa;
+  --themeshift-color-gray-500: #9e9e9e;
+  --themeshift-color-gray-600: #757575;
+  --themeshift-color-gray-700: #616161;
+  --themeshift-color-gray-800: #424242;
+  --themeshift-color-gray-900: #212121;
+  --themeshift-color-green-100: #c8e6c9;
+  --themeshift-color-green-200: #a5d6a7;
+  --themeshift-color-green-300: #81c784;
+  --themeshift-color-green-400: #66bb6a;
+  --themeshift-color-green-50: #e8f5e9;
+  --themeshift-color-green-500: #4caf50;
+  --themeshift-color-green-600: #43a047;
+  --themeshift-color-green-700: #388e3c;
+  --themeshift-color-green-800: #2e7d32;
+  --themeshift-color-green-900: #1b5e20;
+  --themeshift-color-light-blue-100: #b3e5fc;
+  --themeshift-color-light-blue-200: #81d4fa;
+  --themeshift-color-light-blue-300: #4fc3f7;
+  --themeshift-color-light-blue-400: #29b6f6;
+  --themeshift-color-light-blue-50: #e1f5fe;
+  --themeshift-color-light-blue-500: #03a9f4;
+  --themeshift-color-light-blue-600: #039be5;
+  --themeshift-color-light-blue-700: #0288d1;
+  --themeshift-color-light-blue-800: #0277bd;
+  --themeshift-color-light-blue-900: #01579b;
+  --themeshift-color-red-100: #ffcdd2;
+  --themeshift-color-red-200: #ef9a9a;
+  --themeshift-color-red-300: #e57373;
+  --themeshift-color-red-400: #ef5350;
+  --themeshift-color-red-50: #ffebee;
+  --themeshift-color-red-500: #f44336;
+  --themeshift-color-red-600: #e53935;
+  --themeshift-color-red-700: #d32f2f;
+  --themeshift-color-red-800: #c62828;
+  --themeshift-color-red-900: #b71c1c;
+  --themeshift-color-teal-100: #b2dfdb;
+  --themeshift-color-teal-200: #80cbc4;
+  --themeshift-color-teal-300: #4db6ac;
+  --themeshift-color-teal-400: #26a69a;
+  --themeshift-color-teal-50: #e0f2f1;
+  --themeshift-color-teal-500: #009688;
+  --themeshift-color-teal-600: #00897b;
+  --themeshift-color-teal-700: #00796b;
+  --themeshift-color-teal-800: #00695c;
+  --themeshift-color-teal-900: #004d40;
+  --themeshift-color-white: #ffffff;
+
+  /* Typography */
+  --themeshift-font-family-display: Georgia, serif;
+  --themeshift-font-family-sans: 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-font-family-serif: Georgia, serif;
+  --themeshift-font-style-italic: italic;
+  --themeshift-font-style-normal: normal;
+  --themeshift-font-weight-bold: 700;
+  --themeshift-font-weight-medium: 500;
+  --themeshift-font-weight-regular: 400;
+  --themeshift-font-weight-semi-bold: 600;
+  --themeshift-typography-metrics--1-font-size: 0.75rem;
+  --themeshift-typography-metrics--1-letter-spacing: 0.02em;
+  --themeshift-typography-metrics--1-line-height: 1rem;
+  --themeshift-typography-metrics-0-font-size: 0.875rem;
+  --themeshift-typography-metrics-0-letter-spacing: 0.02em;
+  --themeshift-typography-metrics-0-line-height: 1.125rem;
+  --themeshift-typography-metrics-1-font-size: 1rem;
+  --themeshift-typography-metrics-1-letter-spacing: 0.01em;
+  --themeshift-typography-metrics-1-line-height: 1.375rem;
+  --themeshift-typography-metrics-2-font-size: 1.125rem;
+  --themeshift-typography-metrics-2-letter-spacing: 0.01em;
+  --themeshift-typography-metrics-2-line-height: 1.5rem;
+  --themeshift-typography-metrics-3-font-size: 1.25rem;
+  --themeshift-typography-metrics-3-letter-spacing: 0;
+  --themeshift-typography-metrics-3-line-height: 1.5rem;
+  --themeshift-typography-metrics-4-font-size: 1.375rem;
+  --themeshift-typography-metrics-4-letter-spacing: 0;
+  --themeshift-typography-metrics-4-line-height: 1.75rem;
+  --themeshift-typography-metrics-5-font-size: 1.5rem;
+  --themeshift-typography-metrics-5-letter-spacing: 0;
+  --themeshift-typography-metrics-5-line-height: 2.25rem;
+  --themeshift-typography-metrics-6-font-size: 2rem;
+  --themeshift-typography-metrics-6-letter-spacing: -0.02em;
+  --themeshift-typography-metrics-6-line-height: 2.5rem;
+  --themeshift-typography-metrics-7-font-size: 3rem;
+  --themeshift-typography-metrics-7-letter-spacing: -0.02em;
+  --themeshift-typography-metrics-7-line-height: 3.375rem;
+  --themeshift-typography-scales--1-bold: 700 0.75rem/1rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales--1-regular: 400 0.75rem/1rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales--1-semi-bold: 600 0.75rem/1rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-0-bold: 700 0.875rem/1.125rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-0-regular: 400 0.875rem/1.125rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-0-semi-bold: 600 0.875rem/1.125rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-1-bold: 700 1rem/1.375rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-1-regular: 400 1rem/1.375rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-1-semi-bold: 600 1rem/1.375rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-2-bold: 700 1.125rem/1.5rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-2-regular: 400 1.125rem/1.5rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-2-semi-bold: 600 1.125rem/1.5rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-3-bold: 700 1.25rem/1.5rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-3-regular: 400 1.25rem/1.5rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-3-semi-bold: 600 1.25rem/1.5rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-4-bold: 700 1.375rem/1.75rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-4-regular: 400 1.375rem/1.75rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-4-semi-bold: 600 1.375rem/1.75rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-5-bold: 700 1.5rem/2.25rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-5-regular: 400 1.5rem/2.25rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-5-semi-bold: 600 1.5rem/2.25rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-6-bold: 700 2rem/2.5rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-6-regular: 400 2rem/2.5rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-6-semi-bold: 600 2rem/2.5rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-7-bold: 700 3rem/3.375rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-7-regular: 400 3rem/3.375rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-scales-7-semi-bold: 600 3rem/3.375rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-body-default-font: 400 1rem/1.375rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-body-default-font-style: normal;
+  --themeshift-typography-styles-body-default-letter-spacing: 0.01em;
+  --themeshift-typography-styles-body-italic-font: 400 1rem/1.375rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-body-italic-font-style: italic;
+  --themeshift-typography-styles-body-italic-letter-spacing: 0.01em;
+  --themeshift-typography-styles-body-strong-font: 600 1rem/1.375rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-body-strong-font-style: normal;
+  --themeshift-typography-styles-body-strong-letter-spacing: 0.01em;
+  --themeshift-typography-styles-button-large-font: 600 1.125rem/1.5rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-button-large-font-style: normal;
+  --themeshift-typography-styles-button-large-letter-spacing: 0.01em;
+  --themeshift-typography-styles-button-medium-font: 600 1rem/1.375rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-button-medium-font-style: normal;
+  --themeshift-typography-styles-button-medium-letter-spacing: 0.01em;
+  --themeshift-typography-styles-button-small-font: 600 0.875rem/1.125rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-button-small-font-style: normal;
+  --themeshift-typography-styles-button-small-letter-spacing: 0.02em;
+  --themeshift-typography-styles-caption-default-font: 400 0.75rem/1rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-caption-default-font-style: normal;
+  --themeshift-typography-styles-caption-default-letter-spacing: 0.02em;
+  --themeshift-typography-styles-caption-italic-font: 400 0.75rem/1rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-caption-italic-font-style: italic;
+  --themeshift-typography-styles-caption-italic-letter-spacing: 0.02em;
+  --themeshift-typography-styles-heading-h1-display-font: 700 1.5rem/2.25rem Georgia, serif;
+  --themeshift-typography-styles-heading-h1-display-font-style: normal;
+  --themeshift-typography-styles-heading-h1-display-letter-spacing: 0;
+  --themeshift-typography-styles-heading-h1-font: 700 1.5rem/2.25rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-heading-h1-font-style: normal;
+  --themeshift-typography-styles-heading-h1-letter-spacing: 0;
+  --themeshift-typography-styles-heading-h2-display-font: 700 1.375rem/1.75rem Georgia, serif;
+  --themeshift-typography-styles-heading-h2-display-font-style: normal;
+  --themeshift-typography-styles-heading-h2-display-letter-spacing: 0;
+  --themeshift-typography-styles-heading-h2-font: 700 1.375rem/1.75rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-heading-h2-font-style: normal;
+  --themeshift-typography-styles-heading-h2-letter-spacing: 0;
+  --themeshift-typography-styles-heading-h3-font: 700 1.25rem/1.5rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-heading-h3-font-style: normal;
+  --themeshift-typography-styles-heading-h3-letter-spacing: 0;
+  --themeshift-typography-styles-heading-h4-font: 700 1.125rem/1.5rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-heading-h4-font-style: normal;
+  --themeshift-typography-styles-heading-h4-letter-spacing: 0.01em;
+  --themeshift-typography-styles-heading-h5-font: 700 1rem/1.375rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-heading-h5-font-style: normal;
+  --themeshift-typography-styles-heading-h5-letter-spacing: 0.01em;
+  --themeshift-typography-styles-heading-h6-font: 700 0.875rem/1.125rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-heading-h6-font-style: normal;
+  --themeshift-typography-styles-heading-h6-letter-spacing: 0.02em;
+  --themeshift-typography-styles-hero-default-display-font: 700 3rem/3.375rem Georgia, serif;
+  --themeshift-typography-styles-hero-default-display-font-style: normal;
+  --themeshift-typography-styles-hero-default-display-letter-spacing: -0.02em;
+  --themeshift-typography-styles-hero-default-font: 700 3rem/3.375rem 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-typography-styles-hero-default-font-style: normal;
+  --themeshift-typography-styles-hero-default-letter-spacing: -0.02em;
+
+  /* Accessibility */
+  --themeshift-accessibility-focus-gap-width: 2px;
+  --themeshift-accessibility-focus-ring-width: 3px;
+
+  /* Components */
+  --themeshift-components-button-font: 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-components-button-padding: 0 1rem;
+  --themeshift-components-button-sizes-large: 48px;
+  --themeshift-components-button-sizes-medium: 40px;
+  --themeshift-components-button-sizes-small: 32px;
+  --themeshift-components-link-font: 'Noto Sans Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --themeshift-components-link-padding: 0 1rem;
+  --themeshift-components-navbar-container-gap: 2rem;
+  --themeshift-components-navbar-min-height: 72px;
+  --themeshift-components-navbar-padding-block: 0;
+  --themeshift-components-navbar-padding-inline: 2rem;
+  --themeshift-components-navbar-section-gap: 1rem;
+
+  /* Other */
+  --themeshift-grid-padding-large: 2rem;
+  --themeshift-grid-padding-medium: 1rem;
+  --themeshift-grid-padding-small: .5rem;
+  --themeshift-layout-breakpoints-desktop: 1024px;
+  --themeshift-layout-breakpoints-mobile: 0px;
+  --themeshift-layout-breakpoints-tablet: 768px;
+  --themeshift-layout-site-max-width: 800px;
+  --themeshift-radius-large: 2rem;
+  --themeshift-radius-medium: 1rem;
+  --themeshift-radius-small: .5rem;
+}
+
+:root[data-theme='light'] {
+  /* Typography */
+  --themeshift-font-weight: 300;
+
+  /* Accessibility */
+  --themeshift-accessibility-focus-gap: #ffffff;
+  --themeshift-accessibility-focus-ring: #03a9f4;
+
+  /* Theme */
+  --themeshift-theme-surface-base: #eceff1;
+  --themeshift-theme-surface-raised: #cfd8dc;
+  --themeshift-theme-text-base: #000000;
+  --themeshift-theme-text-muted: rgba(0, 0, 0, .7);
+
+  /* Components */
+  --themeshift-components-button-intents-constructive-fg: #000000;
+  --themeshift-components-button-intents-constructive-hover: #81c784;
+  --themeshift-components-button-intents-constructive-pressed: #4caf50;
+  --themeshift-components-button-intents-constructive-surface: #66bb6a;
+  --themeshift-components-button-intents-destructive-fg: #000000;
+  --themeshift-components-button-intents-destructive-hover: #e57373;
+  --themeshift-components-button-intents-destructive-pressed: #f44336;
+  --themeshift-components-button-intents-destructive-surface: #ef5350;
+  --themeshift-components-button-intents-primary-fg: #ffffff;
+  --themeshift-components-button-intents-primary-hover: #7986cb;
+  --themeshift-components-button-intents-primary-pressed: #3f51b5;
+  --themeshift-components-button-intents-primary-surface: #5c6bc0;
+  --themeshift-components-button-intents-secondary-fg: #000000;
+  --themeshift-components-button-intents-secondary-hover: #e0e0e0;
+  --themeshift-components-button-intents-secondary-pressed: #9e9e9e;
+  --themeshift-components-button-intents-secondary-surface: #bdbdbd;
+  --themeshift-components-link-surface: transparent;
+  --themeshift-components-link-text: #3949ab;
+  --themeshift-components-navbar-border: transparent;
+  --themeshift-components-navbar-surface: transparent;
+}
+
+:root[data-theme='dark'] {
+  /* Accessibility */
+  --themeshift-accessibility-focus-gap: #ffffff;
+  --themeshift-accessibility-focus-ring: #3f51b5;
+
+  /* Theme */
+  --themeshift-theme-surface-base: #13171b;
+  --themeshift-theme-surface-raised: #37474f;
+  --themeshift-theme-text-base: #ffffff;
+  --themeshift-theme-text-muted: rgba(255, 255, 255, .7);
+
+  /* Components */
+  --themeshift-components-button-intents-constructive-fg: #000000;
+  --themeshift-components-button-intents-constructive-hover: #81c784;
+  --themeshift-components-button-intents-constructive-pressed: #4caf50;
+  --themeshift-components-button-intents-constructive-surface: #66bb6a;
+  --themeshift-components-button-intents-destructive-fg: #000000;
+  --themeshift-components-button-intents-destructive-hover: #e57373;
+  --themeshift-components-button-intents-destructive-pressed: #f44336;
+  --themeshift-components-button-intents-destructive-surface: #ef5350;
+  --themeshift-components-button-intents-primary-fg: #ffffff;
+  --themeshift-components-button-intents-primary-hover: #7986cb;
+  --themeshift-components-button-intents-primary-pressed: #3f51b5;
+  --themeshift-components-button-intents-primary-surface: #5c6bc0;
+  --themeshift-components-button-intents-secondary-fg: #000000;
+  --themeshift-components-button-intents-secondary-hover: #e0e0e0;
+  --themeshift-components-button-intents-secondary-pressed: #9e9e9e;
+  --themeshift-components-button-intents-secondary-surface: #bdbdbd;
+  --themeshift-components-link-surface: transparent;
+  --themeshift-components-link-text: #29b6f6;
+  --themeshift-components-navbar-border: transparent;
+  --themeshift-components-navbar-surface: transparent;
+}

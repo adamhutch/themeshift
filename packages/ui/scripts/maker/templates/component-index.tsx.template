@@ -1,0 +1,15 @@
+import React from 'react';
+// import classNames from 'classnames';
+
+// import styles from './__SCSS_FILE__';
+
+export type __NAME__Props = {
+  children?: React.ReactNode;
+} & React.ComponentPropsWithoutRef<'div'>;
+
+export const __NAME__ = ({
+  children,
+  ...props
+}: __NAME__Props) => {
+  return <div {...props}>{children ?? '__NAME__'}</div>;
+};

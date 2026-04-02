@@ -1,0 +1,23 @@
+@use '@themeshift/vite-plugin-themeshift/token' as themeShift;
+
+@mixin focusRing(
+  $ringColor: themeShift.token('accessibility.focus.ring'),
+  $gapColor: themeShift.token('accessibility.focus.gap'),
+  $ringWidth: themeShift.token('accessibility.focus.ringWidth'),
+  $gapWidth: themeShift.token('accessibility.focus.gapWidth')
+) {
+  box-shadow:
+    0 0 0 #{$gapWidth} #{$gapColor},
+    0 0 0 calc(#{$gapWidth} + #{$ringWidth}) #{$ringColor};
+}
+
+@mixin buttonFocus(
+  $ringColor: themeShift.token('accessibility.focus.ring'),
+  $gapColor: themeShift.token('accessibility.focus.gap'),
+  $ringWidth: themeShift.token('accessibility.focus.ringWidth'),
+  $gapWidth: themeShift.token('accessibility.focus.gapWidth')
+) {
+  @include focusRing($ringColor, $gapColor, $ringWidth, $gapWidth);
+
+  outline: none;
+}

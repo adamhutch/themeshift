@@ -1,0 +1,11 @@
+{
+  "grid": {
+    "$type": "dimension",
+
+    "padding": {
+      "small": { "$value": ".5rem" },
+      "medium": { "$value": "1rem" },
+      "large": { "$value": "2rem" }
+    }
+  }
+}

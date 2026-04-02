@@ -1,0 +1,9 @@
+@use '../sass/mixins/typography';
+
+:root {
+  color-scheme: dark light;
+  color: var(--themeshift-theme-text-base);
+  background-color: var(--themeshift-theme-surface-base);
+
+  @include typography.style('body.default');
+}

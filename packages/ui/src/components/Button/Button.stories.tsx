@@ -1,0 +1,123 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
+
+import { Button } from '@/ui/Button';
+
+const meta = {
+  title: 'Components/Button',
+  component: Button,
+  tags: ['autodocs'],
+  args: {
+    children: 'Click me',
+    intent: 'primary',
+    size: 'medium',
+    visuallyDisabled: false,
+    disabled: false,
+    onClick: fn(),
+  },
+  argTypes: {
+    intent: {
+      control: 'select',
+      options: ['primary', 'secondary', 'tertiary', 'constructive', 'destructive'],
+    },
+    size: {
+      control: 'inline-radio',
+      options: ['small', 'medium', 'large'],
+    },
+    visuallyDisabled: {
+      control: 'boolean',
+    },
+    disabled: {
+      control: 'boolean',
+    },
+    className: {
+      control: 'text',
+    },
+  },
+} satisfies Meta<typeof Button>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Playground: Story = {};
+
+export const Intents: Story = {
+  render: (args) => (
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '0.75rem',
+      }}
+    >
+      <Button {...args} intent="primary">
+        Primary
+      </Button>
+      <Button {...args} intent="secondary">
+        Secondary
+      </Button>
+      <Button {...args} intent="tertiary">
+        Tertiary
+      </Button>
+      <Button {...args} intent="constructive">
+        Constructive
+      </Button>
+      <Button {...args} intent="destructive">
+        Destructive
+      </Button>
+    </div>
+  ),
+};
+
+export const Sizes: Story = {
+  render: (args) => (
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        gap: '0.75rem',
+      }}
+    >
+      <Button {...args} size="small">
+        Small
+      </Button>
+      <Button {...args} size="medium">
+        Medium
+      </Button>
+      <Button {...args} size="large">
+        Large
+      </Button>
+    </div>
+  ),
+};
+
+export const VisuallyDisabled: Story = {
+  args: {
+    children: 'Visually disabled',
+    visuallyDisabled: true,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    children: 'Disabled',
+    disabled: true,
+  },
+};
+
+export const CustomClassName: Story = {
+  args: {
+    children: 'Custom class',
+    className: 'storybook-button-custom-class',
+  },
+};
+
+export const NativeButtonProps: Story = {
+  args: {
+    children: 'Submit form',
+    type: 'submit',
+    name: 'storybook-submit',
+    value: 'submit-value',
+  },
+};

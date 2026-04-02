@@ -1,0 +1,34 @@
+@use '@/sass/mixins/typography';
+
+.heading {
+  color: token('theme.text.base');
+  margin: 0;
+}
+
+.muted {
+  color: token('theme.text.muted');
+}
+
+.h1 {
+  @include typography.style('heading.h1');
+}
+
+.h2 {
+  @include typography.style('heading.h2');
+}
+
+.h3 {
+  @include typography.style('heading.h3');
+}
+
+.h4 {
+  @include typography.style('heading.h4');
+}
+
+.h5 {
+  @include typography.style('heading.h5');
+}
+
+.h6 {
+  @include typography.style('heading.h6');
+}

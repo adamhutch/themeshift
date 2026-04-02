@@ -1,0 +1,36 @@
+{
+  "accessibility": {
+    "focus": {
+      "gapWidth": {
+        "$type": "dimension",
+        "$value": "2px"
+      },
+      "ringWidth": {
+        "$type": "dimension",
+        "$value": "3px"
+      }
+    },
+
+    "light": {
+      "focus": {
+        "gap": {
+          "$value": "{color.white}"
+        },
+        "ring": {
+          "$value": "{color.lightBlue.500}"
+        }
+      }
+    },
+
+    "dark": {
+      "focus": {
+        "gap": {
+          "$value": "{color.white}"
+        },
+        "ring": {
+          "$value": "{color.blue.500}"
+        }
+      }
+    }
+  }
+}

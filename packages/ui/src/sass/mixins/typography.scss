@@ -1,0 +1,13 @@
+@use '@themeshift/vite-plugin-themeshift/token' as themeShift;
+
+@mixin style($path) {
+  font: themeShift.token('typography.styles.#{$path}.font');
+  letter-spacing: themeShift.token('typography.styles.#{$path}.letterSpacing');
+  font-style: themeShift.token('typography.styles.#{$path}.fontStyle');
+}
+
+@mixin scale($scale, $weight: regular) {
+  font: themeShift.token('typography.scales.#{$scale}.#{$weight}');
+  letter-spacing: themeShift.token('typography.metrics.#{$scale}.letterSpacing');
+  font-style: themeShift.token('font.style.normal');
+}

@@ -1,0 +1,25 @@
+{
+  "theme": {
+    "light": {
+      "surface": {
+        "base": {
+          "$value": "{color.blueGrey.50}"
+        },
+
+        "raised": {
+          "$value": "{color.blueGrey.100}"
+        }
+      },
+
+      "text": {
+        "base": {
+          "$value": "{color.black}"
+        },
+
+        "muted": {
+          "$value": "{color.black.70}"
+        }
+      }
+    }
+  }
+}

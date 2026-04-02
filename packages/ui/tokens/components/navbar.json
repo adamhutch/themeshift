@@ -1,0 +1,44 @@
+{
+  "components": {
+    "navbar": {
+      "minHeight": {
+        "$type": "dimension",
+        "$value": "72px"
+      },
+      "padding": {
+        "inline": {
+          "$value": "{grid.padding.large}"
+        },
+        "block": {
+          "$value": "0"
+        }
+      },
+      "container": {
+        "gap": {
+          "$value": "{grid.padding.large}"
+        }
+      },
+      "section": {
+        "gap": {
+          "$value": "{grid.padding.medium}"
+        }
+      },
+      "light": {
+        "surface": {
+          "$value": "transparent"
+        },
+        "border": {
+          "$value": "transparent"
+        }
+      },
+      "dark": {
+        "surface": {
+          "$value": "transparent"
+        },
+        "border": {
+          "$value": "transparent"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+[build]
+base = "."
+command = "pnpm turbo run build --filter=@themeshift/ui-app..."
+publish = "apps/ui-app/dist"
+
+[build.environment]
+NODE_VERSION = "24.11.1"

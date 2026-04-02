@@ -1,0 +1,9 @@
+@use '@themeshift/vite-plugin-themeshift/token' as themeShift;
+
+.link {
+  color: themeShift.token('components.link.text');
+}
+
+@mixin hover {
+  text-decoration: underline;
+}

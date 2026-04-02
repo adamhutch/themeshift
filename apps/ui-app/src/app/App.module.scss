@@ -1,0 +1,9 @@
+.header {
+  a {
+    color: token("color.white");
+  }
+}
+
+[data-theme="light"] .header a {
+  color: token("color.black");
+}
