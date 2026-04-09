@@ -116,7 +116,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@themeshift/vite-plugin-themeshift": "^0.3.11",
+    "@themeshift/vite-plugin-themeshift": "workspace:*",
     "@fontsource-variable/noto-sans": "^5.2.10",
     "classnames": "^2.5.1"
   },
