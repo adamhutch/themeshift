@@ -50,6 +50,7 @@
     "playground": "pnpm -C playground dev",
     "prepublishOnly": "pnpm run build",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -60,6 +61,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^4.0.18",
     "prettier": "^3.8.1",
     "tsup": "^8.0.0",
     "typescript": "^5.4.0",

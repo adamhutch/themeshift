@@ -13,9 +13,9 @@ describe('token subpath resolution', () => {
 
   afterEach(async () => {
     await Promise.all(
-      tempRoots.splice(0).map((root) =>
-        fs.rm(root, { recursive: true, force: true })
-      )
+      tempRoots
+        .splice(0)
+        .map((root) => fs.rm(root, { recursive: true, force: true }))
     );
   });
 
@@ -119,6 +119,70 @@ describe('token subpath resolution', () => {
       )
     ).resolves.toMatchObject({
       stderr: expect.not.stringContaining("Can't find stylesheet to import"),
+    });
+  });
+
+  it('works in a Node consumer app through the JS token subpath export', async () => {
+    const tempRoot = await fs.mkdtemp(
+      path.join(os.tmpdir(), 'themeshift-node-consumer-')
+    );
+    tempRoots.push(tempRoot);
+
+    const packageRoot = process.cwd();
+    const packageDir = path.join(
+      tempRoot,
+      'node_modules',
+      '@themeshift',
+      'vite-plugin-themeshift'
+    );
+    const tempPackageDist = path.join(packageDir, 'dist');
+
+    await fs.mkdir(path.dirname(packageDir), { recursive: true });
+    await fs.mkdir(path.join(tempRoot, 'node_modules'), { recursive: true });
+    await fs.writeFile(
+      path.join(tempRoot, 'package.json'),
+      JSON.stringify({ type: 'module' }, null, 2)
+    );
+    await fs.mkdir(packageDir, { recursive: true });
+    await fs.cp(path.join(packageRoot, 'dist'), tempPackageDist, {
+      recursive: true,
+    });
+    await fs.writeFile(
+      path.join(packageDir, 'package.json'),
+      JSON.stringify(
+        {
+          name: '@themeshift/vite-plugin-themeshift',
+          type: 'module',
+          exports: {
+            './token': {
+              sass: './dist/token.scss',
+              types: './dist/token.d.ts',
+              import: './dist/token.js',
+            },
+          },
+        },
+        null,
+        2
+      )
+    );
+    await fs.writeFile(
+      path.join(tempRoot, 'index.mjs'),
+      `import { tokenValue } from '@themeshift/vite-plugin-themeshift/token';
+
+console.log(
+  tokenValue('theme.text.base', {
+    values: { 'theme.text.base': '#0f172a' },
+  })
+);
+`
+    );
+
+    await expect(
+      execFileAsync(process.execPath, ['index.mjs'], {
+        cwd: tempRoot,
+      })
+    ).resolves.toMatchObject({
+      stdout: '#0f172a\n',
     });
   });
 

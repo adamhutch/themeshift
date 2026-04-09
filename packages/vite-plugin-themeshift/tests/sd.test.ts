@@ -774,6 +774,93 @@ describe('registerStyleDictionaryThings', () => {
     );
   });
 
+  it('throws helpful errors when supported color helpers receive the wrong number of arguments', () => {
+    const StyleDictionary = makeStyleDictionaryMock();
+    registerStyleDictionaryThings(StyleDictionary);
+
+    const format = StyleDictionary.getFormat('css/variables-modes-grouped');
+
+    expect(() =>
+      format?.({
+        dictionary: {
+          allTokens: [
+            {
+              name: 'components-button-hover',
+              path: ['components', 'button', 'hover'],
+              value: 'lighten(#000, 0.1, 0.2)',
+              original: {
+                value: 'lighten(#000, 0.1, 0.2)',
+              },
+              attributes: {},
+            },
+          ],
+        },
+      })
+    ).toThrow(
+      'Failed to resolve token "components.button.hover": lighten() expects 2 arguments.'
+    );
+
+    expect(() =>
+      format?.({
+        dictionary: {
+          allTokens: [
+            {
+              name: 'components-button-pressed',
+              path: ['components', 'button', 'pressed'],
+              value: 'darken(#000)',
+              original: {
+                value: 'darken(#000)',
+              },
+              attributes: {},
+            },
+          ],
+        },
+      })
+    ).toThrow(
+      'Failed to resolve token "components.button.pressed": darken() expects 2 arguments.'
+    );
+
+    expect(() =>
+      format?.({
+        dictionary: {
+          allTokens: [
+            {
+              name: 'components-button-border',
+              path: ['components', 'button', 'border'],
+              value: 'mix(#000, #fff)',
+              original: {
+                value: 'mix(#000, #fff)',
+              },
+              attributes: {},
+            },
+          ],
+        },
+      })
+    ).toThrow(
+      'Failed to resolve token "components.button.border": mix() expects 3 arguments.'
+    );
+
+    expect(() =>
+      format?.({
+        dictionary: {
+          allTokens: [
+            {
+              name: 'components-button-overlay',
+              path: ['components', 'button', 'overlay'],
+              value: 'alpha(#000, 0.5, 0.25)',
+              original: {
+                value: 'alpha(#000, 0.5, 0.25)',
+              },
+              attributes: {},
+            },
+          ],
+        },
+      })
+    ).toThrow(
+      'Failed to resolve token "components.button.overlay": alpha() expects 2 arguments.'
+    );
+  });
+
   it('throws a specific error for malformed css color functions', () => {
     const StyleDictionary = makeStyleDictionaryMock();
     registerStyleDictionaryThings(StyleDictionary);
@@ -1352,6 +1439,60 @@ describe('registerStyleDictionaryThings', () => {
     expect(output).toContain('@media print');
   });
 
+  it('emits hybrid child tokens correctly for defaultTheme fallback and print output', () => {
+    const StyleDictionary = makeStyleDictionaryMock();
+    registerStyleDictionaryThings(StyleDictionary, {
+      defaultTheme: 'light',
+      outputPrintTheme: true,
+      cssVarPrefix: 'themeshift',
+    });
+
+    const format = StyleDictionary.getFormat('css/variables-modes-grouped');
+    const output = format?.({
+      dictionary: {
+        allTokens: [
+          {
+            name: 'components-button-bg',
+            path: ['components', 'button', 'light', 'bg'],
+            value: '#fff',
+            original: {
+              $value: '#fff',
+              hover: {
+                $value: '#eee',
+              },
+            },
+            attributes: { theme: 'light' },
+          },
+          {
+            name: 'components-button-bg',
+            path: ['components', 'button', 'print', 'bg'],
+            value: '#f5f5f5',
+            original: {
+              $value: '#f5f5f5',
+              hover: {
+                $value: '#e0e0e0',
+              },
+            },
+            attributes: { theme: 'print' },
+          },
+        ],
+      },
+    });
+
+    expect(output).toContain(
+      ':root {\n  /* Components */\n  --themeshift-components-button-bg: #fff;\n  --themeshift-components-button-bg-hover: #eee;'
+    );
+    expect(output).toContain(
+      ":root[data-theme='light'] {\n  /* Components */\n  --themeshift-components-button-bg: #fff;\n  --themeshift-components-button-bg-hover: #eee;"
+    );
+    expect(output).toContain(
+      ":root[data-theme='print'] {\n    --themeshift-components-button-bg: #fff;\n    --themeshift-components-button-bg-hover: #eee;\n    --themeshift-components-button-bg: #f5f5f5;\n    --themeshift-components-button-bg-hover: #e0e0e0;"
+    );
+    expect(output).toContain(
+      '@media print {\n  :root {\n    --themeshift-components-button-bg: #fff;\n    --themeshift-components-button-bg-hover: #eee;\n    --themeshift-components-button-bg: #f5f5f5;\n    --themeshift-components-button-bg-hover: #e0e0e0;'
+    );
+  });
+
   it('groups accessibility tokens into the Accessibility bucket', () => {
     const StyleDictionary = makeStyleDictionaryMock();
     registerStyleDictionaryThings(StyleDictionary);
@@ -1602,7 +1743,7 @@ describe('registerStyleDictionaryThings', () => {
     );
   });
 
-  it('emits hybrid token paths from authored json through real Style Dictionary builds', async () => {
+  it('emits hybrid token paths and static Sass vars from authored json through real Style Dictionary builds', async () => {
     const root = await fs.mkdtemp(path.join(os.tmpdir(), 'themeshift-sd-'));
     tempRoots.push(root);
 
@@ -1615,6 +1756,14 @@ describe('registerStyleDictionaryThings', () => {
             blue: {
               300: { $value: '#7986CB', $type: 'color' },
               400: { $value: '#5C6BC0', $type: 'color' },
+            },
+          },
+          layout: {
+            inset: {
+              $value: '2rem',
+              compact: {
+                $value: '1rem',
+              },
             },
           },
           components: {
@@ -1650,10 +1799,19 @@ describe('registerStyleDictionaryThings', () => {
 
       const sd = new StyleDictionary(makeStyleDictionaryConfig());
       await sd.buildPlatform('css');
+      await sd.buildPlatform('scss');
       await sd.buildPlatform('meta');
 
       const cssOutput = await fs.readFile(
         path.join(root, 'src', 'css', 'tokens.css'),
+        'utf8'
+      );
+      const scssOutput = await fs.readFile(
+        path.join(root, 'src', 'sass', '_tokens.static.scss'),
+        'utf8'
+      );
+      const pathsOutput = await fs.readFile(
+        path.join(root, 'src', 'design-tokens', 'token-paths.json'),
         'utf8'
       );
       const valuesOutput = await fs.readFile(
@@ -1667,9 +1825,16 @@ describe('registerStyleDictionaryThings', () => {
       expect(cssOutput).toContain(
         '--themeshift-components-button-intents-primary-bg-hover: #6c7ac6;'
       );
+      expect(scssOutput).toContain('$layout_inset: 2rem;');
+      expect(scssOutput).toContain('$layout_inset_compact: 1rem;');
+      expect(pathsOutput).toContain('"layout.inset.compact"');
+      expect(pathsOutput).toContain(
+        '"components.button.light.intents.primary.bg.hover"'
+      );
       expect(valuesOutput).toContain(
         '"components.button.light.intents.primary.bg.hover": "#6c7ac6"'
       );
+      expect(valuesOutput).toContain('"layout.inset.compact": "1rem"');
     } finally {
       process.chdir(previousCwd);
     }

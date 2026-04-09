@@ -212,6 +212,9 @@ importers:
       '@types/node':
         specifier: ^22.0.0
         version: 22.19.15
+      '@vitest/coverage-v8':
+        specifier: ^4.0.18
+        version: 4.1.2(@vitest/browser@4.1.2(vite@8.0.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@22.19.15)(esbuild@0.27.7)(sass@1.98.0)(yaml@2.8.3))(vitest@4.1.2))(vitest@4.1.2)
       prettier:
         specifier: ^3.8.1
         version: 3.8.1
@@ -4944,6 +4947,22 @@ snapshots:
       - msw
       - utf-8-validate
       - vite
+
+  '@vitest/coverage-v8@4.1.2(@vitest/browser@4.1.2(vite@8.0.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@22.19.15)(esbuild@0.27.7)(sass@1.98.0)(yaml@2.8.3))(vitest@4.1.2))(vitest@4.1.2)':
+    dependencies:
+      '@bcoe/v8-coverage': 1.0.2
+      '@vitest/utils': 4.1.2
+      ast-v8-to-istanbul: 1.0.0
+      istanbul-lib-coverage: 3.2.2
+      istanbul-lib-report: 3.0.1
+      istanbul-reports: 3.2.0
+      magicast: 0.5.2
+      obug: 2.1.1
+      std-env: 4.0.0
+      tinyrainbow: 3.1.0
+      vitest: 4.1.2(@types/node@22.19.15)(@vitest/browser-playwright@4.1.2)(jsdom@29.0.1)(vite@8.0.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@22.19.15)(esbuild@0.27.7)(sass@1.98.0)(yaml@2.8.3))
+    optionalDependencies:
+      '@vitest/browser': 4.1.2(vite@8.0.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@22.19.15)(esbuild@0.27.7)(sass@1.98.0)(yaml@2.8.3))(vitest@4.1.2)
 
   '@vitest/coverage-v8@4.1.2(@vitest/browser@4.1.2(vite@8.0.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@24.12.0)(esbuild@0.27.7)(sass@1.98.0)(yaml@2.8.3))(vitest@4.1.2))(vitest@4.1.2)':
     dependencies:
