@@ -5,7 +5,10 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
 const componentsDir = path.join(rootDir, 'packages/ui/src/components');
-const readmePath = path.join(rootDir, 'packages/ui/README.md');
+const readmePaths = [
+  path.join(rootDir, 'README.md'),
+  path.join(rootDir, 'packages/ui/README.md'),
+];
 const badgePattern =
   /!\[Components\]\(https:\/\/img\.shields\.io\/badge\/components-\d+-blue\.svg\)/;
 const check = process.argv.includes('--check');
@@ -34,26 +37,35 @@ async function countComponents() {
 }
 
 const componentCount = await countComponents();
-const readme = await readFile(readmePath, 'utf8');
 const nextBadge = `![Components](https://img.shields.io/badge/components-${componentCount}-blue.svg)`;
 
-if (!badgePattern.test(readme)) {
-  throw new Error(
-    'Could not find the components badge in packages/ui/README.md'
-  );
-}
+for (const readmePath of readmePaths) {
+  const readme = await readFile(readmePath, 'utf8');
+  const relativeReadmePath = path.relative(rootDir, readmePath);
 
-const nextReadme = readme.replace(badgePattern, nextBadge);
-
-if (check) {
-  if (nextReadme !== readme) {
+  if (!badgePattern.test(readme)) {
     throw new Error(
-      `packages/ui/README.md has a stale components badge. Expected: ${nextBadge}`
+      `Could not find the components badge in ${relativeReadmePath}`
     );
   }
 
-  console.log(`UI component badge is up to date: ${componentCount}`);
-} else {
+  const nextReadme = readme.replace(badgePattern, nextBadge);
+
+  if (check) {
+    if (nextReadme !== readme) {
+      throw new Error(
+        `${relativeReadmePath} has a stale components badge. Expected: ${nextBadge}`
+      );
+    }
+
+    continue;
+  }
+
   await writeFile(readmePath, nextReadme);
-  console.log(`Updated UI component badge to ${componentCount}`);
 }
+
+console.log(
+  check
+    ? `UI component badges are up to date: ${componentCount}`
+    : `Updated UI component badges to ${componentCount}`
+);
