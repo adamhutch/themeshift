@@ -1,5 +1,10 @@
 # @themeshift/vite-plugin-themeshift
 
+![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)
+![Build](https://github.com/adamhutch/themeshift/actions/workflows/ci.yml/badge.svg)
+![Coverage](https://codecov.io/gh/adamhutch/themeshift/graph/badge.svg)
+![npm](https://img.shields.io/npm/v/@themeshift/vite-plugin-themeshift)
+
 ThemeShift is a Vite plugin that makes working with Style Dictionary easy as pie 🥧
 
 It watches your token files, rebuilds generated outputs, and gives you a simple `token()` helper for Sass. It can also start from tokens published by a UI package and layer app-level overrides on top.
@@ -102,7 +107,7 @@ For shared mixins and partials, prefer the namespaced import:
 
 ## JavaScript helpers
 
-ThemeShift also ships a JavaScript helper on the same `./token` path.
+ThemeShift ships a JavaScript helper on the same `./token` path.
 
 Use `token()` to read the current CSS variable value in the browser:
 
@@ -121,11 +126,11 @@ import { tokenValues } from './design-tokens/token-values';
 const titleStyle = tokenValue('text.style.title', { values: tokenValues });
 ```
 
-## Derived color expressions
+## Color functions
 
-ThemeShift can resolve color helpers at build time.
+ThemeShift also provides functions for modifying colours.
 
-Supported helpers:
+Supported functions:
 
 - `mix(color1, color2, amount)`
 - `lighten(color, amount)`

@@ -1,5 +1,6 @@
 {
   "name": "@themeshift/workspace",
+  "description": "ThemeShift monorepo for UI components, design tokens, and Vite tooling.",
   "private": true,
   "packageManager": "pnpm@10.18.0",
   "engines": {

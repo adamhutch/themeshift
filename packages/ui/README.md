@@ -1,5 +1,11 @@
 # ThemeShift UI
 
+![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)
+![Build](https://github.com/adamhutch/themeshift/actions/workflows/ci.yml/badge.svg)
+![Coverage](https://codecov.io/gh/adamhutch/themeshift/graph/badge.svg)
+![npm](https://img.shields.io/npm/v/@themeshift/ui)
+![Components](https://img.shields.io/badge/components-3-blue.svg)
+
 ThemeShift UI is a React UI framework built around design tokens and theme-aware styling. ThemeShift makes creating your own theme-aware components easy as pie 🥧
 
 This package now lives inside the ThemeShift monorepo. Use the root workspace for local development and the docs app in `apps/ui-app` for richer examples and integration guides.

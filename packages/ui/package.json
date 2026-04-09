@@ -3,6 +3,15 @@
   "version": "0.1.13",
   "description": "ThemeShift UI makes creating your own theme-aware components easy as pie 🥧",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/adamhutch/themeshift.git",
+    "directory": "packages/ui"
+  },
+  "homepage": "https://github.com/adamhutch/themeshift/tree/main/packages/ui",
+  "bugs": {
+    "url": "https://github.com/adamhutch/themeshift/issues"
+  },
   "type": "module",
   "publishConfig": {
     "access": "public"
