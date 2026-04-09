@@ -1,5 +1,6 @@
 import { execFile } from 'node:child_process';
 import fs from 'node:fs/promises';
+import { createRequire } from 'node:module';
 import os from 'node:os';
 import path from 'node:path';
 import { promisify } from 'node:util';
@@ -7,6 +8,18 @@ import { promisify } from 'node:util';
 import { afterEach, describe, expect, it } from 'vitest';
 
 const execFileAsync = promisify(execFile);
+const require = createRequire(import.meta.url);
+
+function getViteBinPath(packageRoot: string) {
+  const vitePackageJsonPath = require.resolve('vite/package.json', {
+    paths: [packageRoot],
+  });
+  const vitePackageJson = JSON.parse(
+    require('node:fs').readFileSync(vitePackageJsonPath, 'utf8')
+  ) as { bin: { vite: string } };
+
+  return path.join(path.dirname(vitePackageJsonPath), vitePackageJson.bin.vite);
+}
 
 describe('token subpath resolution', () => {
   const tempRoots: string[] = [];
@@ -100,23 +113,9 @@ describe('token subpath resolution', () => {
     );
 
     await expect(
-      execFileAsync(
-        process.execPath,
-        [
-          path.join(
-            packageRoot,
-            'playground',
-            'node_modules',
-            'vite',
-            'bin',
-            'vite.js'
-          ),
-          'build',
-        ],
-        {
-          cwd: tempRoot,
-        }
-      )
+      execFileAsync(process.execPath, [getViteBinPath(packageRoot), 'build'], {
+        cwd: tempRoot,
+      })
     ).resolves.toMatchObject({
       stderr: expect.not.stringContaining("Can't find stylesheet to import"),
     });
