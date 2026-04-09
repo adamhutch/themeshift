@@ -28,7 +28,6 @@ function App() {
                 <div className={styles.links}>
                   <Link to="/components">Components</Link>
                   <Link to="/plugin">Plugin</Link>
-                  <Link to="/design">Design</Link>
                 </div>
               </Navbar.Section>
 
