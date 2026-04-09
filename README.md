@@ -42,8 +42,9 @@ pnpm typecheck
 
 ## Releases and deploys
 
-- Public packages in `packages/*` are versioned with Changesets and published from the repo root.
-- `@themeshift/ui` and `@themeshift/ui-app` stay in lock-step for versioning, but only `@themeshift/ui` is published to npm.
+- Use [`BRANCHES.md`](./BRANCHES.md) for the development branch flow.
+- Use [`RELEASES.md`](./RELEASES.md) for release-please and publishing details.
+- Public packages in `packages/*` are versioned with release-please and published from GitHub Actions.
 - `apps/*` stay private and are deployed through Netlify.
 - `apps/ui-app` is configured to build from the monorepo root with `pnpm turbo run build --filter=@themeshift/ui-app...`.
 - `@themeshift/ui` publishes fonts separately via `@themeshift/ui/css/fonts.css` so consumers can opt into the default Noto Sans assets or provide their own fonts.
