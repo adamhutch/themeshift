@@ -143,7 +143,7 @@ pnpm changeset
 Apply version bumps locally:
 
 ```bash
-pnpm version
+pnpm changeset:version
 ```
 
 Run the release preflight checks:

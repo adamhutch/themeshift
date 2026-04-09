@@ -23,7 +23,7 @@
     "changeset": "changeset",
     "release:preflight": "node scripts/preflight.ts",
     "release:preflight:verbose": "node scripts/preflight.ts --verbose",
-    "version": "changeset version",
+    "changeset:version": "changeset version",
     "release": "changeset publish"
   },
   "devDependencies": {
