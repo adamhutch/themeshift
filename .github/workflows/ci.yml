@@ -29,6 +29,9 @@ jobs:
       # Install workspace dependencies exactly as locked
       - run: pnpm install --frozen-lockfile
 
+      # Confirm generated README badges match the current package surface
+      - run: pnpm docs:check-badges
+
       # Run the main validation pipeline used for pull requests and main
       - run: pnpm ci:validate
 

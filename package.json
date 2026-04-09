@@ -20,10 +20,12 @@
     "storybook": "turbo run storybook --filter=@themeshift/ui",
     "build-storybook": "turbo run build-storybook --filter=@themeshift/ui",
     "ci:validate": "turbo run lint typecheck test build --affected",
+    "docs:check-badges": "node scripts/update-ui-component-badge.mjs --check",
+    "docs:update-badges": "node scripts/update-ui-component-badge.mjs",
     "changeset": "changeset",
     "release:preflight": "node scripts/preflight.ts",
     "release:preflight:verbose": "node scripts/preflight.ts --verbose",
-    "changeset:version": "changeset version",
+    "changeset:version": "pnpm docs:update-badges && changeset version",
     "release": "changeset publish"
   },
   "devDependencies": {
