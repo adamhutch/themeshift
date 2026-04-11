@@ -1,4 +1,4 @@
 {
-  "packages/ui": "0.1.14",
-  "packages/vite-plugin-themeshift": "0.3.12"
+  "packages/ui": "0.2.0",
+  "packages/vite-plugin-themeshift": "0.4.0"
 }
