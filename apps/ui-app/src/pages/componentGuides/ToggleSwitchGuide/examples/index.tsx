@@ -1,21 +1,10 @@
 import { ToggleSwitch } from '@themeshift/ui/components/ToggleSwitch';
 import { IconMoon, IconSun } from '@themeshift/ui/icons';
-import { useState } from 'react';
 
-import { ResponsiveStackInline } from '../components';
 import { Stack } from '@/app/components';
 
-const ControlledToggleSwitch = () => {
-  const [checked, setChecked] = useState(false);
-
-  return (
-    <ToggleSwitch
-      checked={checked}
-      label={checked ? 'Backups on' : 'Backups off'}
-      onCheckedChange={setChecked}
-    />
-  );
-};
+import { ResponsiveStackInline } from '../../components';
+import { ControlledToggleSwitch } from './ControlledToggleSwitch';
 
 export const basicUsage = {
   code: '<ToggleSwitch label="Email notifications" />',

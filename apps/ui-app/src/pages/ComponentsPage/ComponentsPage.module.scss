@@ -1,0 +1,20 @@
+.components {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+  justify-content: start;
+}
+
+.component {
+  width: 250px;
+  background: token('theme.surface.raised');
+  padding: token('space.4');
+  border-radius: token('radius.small');
+  color: token('theme.text.base');
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
