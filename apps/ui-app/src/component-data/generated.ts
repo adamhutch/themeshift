@@ -120,6 +120,15 @@ export const componentData = [
       'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/Button',
   },
   {
+    apiReference: [],
+    component: 'ErrorMessage',
+    importString:
+      "import { ErrorMessage } from '@themeshift/ui/components/ErrorMessage';",
+    slug: 'errormessage',
+    sourceCodeUrl:
+      'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/ErrorMessage',
+  },
+  {
     apiReference: [
       {
         comments: 'Semantic heading level to render.',
@@ -144,6 +153,14 @@ export const componentData = [
     slug: 'heading',
     sourceCodeUrl:
       'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/Heading',
+  },
+  {
+    apiReference: [],
+    component: 'Label',
+    importString: "import { Label } from '@themeshift/ui/components/Label';",
+    slug: 'label',
+    sourceCodeUrl:
+      'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/Label',
   },
   {
     apiReference: [
@@ -431,5 +448,134 @@ export const componentData = [
     slug: 'spinner',
     sourceCodeUrl:
       'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/Spinner',
+  },
+  {
+    apiReference: [
+      {
+        comments: 'Allows the visible switch text to be selected.',
+        defaultValue: false,
+        displayName: 'ToggleSwitch',
+        propName: 'allowTextSelection',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Additional class name for the outer wrapper.',
+        defaultValue: null,
+        displayName: 'ToggleSwitch',
+        propName: 'className',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Helper text shown below the label.',
+        defaultValue: null,
+        displayName: 'ToggleSwitch',
+        propName: 'description',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Error text shown below the description.',
+        defaultValue: null,
+        displayName: 'ToggleSwitch',
+        propName: 'errorMessage',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Icon shown when the switch is off.',
+        defaultValue: null,
+        displayName: 'ToggleSwitch',
+        propName: 'iconOff',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Icon shown when the switch is on.',
+        defaultValue: null,
+        displayName: 'ToggleSwitch',
+        propName: 'iconOn',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Visual style used for the thumb color.',
+        defaultValue: 'primary',
+        displayName: 'ToggleSwitch',
+        propName: 'intent',
+        type: 'ToggleSwitchIntent',
+        values: [
+          'primary',
+          'secondary',
+          'tertiary',
+          'constructive',
+          'destructive',
+        ],
+      },
+      {
+        comments: 'Visible label content for the switch.',
+        defaultValue: null,
+        displayName: 'ToggleSwitch',
+        propName: 'label',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Additional class name for the visible label element.',
+        defaultValue: null,
+        displayName: 'ToggleSwitch',
+        propName: 'labelClassName',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments:
+          'Controls whether the label content appears before or after the switch.',
+        defaultValue: 'end',
+        displayName: 'ToggleSwitch',
+        propName: 'labelPosition',
+        type: 'ToggleSwitchLabelPosition',
+        values: ['start', 'end'],
+      },
+      {
+        comments: 'Called with the next checked state after user interaction.',
+        defaultValue: null,
+        displayName: 'ToggleSwitch',
+        propName: 'onCheckedChange',
+        type: '(checked: boolean) => void',
+        values: [],
+      },
+      {
+        comments: 'Size option for the track, thumb, and label spacing.',
+        defaultValue: 'medium',
+        displayName: 'ToggleSwitch',
+        propName: 'size',
+        type: 'ToggleSwitchSize',
+        values: ['small', 'medium', 'large'],
+      },
+      {
+        comments: 'Additional class name for the thumb element.',
+        defaultValue: null,
+        displayName: 'ToggleSwitch',
+        propName: 'thumbClassName',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Additional class name for the track element.',
+        defaultValue: null,
+        displayName: 'ToggleSwitch',
+        propName: 'trackClassName',
+        type: 'string',
+        values: [],
+      },
+    ],
+    component: 'ToggleSwitch',
+    importString:
+      "import { ToggleSwitch } from '@themeshift/ui/components/ToggleSwitch';",
+    slug: 'toggleswitch',
+    sourceCodeUrl:
+      'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/ToggleSwitch',
   },
 ] satisfies ComponentData[];
