@@ -108,8 +108,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     );
 
     if (resize === 'auto') {
-      const { rows: _rows, ...autosizeTextareaProps } = nativeTextareaProps;
-      const { height: _height, ...autosizeStyle } = style ?? {};
+      const autosizeTextareaProps = { ...nativeTextareaProps };
+      const autosizeStyle = { ...(style ?? {}) };
+      delete autosizeTextareaProps.rows;
+      delete autosizeStyle.height;
 
       return (
         <TextareaAutosize
