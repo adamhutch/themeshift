@@ -1,6 +1,7 @@
 :root {
   /* Colors */
   --themeshift-color-black: #000;
+  --themeshift-color-black-05: rgba(0, 0, 0, .05);
   --themeshift-color-black-10: rgba(0, 0, 0, .1);
   --themeshift-color-black-20: rgba(0, 0, 0, .2);
   --themeshift-color-black-30: rgba(0, 0, 0, .3);
@@ -151,6 +152,7 @@
   --themeshift-color-teal-900: #004D40;
   --themeshift-color-teal-900-fg: #fff;
   --themeshift-color-white: #fff;
+  --themeshift-color-white-05: rgba(255, 255, 255, .05);
   --themeshift-color-white-10: rgba(255, 255, 255, .1);
   --themeshift-color-white-20: rgba(255, 255, 255, .2);
   --themeshift-color-white-30: rgba(255, 255, 255, .3);
@@ -333,13 +335,15 @@
   --themeshift-radius-large: 2rem;
   --themeshift-radius-medium: 1rem;
   --themeshift-radius-small: .5rem;
+  --themeshift-radius-x-large: 4rem;
+  --themeshift-radius-x-small: .25rem;
 
   /* Theme */
-  --themeshift-theme-border: rgba(255, 255, 255, .1);
+  --themeshift-theme-border: rgba(255, 255, 255, .05);
   --themeshift-theme-overlay: rgba(0, 0, 0, .8);
   --themeshift-theme-surface-base: #263238;
-  --themeshift-theme-surface-raised: rgba(255, 255, 255, .1);
-  --themeshift-theme-surface-sunken: rgba(0, 0, 0, .1);
+  --themeshift-theme-surface-raised: rgba(255, 255, 255, .05);
+  --themeshift-theme-surface-sunken: rgba(0, 0, 0, .05);
   --themeshift-theme-text-base: #fff;
   --themeshift-theme-text-muted: rgba(255, 255, 255, .7);
 
@@ -376,11 +380,11 @@
   --themeshift-components-checkbox-disabled-bg: rgba(255, 255, 255, .1);
   --themeshift-components-checkbox-disabled-border: rgba(255, 255, 255, .1);
   --themeshift-components-checkbox-disabled-fg: rgba(255, 255, 255, .4);
-  --themeshift-components-checkbox-sizes-large-border-radius: .5rem;
+  --themeshift-components-checkbox-sizes-large-border-radius: .25rem;
   --themeshift-components-checkbox-sizes-large-box-size: 1.5rem;
-  --themeshift-components-checkbox-sizes-medium-border-radius: .5rem;
+  --themeshift-components-checkbox-sizes-medium-border-radius: .25rem;
   --themeshift-components-checkbox-sizes-medium-box-size: 1.25rem;
-  --themeshift-components-checkbox-sizes-small-border-radius: .5rem;
+  --themeshift-components-checkbox-sizes-small-border-radius: .25rem;
   --themeshift-components-checkbox-sizes-small-box-size: 1rem;
   --themeshift-components-checkbox-validation-invalid-border: #EF5350;
   --themeshift-components-checkbox-validation-valid-border: #66BB6A;
@@ -650,11 +654,11 @@
   --themeshift-accessibility-focus-ring: #3F51B5;
 
   /* Theme */
-  --themeshift-theme-border: rgba(255, 255, 255, .1);
+  --themeshift-theme-border: rgba(255, 255, 255, .05);
   --themeshift-theme-overlay: rgba(0, 0, 0, .8);
   --themeshift-theme-surface-base: #263238;
-  --themeshift-theme-surface-raised: rgba(255, 255, 255, .1);
-  --themeshift-theme-surface-sunken: rgba(0, 0, 0, .1);
+  --themeshift-theme-surface-raised: rgba(255, 255, 255, .05);
+  --themeshift-theme-surface-sunken: rgba(0, 0, 0, .05);
   --themeshift-theme-text-base: #fff;
   --themeshift-theme-text-muted: rgba(255, 255, 255, .7);
 
