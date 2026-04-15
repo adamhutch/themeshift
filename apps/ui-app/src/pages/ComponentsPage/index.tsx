@@ -2,7 +2,6 @@ import { Heading } from '@themeshift/ui/components/Heading';
 import { PageShell } from '@themeshift/ui/templates';
 
 import { useComponentData } from '@/component-data';
-import { Link } from '@/app/components';
 
 import { ComponentCard } from './components';
 import styles from './ComponentsPage.module.scss';
