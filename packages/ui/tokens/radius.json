@@ -2,8 +2,10 @@
   "radius": {
     "$type": "dimension",
 
+    "xSmall": { "$value": ".25rem" },
     "small": { "$value": ".5rem" },
     "medium": { "$value": "1rem" },
-    "large": { "$value": "2rem" }
+    "large": { "$value": "2rem" },
+    "xLarge": { "$value": "4rem" }
   }
 }

@@ -1,9 +1,10 @@
 .container {
-  color: token('theme.text.muted');
+  color: token('components.copyButton.fg');
+  background: token('components.copyButton.bg');
 
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: token('theme.text.base');
+    background: token('components.copyButton.bg.hover');
+    color: token('components.copyButton.fg.hover');
     text-decoration: none;
   }
 

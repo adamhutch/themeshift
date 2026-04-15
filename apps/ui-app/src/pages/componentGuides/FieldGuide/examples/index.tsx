@@ -26,7 +26,7 @@ export const shorthandContent = {
 >
   <Input placeholder="you@example.com" type="email" />
 </Field>`,
-  label: 'Shorthand content',
+  label: 'Shorthand',
   sample: (
     <Field
       description="We'll only use this for account updates."
@@ -44,7 +44,7 @@ export const composableContent = {
   <Field.Description>Use your work email for notifications.</Field.Description>
   <Field.Error>Please enter a valid email address.</Field.Error>
 </Field>`,
-  label: 'Composable content',
+  label: 'Composition',
   sample: (
     <Field required validationState="invalid">
       <Field.Label>Email address</Field.Label>
@@ -88,7 +88,7 @@ export const withTextarea = {
   description="Keep this short and clear for your team."
   label="Project summary"
 >
-  <Textarea minRows={3} placeholder="Summarize your project..." resize="auto" />
+  <Textarea minRows={3} placeholder="Summarize your project…" resize="auto" />
 </Field>`,
   label: 'With Textarea',
   sample: (
@@ -98,7 +98,7 @@ export const withTextarea = {
     >
       <Textarea
         minRows={3}
-        placeholder="Summarize your project..."
+        placeholder="Summarize your project…"
         resize="auto"
       />
     </Field>
@@ -106,14 +106,14 @@ export const withTextarea = {
 };
 
 export const sharedState = {
-  code: `<Stack>
+  code: `<>
   <Field disabled label="Disabled by Field">
     <Input placeholder="Disabled" />
   </Field>
   <Field label="Read only by Field" readOnly>
     <Input defaultValue="Read only value" />
   </Field>
-</Stack>`,
+</>`,
   label: 'Shared state',
   sample: (
     <Stack>
@@ -147,7 +147,7 @@ export const inlineControlShorthand = {
 >
   <Checkbox name="notifications" />
 </Field>`,
-  label: 'Inline control (shorthand)',
+  label: 'Inline controls',
   sample: (
     <Field
       description="We'll email you about important updates."

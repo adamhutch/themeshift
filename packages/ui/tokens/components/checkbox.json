@@ -3,17 +3,17 @@
     "checkbox": {
       "sizes": {
         "small": {
-          "borderRadius": { "$value": "{radius.small}" },
+          "borderRadius": { "$value": "{radius.xSmall}" },
           "boxSize": { "$value": "{space.4}" }
         },
 
         "medium": {
-          "borderRadius": { "$value": "{radius.small}" },
+          "borderRadius": { "$value": "{radius.xSmall}" },
           "boxSize": { "$value": "{space.5}" }
         },
 
         "large": {
-          "borderRadius": { "$value": "{radius.small}" },
+          "borderRadius": { "$value": "{radius.xSmall}" },
           "boxSize": { "$value": "{space.6}" }
         }
       },
