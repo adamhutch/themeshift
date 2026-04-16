@@ -154,18 +154,20 @@ export const ExampleViewer = <Props extends ExampleArgs = ExampleArgs>({
     <div className={classNames(styles.container, className)}>
       <div className={styles.preview}>
         {hasMultipleExamples && (
-          <div className={styles.examples}>
-            {normalizedExamples.map(({ label }) => (
-              <button
-                aria-pressed={currentExample.label === label}
-                className={styles.exampleButton}
-                key={label}
-                onClick={() => setActiveExample(label)}
-                type="button"
-              >
-                {label}
-              </button>
-            ))}
+          <div className={styles.examplesContainer}>
+            <div className={styles.examples}>
+              {normalizedExamples.map(({ label }) => (
+                <button
+                  aria-pressed={currentExample.label === label}
+                  className={styles.exampleButton}
+                  key={label}
+                  onClick={() => setActiveExample(label)}
+                  type="button"
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
           </div>
         )}
 

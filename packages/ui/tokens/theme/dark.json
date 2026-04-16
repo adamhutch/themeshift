@@ -1,13 +1,13 @@
 {
   "theme": {
     "dark": {
-      "border": { "$value": "{color.white.10}" },
+      "border": { "$value": "{color.white.05}" },
       "overlay": { "$value": "{color.black.80}" },
 
       "surface": {
         "base": { "$value": "{color.blueGrey.900}" },
-        "raised": { "$value": "{color.white.10}" },
-        "sunken": { "$value": "{color.black.10}" }
+        "raised": { "$value": "{color.white.05}" },
+        "sunken": { "$value": "{color.black.05}" }
       },
 
       "text": {

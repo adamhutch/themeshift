@@ -15,15 +15,22 @@ $compactMinHeight: 4rem;
   min-height: 300px;
   place-items: center;
   position: relative;
+  white-space: pre;
+}
+
+.examplesContainer {
+  position: absolute;
+  top: token('space.4');
+  left: token('space.4');
+  right: token('space.4');
+  padding-bottom: 0.75rem;
+  overflow-y: auto;
 }
 
 .examples {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   gap: token('space.3');
-  left: token('space.4');
-  position: absolute;
-  top: token('space.4');
 }
 
 .exampleButton {

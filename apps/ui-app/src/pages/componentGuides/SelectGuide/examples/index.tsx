@@ -1,6 +1,6 @@
 import { Field } from '@themeshift/ui/components/Field';
 import { Select } from '@themeshift/ui/components/Select';
-import { IconSelectChevron } from '@themeshift/ui/icons';
+import { FaArrowCircleDown } from 'react-icons/fa';
 
 import { ResponsiveStackInline } from '../../components';
 
@@ -77,9 +77,19 @@ export const sizes = {
       inlineProps={{ align: 'center', justify: 'center', wrap: true }}
       stackProps={{ align: 'center' }}
     >
-      <Select aria-label="Small" size="small" />
-      <Select aria-label="Medium" />
-      <Select aria-label="Large" size="large" />
+      <Select
+        aria-label="Small"
+        size="small"
+        placeholder="Small"
+        defaultValue=""
+      />
+      <Select aria-label="Medium" placeholder="Medium" defaultValue="" />
+      <Select
+        aria-label="Large"
+        size="large"
+        placeholder="Large"
+        defaultValue=""
+      />
     </ResponsiveStackInline>
   ),
 };
@@ -98,10 +108,29 @@ export const validationStates = {
       inlineProps={{ align: 'center', justify: 'center', wrap: true }}
       stackProps={{ align: 'center' }}
     >
-      <Select aria-label="Default state" />
-      <Select aria-label="Invalid state" validationState="invalid" />
-      <Select aria-label="Valid state" validationState="valid" />
-      <Select aria-label="Warning state" validationState="warning" />
+      <Select
+        aria-label="Default state"
+        placeholder="Default"
+        defaultValue=""
+      />
+      <Select
+        aria-label="Invalid state"
+        validationState="invalid"
+        placeholder="Invalid"
+        defaultValue=""
+      />
+      <Select
+        aria-label="Valid state"
+        validationState="valid"
+        placeholder="Valid"
+        defaultValue=""
+      />
+      <Select
+        aria-label="Warning state"
+        validationState="warning"
+        placeholder="Warning"
+        defaultValue=""
+      />
     </ResponsiveStackInline>
   ),
 };
@@ -135,15 +164,15 @@ export const disabled = {
 export const customChevron = {
   code: `<Select
   aria-label="Custom chevron"
-  chevronIcon={<IconSelectChevron aria-hidden style={{ transform: 'scaleX(-1)' }} />}
+  chevronIcon={<FaArrowCircleDown aria-hidden />}
 />`,
   label: 'Custom chevron',
   sample: (
     <Select
       aria-label="Custom chevron"
-      chevronIcon={
-        <IconSelectChevron aria-hidden style={{ transform: 'scaleX(-1)' }} />
-      }
+      chevronIcon={<FaArrowCircleDown aria-hidden />}
+      placeholder="Custom chevron"
+      defaultValue=""
     />
   ),
 };
