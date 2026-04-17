@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const inputFallbackImport =
@@ -219,6 +219,34 @@ export const InputGuide = () => {
       'Browse common text input patterns you will likely need in production: sizing, state feedback, adornments, and width control.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Notes for labels, adornments, and validation announcements.',
+    items: [
+      {
+        content: (
+          <p>
+            Prefer a visible label by pairing <code>Input</code> with{' '}
+            <code>Field</code>. Use <code>aria-label</code> only when a visible
+            label is not appropriate.
+          </p>
+        ),
+        example: examples.withField,
+        title: 'Provide an accessible name',
+      },
+      {
+        content: (
+          <p>
+            For adornments, mark decorative icons as <code>aria-hidden</code>.
+            If an adornment is interactive (like a button), ensure it has an
+            accessible name and an explicit <code>type="button"</code>.
+          </p>
+        ),
+        example: examples.withAction,
+        title: 'Keep adornments accessible',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -236,10 +264,9 @@ export const InputGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

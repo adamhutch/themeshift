@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const buttonFallbackImport =
@@ -207,6 +207,34 @@ export const ButtonGuide = () => {
       'Browse the common patterns developers usually need in production. Copy and paste what you need to get going quickly.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Best practices for naming and state feedback.',
+    items: [
+      {
+        content: (
+          <p>
+            Icon-only buttons need an explicit accessible name. Use{' '}
+            <code>aria-label</code> or <code>aria-labelledby</code>, and mark
+            decorative icons as <code>aria-hidden</code>.
+          </p>
+        ),
+        example: examples.icons,
+        title: 'Name icon-only buttons',
+      },
+      {
+        content: (
+          <p>
+            When using <code>isBusy</code>, keep the label stable so assistive
+            tech still announces the action. Prefer <code>disabled</code> for
+            actions that should not be triggered while busy.
+          </p>
+        ),
+        example: examples.busy,
+        title: 'Communicate loading state',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -224,10 +252,9 @@ export const ButtonGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       toc={<TableOfContents.Nav />}
       title="Docs"
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

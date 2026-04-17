@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const navbarFallbackImport =
@@ -131,6 +131,33 @@ export const NavbarGuide = () => {
       'Browse common navbar layouts for product headers, utility links, and wrapping nav rows.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Notes for landmarks, focus order, and sticky navigation.',
+    items: [
+      {
+        content: (
+          <p>
+            Label navigation landmarks with <code>aria-label</code> or{' '}
+            <code>aria-labelledby</code>, especially when multiple nav regions
+            exist on a page.
+          </p>
+        ),
+        example: examples.basicUsage,
+        title: 'Label the navigation landmark',
+      },
+      {
+        content: (
+          <p>
+            Keep DOM order aligned with visual order so keyboard focus moves
+            predictably. If the navbar is sticky, ensure skip links and in-page
+            anchors land on visible content.
+          </p>
+        ),
+        title: 'Maintain predictable focus order',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -148,10 +175,9 @@ export const NavbarGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

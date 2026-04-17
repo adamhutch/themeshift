@@ -57,3 +57,20 @@ export const createExamplesSection = ({
   title = 'Examples',
 }: CreateExamplesSectionOptions): ComponentGuideSection =>
   createGuideSection({ content, id, intro, label, title });
+
+export type CreateAccessibilitySectionOptions = Omit<
+  CreateGuideSectionOptions,
+  'id' | 'title'
+> & {
+  id?: string;
+  title?: ReactNode;
+};
+
+export const createAccessibilitySection = ({
+  content,
+  id = 'accessibility',
+  intro,
+  label,
+  title = 'Accessibility',
+}: CreateAccessibilitySectionOptions): ComponentGuideSection =>
+  createGuideSection({ content, id, intro, label, title });

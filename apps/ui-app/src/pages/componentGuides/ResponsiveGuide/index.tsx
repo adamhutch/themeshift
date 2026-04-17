@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const responsiveFallbackImport =
@@ -130,6 +130,41 @@ export const ResponsiveGuide = () => {
       'Browse common visibility patterns for mobile-only, tablet-up, and bounded range content.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Responsive visibility impacts assistive technology.',
+    items: [
+      {
+        content: (
+          <p>
+            Avoid rendering duplicate interactive controls across breakpoint
+            variants. When content is <code>display: none</code>, it is also
+            removed from the accessibility tree.
+          </p>
+        ),
+        title: 'Avoid duplicated interactive targets',
+      },
+      {
+        content: (
+          <p>
+            Duplicated IDs can happen when rendering multiple breakpoint
+            variants. Keep IDs unique or refactor to render a single instance
+            per breakpoint.
+          </p>
+        ),
+        title: 'Keep IDs unique across variants',
+      },
+      {
+        content: (
+          <p>
+            Keyboard and screen reader behavior can change when layout shifts.
+            Validate focus order and announcements at each breakpoint.
+          </p>
+        ),
+        title: 'Test at each breakpoint',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -147,10 +182,9 @@ export const ResponsiveGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

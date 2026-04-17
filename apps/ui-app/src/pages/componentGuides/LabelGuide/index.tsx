@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const labelFallbackImport =
@@ -131,6 +131,33 @@ export const LabelGuide = () => {
       'Browse common label patterns for text inputs, checkbox controls, and long-form prompts.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Notes for accessible form labeling.',
+    items: [
+      {
+        content: (
+          <p>
+            Use matching <code>htmlFor</code> and <code>id</code> to connect the
+            label to its control so assistive tech announces the correct name.
+          </p>
+        ),
+        example: examples.basicUsage,
+        title: 'Connect labels to controls',
+      },
+      {
+        content: (
+          <p>
+            For checkbox-style controls, wrapping the control inside{' '}
+            <code>Label</code> expands the clickable area and keeps native label
+            behavior intact.
+          </p>
+        ),
+        example: examples.wrappingControl,
+        title: 'Use wrapping for inline controls',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -148,10 +175,9 @@ export const LabelGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

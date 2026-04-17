@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const skipLinkFallbackImport =
@@ -130,6 +130,33 @@ export const SkipLinkGuide = () => {
       'Browse skip-link patterns for default labels, native anchor props, and multi-target setups.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Skip links are a keyboard-first affordance.',
+    items: [
+      {
+        content: (
+          <p>
+            Point <code>href</code> at a real landmark that exists on the page
+            (often <code>#main-content</code>). Ensure the destination can
+            receive focus or is immediately followed by focusable content.
+          </p>
+        ),
+        example: examples.basicUsage,
+        title: 'Target a real landmark',
+      },
+      {
+        content: (
+          <p>
+            Render skip links early in the DOM so they are available as soon as
+            users begin tabbing. Verify focus visibility on both the skip link
+            and the destination.
+          </p>
+        ),
+        title: 'Place skip links first and test focus',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -147,10 +174,9 @@ export const SkipLinkGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

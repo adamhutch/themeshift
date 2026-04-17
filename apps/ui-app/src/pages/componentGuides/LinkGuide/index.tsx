@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const linkFallbackImport =
@@ -130,6 +130,43 @@ export const LinkGuide = () => {
       'Browse common link patterns for internal routes, external destinations, and grouped nav actions.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Notes for accessible navigation and link behavior.',
+    items: [
+      {
+        content: (
+          <p>
+            Use descriptive link text that makes sense out of context (avoid
+            repeated “Click here”). The link’s accessible name should describe
+            the destination or action.
+          </p>
+        ),
+        title: 'Write meaningful link text',
+      },
+      {
+        content: (
+          <p>
+            For links that open a new tab, consider adding visible or
+            screen-reader-only text that indicates the new context. Pair{' '}
+            <code>target="_blank"</code> with safe <code>rel</code> values.
+          </p>
+        ),
+        example: examples.external,
+        title: 'Handle external links intentionally',
+      },
+      {
+        content: (
+          <p>
+            When composing with router links, keep semantics intact by rendering
+            a real link element via <code>asChild</code>.
+          </p>
+        ),
+        example: examples.asChild,
+        title: 'Preserve link semantics with asChild',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -147,10 +184,9 @@ export const LinkGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

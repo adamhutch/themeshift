@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const fieldFallbackImport =
@@ -229,6 +229,34 @@ export const FieldGuide = () => {
       'Browse practical form composition patterns: shorthand, explicit composition, state propagation, and hidden-label layouts.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Notes for accessible form labeling and error messaging.',
+    items: [
+      {
+        content: (
+          <p>
+            Use <code>Field</code> to keep labels, descriptions, and errors
+            programmatically associated with the control. This ensures assistive
+            technology announces the right context.
+          </p>
+        ),
+        example: examples.shorthandContent,
+        title: 'Let Field wire labels and help text',
+      },
+      {
+        content: (
+          <p>
+            If a visual label is not desired, use <code>hideLabel</code> so the
+            field still has an accessible name. Avoid relying on placeholders as
+            the only label.
+          </p>
+        ),
+        example: examples.hideLabel,
+        title: 'Hide labels visually (not semantically)',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -246,10 +274,9 @@ export const FieldGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

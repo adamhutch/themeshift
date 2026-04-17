@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const headingFallbackImport =
@@ -127,6 +127,32 @@ export const HeadingGuide = () => {
       'Browse common heading patterns for semantic structure and visual hierarchy.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Notes for semantic document structure.',
+    items: [
+      {
+        content: (
+          <p>
+            Preserve a logical heading outline. Avoid skipping levels unless the
+            content is truly nested.
+          </p>
+        ),
+        example: examples.levels,
+        title: 'Use heading levels for structure',
+      },
+      {
+        content: (
+          <p>
+            Use headings to describe section purpose, not just to get a
+            particular visual style. For non-structural emphasis, use text
+            primitives instead.
+          </p>
+        ),
+        title: 'Keep headings meaningful',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -144,10 +170,9 @@ export const HeadingGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

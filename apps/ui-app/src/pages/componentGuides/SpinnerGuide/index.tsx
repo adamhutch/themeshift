@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const spinnerFallbackImport =
@@ -141,6 +141,43 @@ export const SpinnerGuide = () => {
       'Browse spinner patterns for standalone loading, button integration, and decorative usage.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Loading indicators should communicate both visuals and semantics.',
+    items: [
+      {
+        content: (
+          <p>
+            If the spinner is the primary loading indicator, provide an
+            accessible name via <code>aria-label</code> (or an adjacent text
+            alternative).
+          </p>
+        ),
+        example: examples.basicUsage,
+        title: 'Name standalone spinners',
+      },
+      {
+        content: (
+          <p>
+            When a nearby label already communicates loading, hide the spinner
+            from assistive tech with <code>aria-hidden</code>.
+          </p>
+        ),
+        example: examples.hiddenDecorative,
+        title: 'Hide decorative spinners',
+      },
+      {
+        content: (
+          <p>
+            Pair spinner visuals with semantic busy state (for example{' '}
+            <code>aria-busy</code> on the region or control that is updating).
+          </p>
+        ),
+        example: examples.inButtons,
+        title: 'Expose busy state on the right element',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -158,10 +195,9 @@ export const SpinnerGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

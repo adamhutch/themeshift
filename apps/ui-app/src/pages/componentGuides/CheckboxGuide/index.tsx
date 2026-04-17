@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const checkboxFallbackImport =
@@ -184,6 +184,45 @@ export const CheckboxGuide = () => {
       'Browse common boolean-input patterns: inline layout, helper text, indeterminate state, and validation feedback.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Notes for labeling and validation semantics.',
+    items: [
+      {
+        content: (
+          <p>
+            Ensure the checkbox has a programmatic label. Use a native{' '}
+            <code>label</code> or pair with <code>Field</code> so the entire
+            label area toggles the control.
+          </p>
+        ),
+        example: examples.withFieldInline,
+        title: 'Provide a label',
+      },
+      {
+        content: (
+          <p>
+            Use <code>Field.Description</code> and <code>Field.Error</code> to
+            keep helper text and validation messages associated with the
+            checkbox for assistive technology.
+          </p>
+        ),
+        example: examples.withDescriptionAndError,
+        title: 'Associate help text and errors',
+      },
+      {
+        content: (
+          <p>
+            Indeterminate is a visual “partial selection” state. If the checkbox
+            is unlabeled, provide an accessible name via <code>aria-label</code>
+            .
+          </p>
+        ),
+        example: examples.indeterminate,
+        title: 'Label indeterminate states',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -201,10 +240,9 @@ export const CheckboxGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

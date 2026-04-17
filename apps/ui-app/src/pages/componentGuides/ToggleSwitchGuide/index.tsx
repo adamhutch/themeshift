@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const toggleSwitchFallbackImport =
@@ -219,6 +219,45 @@ export const ToggleSwitchGuide = () => {
       'Browse common switch patterns for production forms and settings screens.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Notes for labeling and state announcements.',
+    items: [
+      {
+        content: (
+          <p>
+            Switches need a programmatic label. Pair <code>ToggleSwitch</code>{' '}
+            with a native <code>label</code> or <code>Field</code> so screen
+            readers announce what the switch controls.
+          </p>
+        ),
+        example: examples.withFieldInline,
+        title: 'Provide a label',
+      },
+      {
+        content: (
+          <p>
+            Use descriptions and errors to explain what the setting does and
+            what went wrong. Keep the help text and error text associated with
+            the switch using <code>Field</code>.
+          </p>
+        ),
+        example: examples.withDescriptionAndError,
+        title: 'Associate guidance and errors',
+      },
+      {
+        content: (
+          <p>
+            If the visible label changes based on state, make sure the announced
+            label is updated too (for example, reflect the current on/off
+            meaning in the label text).
+          </p>
+        ),
+        example: examples.checkedChange,
+        title: 'Keep state labels accurate',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -236,10 +275,9 @@ export const ToggleSwitchGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const errorMessageFallbackImport =
@@ -127,6 +127,44 @@ export const ErrorMessageGuide = () => {
       'Browse common error-message patterns used in forms and validation workflows.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Notes for error semantics and announcements.',
+    items: [
+      {
+        content: (
+          <p>
+            Keep error text programmatically associated with the related
+            control, typically using matching <code>id</code> and{' '}
+            <code>aria-describedby</code>.
+          </p>
+        ),
+        example: examples.withField,
+        title: 'Associate errors with controls',
+      },
+      {
+        content: (
+          <p>
+            <code>ErrorMessage</code> defaults to <code>role="alert"</code> for
+            urgent announcements. Use <code>role="status"</code> when updates
+            should be less interruptive.
+          </p>
+        ),
+        example: examples.assertiveAndPolite,
+        title: 'Choose live-region behavior intentionally',
+      },
+      {
+        content: (
+          <p>
+            Use concise, actionable copy so users know what to fix. Keep the
+            visual validation state in sync with what is announced.
+          </p>
+        ),
+        example: examples.longForm,
+        title: 'Write actionable, consistent messages',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -144,10 +182,9 @@ export const ErrorMessageGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const textareaFallbackImport =
@@ -201,6 +201,34 @@ export const TextareaGuide = () => {
       'Browse common multiline input patterns teams typically need in production: size variants, validation feedback, and resize behavior.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Notes for accessible labeling and error messaging.',
+    items: [
+      {
+        content: (
+          <p>
+            Ensure the textarea has an accessible name via a visible{' '}
+            <code>Field</code> label, or use <code>aria-label</code> when a
+            visual label is not appropriate.
+          </p>
+        ),
+        example: examples.withField,
+        title: 'Provide a label and description',
+      },
+      {
+        content: (
+          <p>
+            Keep error messaging programmatically associated with the control so
+            assistive tech announces it on focus. Pair{' '}
+            <code>validationState</code> with an explicit error message.
+          </p>
+        ),
+        example: examples.withField,
+        title: 'Announce validation feedback',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -218,10 +246,9 @@ export const TextareaGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

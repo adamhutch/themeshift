@@ -10,6 +10,7 @@ import {
   GuideExampleViewer,
   GuideExamplesGrid,
   GuideCallout,
+  createAccessibilityGuidelinesSection,
   createComponentBreadcrumbItems,
   createExamplesSection,
   createPropsSection,
@@ -17,7 +18,6 @@ import {
 } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
-import { AccessibilitySection } from './AccessibilitySection';
 import * as examples from './examples';
 
 const selectFallbackImport =
@@ -200,6 +200,34 @@ export const SelectGuide = () => {
       'Browse common dropdown patterns: options as data, placeholders, validation states, and Field composition.',
   });
 
+  const accessibilitySection = createAccessibilityGuidelinesSection({
+    intro: 'Notes for labeling and selection prompts.',
+    items: [
+      {
+        content: (
+          <p>
+            Ensure the select has an accessible name via a visible{' '}
+            <code>Field</code> label (preferred). Avoid using placeholder text
+            as the only label.
+          </p>
+        ),
+        example: examples.withField,
+        title: 'Provide a label',
+      },
+      {
+        content: (
+          <p>
+            If the user must pick a value, include a placeholder option and
+            start with <code>defaultValue=""</code> so the prompt is announced
+            before a real choice is made.
+          </p>
+        ),
+        example: examples.withPlaceholder,
+        title: 'Use placeholders intentionally',
+      },
+    ],
+  });
+
   return (
     <ComponentGuide
       breadcrumb={
@@ -217,10 +245,9 @@ export const SelectGuide = () => {
       howToUse={quickStartSection}
       intro={intro}
       propsSection={propsSection}
+      accessibility={accessibilitySection}
       title="Docs"
       toc={<TableOfContents.Nav />}
-    >
-      <AccessibilitySection />
-    </ComponentGuide>
+    />
   );
 };

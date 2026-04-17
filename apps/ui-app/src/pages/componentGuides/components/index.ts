@@ -1,3 +1,4 @@
+export * from './AccessibilityGuidelines';
 export * from './ExampleViewer';
 export * from './GuideBreadcrumb';
 export * from './GuideCallout';
