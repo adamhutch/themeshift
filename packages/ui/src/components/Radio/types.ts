@@ -22,7 +22,7 @@ export type RadioValidationState = ValidationState;
  * `Radio.Group` renders a native `<fieldset>` and manages selection state for
  * its child radios.
  */
-export type RadioGroupProps = Omit<
+export type RadioGroupProps<TValue extends string = string> = Omit<
   FieldsetHTMLAttributes<HTMLFieldSetElement>,
   'children' | 'defaultValue' | 'disabled' | 'onChange'
 > & {
@@ -34,7 +34,7 @@ export type RadioGroupProps = Omit<
   /**
    * Sets an initial selected value for uncontrolled usage.
    */
-  defaultValue?: string;
+  defaultValue?: TValue;
 
   /**
    * Disables the entire group.
@@ -54,7 +54,7 @@ export type RadioGroupProps = Omit<
   /**
    * Called with the next selected value after user interaction.
    */
-  onValueChange?: (value: string) => void;
+  onValueChange?: (value: TValue) => void;
 
   /**
    * Marks the group as required.
@@ -78,7 +78,7 @@ export type RadioGroupProps = Omit<
   /**
    * Controls the selected value in controlled usage.
    */
-  value?: string;
+  value?: TValue;
 };
 
 /**

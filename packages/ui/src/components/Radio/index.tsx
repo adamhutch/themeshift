@@ -168,7 +168,7 @@ RadioRoot.displayName = 'Radio';
  * `Radio.Group` manages selection state and propagates shared props like
  * `name`, `required`, and `disabled` to its children.
  */
-export const RadioGroup = ({
+export const RadioGroup = <TValue extends string = string>({
   children,
   defaultValue,
   disabled,
@@ -179,14 +179,16 @@ export const RadioGroup = ({
   validationState,
   value,
   ...fieldsetProps
-}: RadioGroupProps) => {
+}: RadioGroupProps<TValue>) => {
   const fieldContext = useFieldContextOptional();
   const reactId = useId();
   const fallbackName = useMemo(
     () => `radio-${sanitizeNamePart(reactId)}`,
     [reactId]
   );
-  const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue);
+  const [uncontrolledValue, setUncontrolledValue] = useState<
+    string | undefined
+  >(defaultValue);
   const {
     'aria-describedby': ariaDescribedBy,
     className,
@@ -213,7 +215,7 @@ export const RadioGroup = ({
         setUncontrolledValue(nextValue);
       }
 
-      onValueChange?.(nextValue);
+      onValueChange?.(nextValue as TValue);
     },
     [onValueChange, value]
   );
