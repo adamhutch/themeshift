@@ -65,7 +65,7 @@ describe('useForm', () => {
     );
   });
 
-  it('implements validateOn=\"blur-submit\" semantics', async () => {
+  it('implements validateOn="blur-submit" semantics', async () => {
     const user = userEvent.setup();
 
     function Example() {

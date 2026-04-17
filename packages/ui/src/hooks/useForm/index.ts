@@ -77,7 +77,9 @@ export type UseFormOptions<TValues> = {
    * Each validator can be sync or async and should return a string error
    * message (or `undefined` when valid).
    */
-  validate?: Partial<Record<FieldName<TValues>, FieldValidator<any, TValues>>>;
+  validate?: Partial<
+    Record<FieldName<TValues>, FieldValidator<unknown, TValues>>
+  >;
 
   /**
    * Controls when validation runs.
@@ -177,7 +179,9 @@ export type FormApi<TValues> = {
   };
 };
 
-type ValidateMode = NonNullable<UseFormOptions<any>['validateOn']>;
+type ValidateMode = NonNullable<
+  UseFormOptions<Record<string, unknown>>['validateOn']
+>;
 
 type DomElement = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
 
@@ -207,7 +211,7 @@ type Store<TValues> = {
   defaultValues: DeepPartial<TValues>;
   initialDefaultValues: DeepPartial<TValues>;
   validateOn: ValidateMode;
-  validators: Partial<Record<string, FieldValidator<any, TValues>>>;
+  validators: Partial<Record<string, FieldValidator<unknown, TValues>>>;
   registrations: Map<string, Registration>;
   errors: Record<string, string>;
   submitCount: number;
@@ -229,40 +233,47 @@ function splitPath(path: string) {
 
 function getIn(obj: unknown, path: string) {
   const parts = splitPath(path);
-  let current: any = obj;
+  let current: unknown = obj;
 
   for (const part of parts) {
-    if (current === null || current === undefined) {
+    if (
+      current === null ||
+      current === undefined ||
+      typeof current !== 'object'
+    ) {
       return undefined;
     }
 
-    current = current[part];
+    current = (current as Record<string, unknown>)[part];
   }
 
   return current;
 }
 
-function setIn(target: any, path: string, value: unknown) {
+function setIn(target: Record<string, unknown>, path: string, value: unknown) {
   const parts = splitPath(path);
 
   if (parts.length === 0) {
     return;
   }
 
-  let current = target;
+  let current: Record<string, unknown> = target;
 
   for (let index = 0; index < parts.length - 1; index += 1) {
     const part = parts[index];
 
+    const next = current[part];
+
     if (
-      current[part] === null ||
-      current[part] === undefined ||
-      typeof current[part] !== 'object'
+      next === null ||
+      next === undefined ||
+      typeof next !== 'object' ||
+      Array.isArray(next)
     ) {
       current[part] = {};
     }
 
-    current = current[part];
+    current = current[part] as Record<string, unknown>;
   }
 
   current[parts[parts.length - 1]] = value;
@@ -415,7 +426,7 @@ function applyValueToDom(element: DomElement, value: unknown) {
 }
 
 async function validateWithValues<TValues>(
-  validators: Partial<Record<string, FieldValidator<any, TValues>>>,
+  validators: Partial<Record<string, FieldValidator<unknown, TValues>>>,
   values: TValues,
   name?: string
 ) {
@@ -445,7 +456,6 @@ export function useForm<TValues extends Record<string, unknown>>(
   options: UseFormOptions<TValues> = {}
 ): FormApi<TValues> {
   const [version, setVersion] = useState(0);
-  void version;
 
   const storeRef = useRef<Store<TValues> | null>(null);
 
@@ -457,7 +467,7 @@ export function useForm<TValues extends Record<string, unknown>>(
       initialDefaultValues: defaultValues,
       validateOn: options.validateOn ?? 'submit',
       validators: (options.validate ?? {}) as Partial<
-        Record<string, FieldValidator<any, TValues>>
+        Record<string, FieldValidator<unknown, TValues>>
       >,
       registrations: new Map(),
       errors: {},
@@ -493,7 +503,11 @@ export function useForm<TValues extends Record<string, unknown>>(
     const values = cloneDeep(store.defaultValues) as unknown as TValues;
 
     for (const [name, registration] of store.registrations.entries()) {
-      setIn(values as any, name, readRegistrationValue(registration));
+      setIn(
+        values as Record<string, unknown>,
+        name,
+        readRegistrationValue(registration)
+      );
     }
 
     return values;
@@ -532,7 +546,6 @@ export function useForm<TValues extends Record<string, unknown>>(
         return false;
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
       delete store.errors[name];
       return true;
     },
@@ -555,7 +568,6 @@ export function useForm<TValues extends Record<string, unknown>>(
 
         for (const key of prevNames) {
           if (!nextNames.has(key)) {
-            // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
             delete store.errors[key];
             didChange = true;
           }
@@ -645,7 +657,7 @@ export function useForm<TValues extends Record<string, unknown>>(
 
       if (registration.kind !== 'dom') {
         throw new Error(
-          `Field "${key}" is controlled. Use form.controller(\"${key}\") instead of register().`
+          `Field "${key}" is controlled. Use form.controller("${key}") instead of register().`
         );
       }
 
@@ -863,7 +875,7 @@ export function useForm<TValues extends Record<string, unknown>>(
 
       if (registration.kind !== 'controller') {
         throw new Error(
-          `Field "${name as string}" is registered to a DOM input. Use form.register(\"${name as string}\") instead of controller().`
+          `Field "${name as string}" is registered to a DOM input. Use form.register("${name as string}") instead of controller().`
         );
       }
 
@@ -946,7 +958,7 @@ export function useForm<TValues extends Record<string, unknown>>(
             for (const [name, registration] of store.registrations.entries()) {
               const value = readRegistrationValue(registration);
               registration.lastValue = value;
-              setIn(nextValues as any, name, value);
+              setIn(nextValues as Record<string, unknown>, name, value);
             }
 
             const formElement = event.currentTarget;
@@ -957,10 +969,13 @@ export function useForm<TValues extends Record<string, unknown>>(
                 continue;
               }
 
-              const existing = getIn(nextValues as any, key);
+              const existing = getIn(
+                nextValues as Record<string, unknown>,
+                key
+              );
 
               if (existing === undefined) {
-                setIn(nextValues as any, key, entryValue);
+                setIn(nextValues as Record<string, unknown>, key, entryValue);
                 continue;
               }
 
@@ -969,7 +984,10 @@ export function useForm<TValues extends Record<string, unknown>>(
                 continue;
               }
 
-              setIn(nextValues as any, key, [existing, entryValue]);
+              setIn(nextValues as Record<string, unknown>, key, [
+                existing,
+                entryValue,
+              ]);
             }
 
             return nextValues;
@@ -996,6 +1014,7 @@ export function useForm<TValues extends Record<string, unknown>>(
   );
 
   const formState = useMemo(() => {
+    void version;
     const errors = store.errors as FormErrors<TValues>;
     const touchedFields: Partial<Record<FieldName<TValues>, boolean>> = {};
     const dirtyFields: Partial<Record<FieldName<TValues>, boolean>> = {};

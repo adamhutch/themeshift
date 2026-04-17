@@ -74,7 +74,7 @@ export type FieldContextValue = {
   error?: ReactNode;
   errorId: string;
   fieldId: string;
-  form?: FormApi<any>;
+  form?: FormApi<Record<string, unknown>>;
   hasDescription: boolean;
   hasError: boolean;
   hideLabel?: boolean;
@@ -117,7 +117,7 @@ export type FieldProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> &
     /**
      * Optional form API used for integrated Field wiring.
      */
-    form?: FormApi<any>;
+    form?: FormApi<Record<string, unknown>>;
 
     /**
      * Layout style for control and supporting content.
