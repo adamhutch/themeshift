@@ -1,10 +1,10 @@
 import { Heading } from '@themeshift/ui/components/Heading';
 import { Navigate, Route, Routes } from 'react-router';
-import { IoHomeSharp } from 'react-icons/io5';
 
 import { Breadcrumb } from '@/app/components';
 import { ComponentsPage } from '@/pages';
 import * as ComponentGuides from '@/pages/componentGuides';
+import { createComponentBreadcrumbItems } from '@/pages/componentGuides/components';
 import { ComponentGuide } from '@/templates/ComponentGuide';
 
 type PlaceholderProps = {
@@ -23,7 +23,7 @@ type ComponentPlaceholderProps = {
   componentName: string;
   componentPath: string;
   description: React.ReactNode;
-  title: React.ReactNode;
+  title: string;
 };
 
 const ComponentSubpagePlaceholder = ({
@@ -35,16 +35,12 @@ const ComponentSubpagePlaceholder = ({
   <ComponentGuide
     breadcrumb={
       <Breadcrumb
-        items={[
-          {
-            ariaLabel: 'Home',
-            href: '/',
-            icon: <IoHomeSharp />,
-          },
-          { href: '/components', label: 'Components' },
-          { href: componentPath, label: componentName },
-          { current: true, label: String(title) },
-        ]}
+        showHome
+        items={createComponentBreadcrumbItems({
+          componentHref: componentPath,
+          componentLabel: componentName,
+          currentLabel: title,
+        })}
       />
     }
     description={description}
