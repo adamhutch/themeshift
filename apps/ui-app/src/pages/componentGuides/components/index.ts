@@ -1,4 +1,5 @@
 export * from './AccessibilityGuidelines';
+export * from './AccessibilityGuidelines/sections';
 export * from './ExampleViewer';
 export * from './GuideBreadcrumb';
 export * from './GuideCallout';
@@ -6,5 +7,6 @@ export * from './GuideExamples';
 export * from './GuideIntro';
 export * from './GuideSections';
 export * from './QuickStartGuide';
+export * from './QuickStartGuide/sections';
 export * from './ResponsiveStackInline';
 export * from './StringCopier';

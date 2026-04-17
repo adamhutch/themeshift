@@ -2,8 +2,6 @@ import { Heading } from '@themeshift/ui/components/Heading';
 import classNames from 'classnames';
 import { cloneElement, type ReactElement, type ReactNode } from 'react';
 
-import type { ComponentGuideSection } from '@/templates/ComponentGuide';
-
 import { StringCopier } from '../StringCopier';
 import styles from './QuickStartGuide.module.scss';
 
@@ -136,24 +134,3 @@ export const QuickStartGuide = ({
     </div>
   );
 };
-
-export type QuickStartSectionProps = {
-  id?: string;
-  intro: ReactNode;
-  label?: string;
-  title?: ReactNode;
-} & QuickStartGuideProps;
-
-export const createQuickStartSection = ({
-  id = 'quick-start',
-  intro,
-  label,
-  title = 'Quick start',
-  ...props
-}: QuickStartSectionProps): ComponentGuideSection => ({
-  content: <QuickStartGuide {...props} />,
-  id,
-  intro,
-  label,
-  title,
-});
