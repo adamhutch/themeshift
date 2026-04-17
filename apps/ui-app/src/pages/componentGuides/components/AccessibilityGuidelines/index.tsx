@@ -64,7 +64,11 @@ export const AccessibilityGuidelines = ({
 
           {(example || examples) && (
             <GuideExampleViewer>
-              <ExampleViewer example={example} examples={examples} />
+              <ExampleViewer
+                defaultCodeExpanded={true}
+                example={example}
+                examples={examples}
+              />
             </GuideExampleViewer>
           )}
         </GuideExampleCard>
