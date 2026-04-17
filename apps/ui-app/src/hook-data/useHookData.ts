@@ -1,22 +1,23 @@
-import type { DocsCategory } from '@themeshift/docs-types';
 import { useContext, useMemo } from 'react';
 
-import { ComponentDataContext } from './ComponentDataContext';
-import type { ComponentData } from './types';
+import { HookDataContext } from './HookDataContext';
+import type { HookData } from './types';
+import type { DocsCategory } from '@themeshift/docs-types';
 
-type GroupedComponents = {
+type GroupedHooks = {
   key: DocsCategory | 'uncategorized';
   label: string;
-  components: ComponentData[];
+  hooks: HookData[];
 };
 
-type UseComponentDataValue = {
-  component: ComponentData | undefined;
-  components: ComponentData[];
-  groupedComponents: GroupedComponents[];
+type UseHookDataValue = {
+  hook: HookData | undefined;
+  hooks: HookData[];
+  groupedHooks: GroupedHooks[];
 };
 
 const CATEGORY_ORDER: Array<DocsCategory | 'uncategorized'> = [
+  'hooks',
   'inputs-forms',
   'actions',
   'feedback-status',
@@ -25,11 +26,11 @@ const CATEGORY_ORDER: Array<DocsCategory | 'uncategorized'> = [
   'overlays',
   'layout-utilities',
   'templates-shells',
-  'hooks',
   'uncategorized',
 ];
 
 const CATEGORY_LABELS: Record<DocsCategory | 'uncategorized', string> = {
+  hooks: 'Hooks',
   'inputs-forms': 'Inputs & Forms',
   actions: 'Actions',
   'feedback-status': 'Feedback & Status',
@@ -38,11 +39,10 @@ const CATEGORY_LABELS: Record<DocsCategory | 'uncategorized', string> = {
   overlays: 'Overlays',
   'layout-utilities': 'Layout & Utilities',
   'templates-shells': 'Templates & Shells',
-  hooks: 'Hooks',
   uncategorized: 'Uncategorized',
 };
 
-function sortComponents(a: ComponentData, b: ComponentData) {
+function sortHooks(a: HookData, b: HookData) {
   const aOrder = a.meta?.order ?? Number.POSITIVE_INFINITY;
   const bOrder = b.meta?.order ?? Number.POSITIVE_INFINITY;
 
@@ -53,26 +53,21 @@ function sortComponents(a: ComponentData, b: ComponentData) {
   return a.name.localeCompare(b.name);
 }
 
-export function useComponentData(slug?: string): UseComponentDataValue {
-  const context = useContext(ComponentDataContext);
+export function useHookData(slug?: string): UseHookDataValue {
+  const context = useContext(HookDataContext);
 
   if (!context) {
-    throw new Error(
-      'useComponentData must be used within a ComponentDataProvider'
-    );
+    throw new Error('useHookData must be used within a HookDataProvider');
   }
 
   return useMemo(() => {
-    const component = slug
-      ? context.components.find((component) => component.slug === slug)
+    const hook = slug
+      ? context.hooks.find((item) => item.slug === slug)
       : undefined;
 
-    const groupedMap = new Map<
-      DocsCategory | 'uncategorized',
-      ComponentData[]
-    >();
+    const groupedMap = new Map<DocsCategory | 'uncategorized', HookData[]>();
 
-    for (const item of context.components) {
+    for (const item of context.hooks) {
       const category = item.meta?.category ?? 'uncategorized';
       const existing = groupedMap.get(category);
 
@@ -83,24 +78,24 @@ export function useComponentData(slug?: string): UseComponentDataValue {
       }
     }
 
-    const groupedComponents = CATEGORY_ORDER.map((key) => {
-      const components = groupedMap.get(key);
+    const groupedHooks = CATEGORY_ORDER.map((key) => {
+      const hooks = groupedMap.get(key);
 
-      if (!components || components.length === 0) {
+      if (!hooks || hooks.length === 0) {
         return null;
       }
 
       return {
         key,
         label: CATEGORY_LABELS[key],
-        components: [...components].sort(sortComponents),
+        hooks: [...hooks].sort(sortHooks),
       };
-    }).filter((group): group is GroupedComponents => group !== null);
+    }).filter((group): group is GroupedHooks => group !== null);
 
     return {
-      component,
-      components: context.components,
-      groupedComponents,
+      hook,
+      hooks: context.hooks,
+      groupedHooks,
     };
-  }, [context.components, slug]);
+  }, [context.hooks, slug]);
 }

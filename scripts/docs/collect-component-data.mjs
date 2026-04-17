@@ -5,10 +5,10 @@ import prettier from 'prettier';
 import ts from 'typescript';
 
 import { apiReferenceOverrides } from './collect-component-data.config.mjs';
-import { syncUiComponentBadges } from './update-ui-component-badge.shared.mjs';
+import { syncUiComponentBadges } from '../update-ui-component-badge.shared.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const rootDir = path.resolve(__dirname, '..');
+const rootDir = path.resolve(__dirname, '../..');
 const componentsDir = path.join(rootDir, 'packages/ui/src/components');
 const outputPath = path.join(
   rootDir,

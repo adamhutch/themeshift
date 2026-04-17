@@ -16,7 +16,7 @@ export type ApiReferenceItem = {
   values: Array<string | number | boolean>;
 };
 
-export type ComponentData = {
+export type HookData = {
   apiReference: ApiReferenceItem[];
   name: string;
   exportName: string;
@@ -28,6 +28,6 @@ export type ComponentData = {
   meta: ComponentMeta | null;
 };
 
-export type ComponentDataContextValue = {
-  components: ComponentData[];
+export type HookDataContextValue = {
+  hooks: HookData[];
 };
