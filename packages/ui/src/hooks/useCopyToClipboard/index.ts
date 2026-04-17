@@ -13,30 +13,38 @@ type UseCopyToClipboardOptions = {
 export function useCopyToClipboard({
   clearDelay = 2000,
 }: UseCopyToClipboardOptions = {}): [boolean, CopyFn] {
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined
+  );
   const [wasCopied, setWasCopied] = useState<boolean>(false);
 
-  useEffect(
-    () => () => {
-      clearTimeout(timeoutRef.current);
-    },
-    []
-  );
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   const copy: CopyFn = useCallback(
     async (text) => {
-      if (!navigator?.clipboard) {
+      if (typeof navigator === 'undefined' || !navigator.clipboard) {
         console.warn('Clipboard not supported');
         return false;
       }
 
       try {
         await navigator.clipboard.writeText(text);
-        clearTimeout(timeoutRef.current);
+
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+
         setWasCopied(true);
         timeoutRef.current = setTimeout(() => {
           setWasCopied(false);
         }, clearDelay);
+
         return true;
       } catch (error) {
         console.warn('Copy failed', error);

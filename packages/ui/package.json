@@ -26,6 +26,10 @@
     "./dist/templates/**/index.js"
   ],
   "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
     "./components/Button": {
       "types": "./dist/components/Button/index.d.ts",
       "import": "./dist/components/Button/index.js"
@@ -97,6 +101,14 @@
     "./contexts": {
       "types": "./dist/contexts/index.d.ts",
       "import": "./dist/contexts/index.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js"
+    },
+    "./hooks/useCopyToClipboard": {
+      "types": "./dist/hooks/useCopyToClipboard/index.d.ts",
+      "import": "./dist/hooks/useCopyToClipboard/index.js"
     },
     "./css/base.css": "./dist/css/base.css",
     "./css/fonts.css": "./dist/css/fonts.css",
