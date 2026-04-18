@@ -101,6 +101,25 @@ export const NavbarGuide = () => {
       <GuideExampleCard>
         <GuideExampleText>
           <TableOfContents.Marker
+            id="examples-direction"
+            label="Direction"
+            level={2}
+          />
+          <Heading level={4}>Direction (LTR and RTL)</Heading>
+          <p>
+            Start and end sections should mirror automatically as writing
+            direction changes.
+          </p>
+        </GuideExampleText>
+
+        <GuideExampleViewer>
+          <ExampleViewer examples={examples.directionExamples} />
+        </GuideExampleViewer>
+      </GuideExampleCard>
+
+      <GuideExampleCard>
+        <GuideExampleText>
+          <TableOfContents.Marker
             id="examples-wrapping-links"
             label="Wrapping links"
             level={2}

@@ -44,6 +44,7 @@ pnpm typecheck
 
 - Use [`BRANCHES.md`](./BRANCHES.md) for the development branch flow.
 - Use [`RELEASES.md`](./RELEASES.md) for release-please and publishing details.
+- Use [`COMPONENT_LIBRARY_AUDIT_CHECKLIST.md`](./COMPONENT_LIBRARY_AUDIT_CHECKLIST.md) when adding or updating UI components.
 - Public packages in `packages/*` are versioned with release-please and published from GitHub Actions.
 - `apps/*` stay private and are deployed through Netlify.
 - `apps/ui-app` is configured to build from the monorepo root with `pnpm turbo run build --filter=@themeshift/ui-app...`.

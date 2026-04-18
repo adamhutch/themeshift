@@ -101,6 +101,67 @@ export const adornments = {
   ),
 };
 
+const directionCode = `<>
+  <Input
+    aria-label="Search"
+    placeholder="Search docs"
+    startAdornment={<IconMoon aria-hidden />}
+  />
+  <Input
+    aria-label="Domain"
+    placeholder="your-handle"
+    endAdornment={<span>.com</span>}
+  />
+</>`;
+
+export const directionLTR = {
+  code: directionCode,
+  label: 'LTR',
+  sample: (
+    <ResponsiveStackInline
+      from="desktop"
+      inlineProps={{ align: 'center', justify: 'center', wrap: true }}
+      stackProps={{ align: 'center' }}
+    >
+      <Input
+        aria-label="Search"
+        placeholder="Search docs"
+        startAdornment={<IconMoon aria-hidden />}
+      />
+      <Input
+        aria-label="Domain"
+        placeholder="your-handle"
+        endAdornment={<span>.com</span>}
+      />
+    </ResponsiveStackInline>
+  ),
+};
+
+export const directionRTL = {
+  code: directionCode,
+  label: 'RTL',
+  sample: (
+    <div dir="rtl">
+      <ResponsiveStackInline
+        from="desktop"
+        inlineProps={{ align: 'center', justify: 'center', wrap: true }}
+        stackProps={{ align: 'center' }}
+      >
+        <Input
+          aria-label="Search"
+          placeholder="Search docs"
+          startAdornment={<IconMoon aria-hidden />}
+        />
+        <Input
+          aria-label="Domain"
+          placeholder="your-handle"
+          endAdornment={<span>.com</span>}
+        />
+      </ResponsiveStackInline>
+    </div>
+  ),
+};
+
 export const widths = {
   code: `<>
   <Input aria-label="Full width input" placeholder="Full width (default)" />
@@ -228,3 +289,5 @@ export const propHighlights = [
   withField,
   withAction,
 ];
+
+export const directionExamples = [directionLTR, directionRTL];

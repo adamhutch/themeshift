@@ -1,0 +1,19 @@
+name: PR audit checklist
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+    paths:
+      - 'packages/ui/src/components/**'
+
+permissions:
+  pull-requests: read
+  statuses: write
+  contents: read
+
+jobs:
+  checklist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR task list
+        uses: Shopify/task-list-checker@v1
