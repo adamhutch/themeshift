@@ -3,17 +3,56 @@ name: PR audit checklist
 on:
   pull_request:
     types: [opened, edited, synchronize, reopened]
-    paths:
-      - 'packages/ui/src/components/**'
 
 permissions:
+  checks: write
+  contents: read
   pull-requests: read
   statuses: write
-  contents: read
 
 jobs:
   checklist:
     runs-on: ubuntu-latest
     steps:
+      - name: Detect component changes
+        id: changed
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const pull_number = context.payload.pull_request?.number;
+
+            if (!pull_number) {
+              core.setOutput('components_changed', 'false');
+              core.info('No pull request number found in context.');
+              return;
+            }
+
+            const files = await github.paginate(
+              github.rest.pulls.listFiles,
+              {
+                owner,
+                repo,
+                pull_number,
+                per_page: 100,
+              }
+            );
+
+            const componentsChanged = files.some((file) =>
+              file.filename.startsWith('packages/ui/src/components/')
+            );
+
+            core.setOutput(
+              'components_changed',
+              componentsChanged ? 'true' : 'false'
+            );
+            core.info(`Components changed: ${componentsChanged}`);
+
       - name: Check PR task list
+        if: steps.changed.outputs.components_changed == 'true'
         uses: Shopify/task-list-checker@v1
+
+      - name: Skip checklist when components are unchanged
+        if: steps.changed.outputs.components_changed != 'true'
+        run: echo "No component changes in packages/ui/src/components; skipping checklist enforcement."
