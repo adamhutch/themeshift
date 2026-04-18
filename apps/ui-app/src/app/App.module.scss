@@ -11,8 +11,11 @@
 }
 
 .logo {
-  transition: 0.3s opacity;
+  display: inline-flex;
+  flex-shrink: 0;
+  min-width: max-content;
   padding: 0.25rem 0.5rem;
+  transition: opacity 0.3s;
 
   &:hover {
     opacity: 0.9;
@@ -21,7 +24,9 @@
 
 .links {
   display: flex;
+  flex: 1 1 auto;
   flex-flow: row nowrap;
+  min-width: 0;
 
   a {
     @include typography.style('body.default');

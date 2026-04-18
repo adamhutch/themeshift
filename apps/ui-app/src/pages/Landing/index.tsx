@@ -40,24 +40,24 @@ type WhyItem = {
 
 const WHY_ITEMS: WhyItem[] = [
   {
-    body: 'Keyboard behavior, focus states, and ARIA patterns are built in so you ship usable interfaces from day one.',
-    title: 'Accessibility First',
+    body: 'Release inclusive UI by default with keyboard and semantic behavior already handled.',
+    title: 'Accessibility That Ships',
   },
   {
-    body: 'Components are designed for both LTR and RTL layouts, so internationalization does not require rewrites later.',
-    title: 'Global by Default',
+    body: 'Support LTR and RTL from the same component APIs, so localization does not trigger layout rewrites.',
+    title: 'Global Without Rework',
   },
   {
-    body: 'Guides, examples, and API references are written to answer implementation questions quickly.',
-    title: 'Docs You Can Trust',
+    body: 'Get practical examples and API guidance that answer implementation questions fast.',
+    title: 'Docs Built for Delivery',
   },
 ];
 
 const ACCESSIBILITY_BULLETS = [
-  'Keyboard interactions and focus management are part of core component behavior.',
-  'ARIA guidance is documented alongside component usage.',
-  'Patterns are backed by representative accessibility tests in-repo.',
-  'Built to reduce regressions when teams move fast.',
+  'Keyboard navigation and focus management are built into core behaviors.',
+  'ARIA usage guidance is documented where components are implemented.',
+  'Patterns are validated with representative accessibility tests in-repo.',
+  'Teams can move quickly without treating accessibility as follow-up work.',
 ];
 
 const CORE_FEATURES: FeatureCard[] = [
@@ -103,10 +103,10 @@ type OssAction = {
 };
 
 const TRUST_SIGNALS = [
-  '{componentsCount} production-ready components',
+  '{componentsCount} production-ready components (and growing)',
   '{hooksCount} reusable hooks',
   'MIT licensed and free to use',
-  'Actively developed in public (issues + PRs open)',
+  'Actively developed in public—issues and PRs welcome',
 ];
 
 const OSS_ACTIONS: OssAction[] = [
@@ -140,21 +140,21 @@ export const Landing = () => {
       <section aria-labelledby="landing-hero-title" className={styles.hero}>
         <p className={styles.eyebrow}>ThemeShift UI</p>
         <Heading className={styles.heroTitle} level={1}>
-          Build accessible, global-ready React apps without fighting your UI
-          kit.
+          Ship accessible, global-ready React apps from day one.
         </Heading>
         <p className={styles.heroLead}>
-          ThemeShift ships production-ready components with accessibility built
-          in, first-class LTR/RTL support, and docs developers can trust when
-          deadlines are real.
+          Production-ready components with accessibility built in.
+          <br />
+          First-class LTR/RTL support. Docs that hold up under real delivery
+          pressure.
         </p>
 
         <div className={styles.heroActions}>
-          <Button asChild>
-            <NavLink to={PRIMARY_DOCS_ROUTE}>Start Building</NavLink>
+          <Button size="large" asChild>
+            <NavLink to={PRIMARY_DOCS_ROUTE}>Start building</NavLink>
           </Button>
 
-          <Button asChild intent="tertiary">
+          <Button size="large" asChild intent="tertiary">
             <NavLink to={PRIMARY_DOCS_ROUTE}>Explore docs</NavLink>
           </Button>
         </div>
@@ -193,19 +193,31 @@ export const Landing = () => {
         aria-labelledby="landing-accessibility-title"
         className={`${styles.section} ${styles.accessibilitySection}`}
       >
-        <Heading id="landing-accessibility-title" level={2}>
-          Accessibility You Can Ship With Confidence
-        </Heading>
-        <p className={styles.sectionLead}>
-          Accessible behavior is treated as shipping quality, not a cleanup
-          task.
-        </p>
+        <div className={styles.accessibilityHeader}>
+          <div className={styles.accessibilityIcon} aria-hidden>
+            <IoAccessibility />
+          </div>
+          <div>
+            <Heading id="landing-accessibility-title" level={2}>
+              Accessibility, Built-In From the Start
+            </Heading>
+            <p className={styles.sectionLead}>
+              No retrofitting sprint required, core interaction and semantics
+              are part of the component contract.
+            </p>
+          </div>
+        </div>
 
-        <ul className={styles.accessibilityList}>
-          {ACCESSIBILITY_BULLETS.map((bullet) => (
-            <li key={bullet}>{bullet}</li>
-          ))}
-        </ul>
+        <div className={styles.accessibilityContent}>
+          <Heading level={3}>
+            If it’s interactive, it’s already accessible.
+          </Heading>
+          <ul className={styles.accessibilityList}>
+            {ACCESSIBILITY_BULLETS.map((bullet) => (
+              <li key={bullet}>{bullet}</li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section
@@ -219,6 +231,7 @@ export const Landing = () => {
           Start with the differences that matter most, then rely on the
           foundations you already expect.
         </p>
+        <p className={styles.featureGroupLabel}>Core differentiators</p>
 
         <div className={styles.featureGrid}>
           {CORE_FEATURES.map((feature) => (
@@ -234,6 +247,7 @@ export const Landing = () => {
           ))}
         </div>
 
+        <p className={styles.featureGroupLabel}>Foundations included</p>
         <div className={styles.foundationRow}>
           {FOUNDATION_FEATURES.map((feature) => (
             <article className={styles.foundationFeature} key={feature.title}>
@@ -257,8 +271,12 @@ export const Landing = () => {
           Components
         </Heading>
 
+        <p className={styles.sectionLead}>
+          A growing set of components designed for real product UI.
+        </p>
+
         <div className={styles.componentGrid}>
-          {COMPONENT_PREVIEWS.map((item, index) => (
+          {COMPONENT_PREVIEWS.map((item) => (
             <article
               aria-label={item.label}
               className={styles.componentPreviewCard}
@@ -266,10 +284,6 @@ export const Landing = () => {
             >
               <span className={styles.srOnly}>{item.label}</span>
               <div className={styles.previewBody}>{item.preview}</div>
-              <div className={styles.previewGlow} aria-hidden />
-              <span className={styles.previewIndex} aria-hidden>
-                {String(index + 1).padStart(2, '0')}
-              </span>
             </article>
           ))}
         </div>
@@ -330,8 +344,8 @@ export const Landing = () => {
           Pricing
         </Heading>
         <p className={styles.centerLead}>
-          Just kidding. ThemeShift UI is free and open source. No tiers, no seat
-          limits, no lock-in, use it however your team ships best.
+          Just kidding. ThemeShift UI is free and open source - no tiers, no
+          seat limits, no lock-in. Use it the way your team ships best.
         </p>
 
         <div className={styles.actionsRow}>
@@ -354,11 +368,16 @@ export const Landing = () => {
         <Heading id="landing-cta-title" level={2}>
           Ready to get started?
         </Heading>
-        <p>Explore the docs and start building your app today.</p>
+        <p>Start building with docs you can trust.</p>
 
-        <Button asChild size="large">
-          <NavLink to={PRIMARY_DOCS_ROUTE}>Explore the docs</NavLink>
-        </Button>
+        <div className={styles.finalCtaActions}>
+          <Button asChild size="large">
+            <NavLink to={PRIMARY_DOCS_ROUTE}>Start building</NavLink>
+          </Button>
+          <Button asChild intent="tertiary" size="large">
+            <NavLink to={PRIMARY_DOCS_ROUTE}>Explore docs</NavLink>
+          </Button>
+        </div>
       </section>
     </main>
   );

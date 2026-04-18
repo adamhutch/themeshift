@@ -119,7 +119,7 @@ const ComponentsTogglePreview = () => {
 const ComponentsLoadingPreview = () => (
   <div className={styles.previewStack}>
     <div className={styles.skeletonRow}>
-      <Skeleton.Avatar aria-hidden size="2.75rem" />
+      <Skeleton.Avatar animation="shimmer" aria-hidden size="2.75rem" />
       <div className={styles.skeletonText}>
         <Skeleton aria-hidden animation="shimmer" height="1rem" width="90%" />
         <Skeleton aria-hidden animation="shimmer" height="1rem" width="60%" />

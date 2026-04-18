@@ -20,6 +20,7 @@
   background: linear-gradient(
     145deg,
     token('theme.surface.base') 0%,
+    token('theme.surface.base') 62%,
     token('theme.surface.raised') 100%
   );
   border: 1px solid token('theme.border');
@@ -106,11 +107,36 @@
   background: linear-gradient(
     145deg,
     token('theme.surface.base') 0%,
+    token('theme.surface.base') 65%,
     token('theme.surface.raised') 100%
   );
   border: 1px solid token('theme.border');
   border-radius: token('radius.medium');
   padding: 2rem;
+}
+
+.accessibilityHeader {
+  align-items: flex-start;
+  display: flex;
+  gap: 1rem;
+}
+
+.accessibilityIcon {
+  align-items: center;
+  background: token('theme.surface.raised');
+  border: 1px solid token('theme.border');
+  border-radius: token('radius.small');
+  color: token('theme.text.base');
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 4rem;
+  height: 6rem;
+  justify-content: center;
+  width: 6rem;
+}
+
+.accessibilityContent {
+  margin-top: 2rem;
 }
 
 .accessibilityList {
@@ -133,13 +159,13 @@
 }
 
 .featureCard {
-  background: token('theme.surface.base');
-  border: 1px solid token('theme.border');
+  background: token('theme.surface.raised');
+  border: 1px solid color-mix(in srgb, token('theme.border') 70%, #fff 30%);
   border-radius: token('radius.small');
   display: grid;
   gap: 0.9rem;
   min-width: 0;
-  padding: 1.15rem;
+  padding: 1.35rem 1.15rem;
 
   p {
     color: token('theme.text.muted');
@@ -147,6 +173,14 @@
     line-height: 1.5;
     margin: 0;
   }
+}
+
+.featureGroupLabel {
+  @include typography.style('eyebrow.default');
+
+  color: token('theme.text.muted');
+  margin: 1.5rem 0 0.75rem;
+  text-transform: uppercase;
 }
 
 .foundationRow {
@@ -157,7 +191,7 @@
 }
 
 .foundationFeature {
-  background: token('theme.surface.raised');
+  background: token('theme.surface.base');
   border: 1px solid token('theme.border');
   border-radius: token('radius.small');
   display: grid;
@@ -168,14 +202,14 @@
 
   p {
     color: token('theme.text.muted');
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     line-height: 1.45;
     margin: 0;
   }
 }
 
 .foundationTitle {
-  font-size: 1.05rem;
+  font-size: 1rem;
   margin: 0;
 }
 
@@ -186,7 +220,7 @@
 }
 
 .cardTitle {
-  font-size: clamp(1.2rem, 1.25vw, 1.4rem);
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
   margin: 0;
 }
 
@@ -198,11 +232,7 @@
 }
 
 .componentPreviewCard {
-  background: linear-gradient(
-    170deg,
-    token('theme.surface.base') 0%,
-    token('theme.surface.raised') 100%
-  );
+  background: token('theme.surface.base');
   border: 1px solid token('theme.border');
   border-radius: token('radius.small');
   min-height: 14rem;
@@ -238,26 +268,9 @@
   z-index: 1;
 }
 
-.previewGlow {
-  background: radial-gradient(
-    56% 56% at 50% 40%,
-    rgba(99, 121, 209, 0.22) 0%,
-    rgba(99, 121, 209, 0) 100%
-  );
-  inset: 0;
-  position: absolute;
-  z-index: 0;
-}
-
-.previewIndex {
+.foundationFeature .featureIcon {
   color: token('theme.text.muted');
-  font-family: token('font.family.mono');
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  position: absolute;
-  right: 0.6rem;
-  top: 0.55rem;
-  z-index: 2;
+  font-size: 1.1rem;
 }
 
 .previewFooter {
@@ -320,6 +333,7 @@
   background: linear-gradient(
     145deg,
     token('theme.surface.base') 0%,
+    token('theme.surface.base') 68%,
     token('theme.surface.raised') 100%
   );
   border: 1px solid token('theme.border');
@@ -342,6 +356,13 @@
     margin: 0;
     max-width: 42rem;
   }
+}
+
+.finalCtaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
 }
 
 .srOnly {
@@ -394,6 +415,11 @@
 
   .accessibilitySection {
     padding: 1.25rem;
+  }
+
+  .accessibilityHeader {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .section {
