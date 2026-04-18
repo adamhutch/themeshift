@@ -117,6 +117,25 @@ export const InputGuide = () => {
       <GuideExampleCard>
         <GuideExampleText>
           <TableOfContents.Marker
+            id="examples-direction"
+            label="Direction"
+            level={2}
+          />
+          <Heading level={4}>Direction (LTR and RTL)</Heading>
+          <p>
+            Start and end adornments should mirror with writing direction
+            without changing component props.
+          </p>
+        </GuideExampleText>
+
+        <GuideExampleViewer>
+          <ExampleViewer examples={examples.directionExamples} />
+        </GuideExampleViewer>
+      </GuideExampleCard>
+
+      <GuideExampleCard>
+        <GuideExampleText>
+          <TableOfContents.Marker
             id="examples-action"
             label="Action"
             level={2}

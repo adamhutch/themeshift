@@ -15,7 +15,7 @@ ThemeShift is now managed as a single monorepo so the Vite plugin, UI library, a
 ![Build](https://github.com/themeshift-dev/themeshift/actions/workflows/ci.yml/badge.svg)
 ![Coverage](https://codecov.io/gh/themeshift-dev/themeshift/graph/badge.svg?flag=ui)
 ![npm](https://img.shields.io/npm/v/@themeshift/ui)
-![Components](https://img.shields.io/badge/components-17-blue.svg)
+![Components](https://img.shields.io/badge/components-18-blue.svg)
 
 ## Workspace layout
 
@@ -44,6 +44,7 @@ pnpm typecheck
 
 - Use [`BRANCHES.md`](./BRANCHES.md) for the development branch flow.
 - Use [`RELEASES.md`](./RELEASES.md) for release-please and publishing details.
+- Use [`COMPONENT_LIBRARY_AUDIT_CHECKLIST.md`](./COMPONENT_LIBRARY_AUDIT_CHECKLIST.md) when adding or updating UI components.
 - Public packages in `packages/*` are versioned with release-please and published from GitHub Actions.
 - `apps/*` stay private and are deployed through Netlify.
 - `apps/ui-app` is configured to build from the monorepo root with `pnpm turbo run build --filter=@themeshift/ui-app...`.

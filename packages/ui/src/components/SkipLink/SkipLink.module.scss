@@ -11,7 +11,7 @@
 
   position: absolute;
   top: token('components.skiplink.y');
-  left: token('components.skiplink.x');
+  inset-inline-start: token('components.skiplink.x');
   z-index: 1000;
   display: inline-flex;
   align-items: center;

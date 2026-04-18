@@ -177,6 +177,53 @@ export const customChevron = {
   ),
 };
 
+const directionCode = `<Select
+  aria-label="Locale"
+  defaultValue=""
+  options={[
+    { label: 'Canada', value: 'ca' },
+    { label: 'United States', value: 'us' },
+    { label: 'Mexico', value: 'mx' },
+  ]}
+  placeholder="Choose a country"
+/>`;
+
+export const directionLTR = {
+  code: directionCode,
+  label: 'LTR',
+  sample: (
+    <Select
+      aria-label="Locale"
+      defaultValue=""
+      options={[
+        { label: 'Canada', value: 'ca' },
+        { label: 'United States', value: 'us' },
+        { label: 'Mexico', value: 'mx' },
+      ]}
+      placeholder="Choose a country"
+    />
+  ),
+};
+
+export const directionRTL = {
+  code: directionCode,
+  label: 'RTL',
+  sample: (
+    <div dir="rtl">
+      <Select
+        aria-label="Locale"
+        defaultValue=""
+        options={[
+          { label: 'Canada', value: 'ca' },
+          { label: 'United States', value: 'us' },
+          { label: 'Mexico', value: 'mx' },
+        ]}
+        placeholder="Choose a country"
+      />
+    </div>
+  ),
+};
+
 export const withField = {
   code: `<Field
   description="Select your country of residence."
@@ -212,3 +259,5 @@ export const propHighlights = [
   validationStates,
   withField,
 ];
+
+export const directionExamples = [directionLTR, directionRTL];
