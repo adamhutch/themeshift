@@ -1,6 +1,10 @@
 name: PR audit checklist
 
 on:
+  pull_request:
+    branches:
+      - develop
+    types: [opened, edited, synchronize, reopened]
   pull_request_target:
     branches:
       - develop
@@ -15,6 +19,11 @@ permissions:
 
 jobs:
   checklist:
+    if: >-
+      (github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository) ||
+      (github.event_name == 'pull_request_target' &&
+      github.event.pull_request.head.repo.full_name != github.repository)
     runs-on: ubuntu-latest
     steps:
       - name: Detect component changes
