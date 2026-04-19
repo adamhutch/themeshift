@@ -183,6 +183,32 @@ const AppRoutes = () => (
           />
         </Route>
 
+        <Route path="card">
+          <Route index element={<ComponentGuides.CardGuide />} />
+          <Route
+            path="customize"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Card"
+                componentPath="/ui/component/card"
+                description="Card customization guidance will live here."
+                title="Customize"
+              />
+            }
+          />
+          <Route
+            path="playground"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Card"
+                componentPath="/ui/component/card"
+                description="An interactive Card playground will live here."
+                title="Playground"
+              />
+            }
+          />
+        </Route>
+
         <Route path="checkbox">
           <Route index element={<ComponentGuides.CheckboxGuide />} />
           <Route

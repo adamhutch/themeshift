@@ -1,3 +1,5 @@
+@use '@/sass/mixins/accessibility';
+
 .container {
   color: token('theme.text.muted');
 
@@ -30,8 +32,10 @@
 }
 
 .link {
-  text-decoration: none;
+  @include accessibility.focusVisibleRing($offset: 4px);
+
   color: token('theme.text.muted');
+  text-decoration: none;
 
   &:hover {
     color: token('theme.text.base');

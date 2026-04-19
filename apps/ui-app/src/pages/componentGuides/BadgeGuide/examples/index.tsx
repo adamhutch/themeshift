@@ -1,6 +1,7 @@
 import { Badge } from '@themeshift/ui/components/Badge';
 import { Button } from '@themeshift/ui/components/Button';
 import { FaBell } from 'react-icons/fa';
+import { NavLink } from 'react-router';
 import { ResponsiveStackInline } from '../../components';
 
 export const basicUsage = {
@@ -74,6 +75,30 @@ export const interactiveAsChild = {
         <button aria-label="Sort by failed jobs" type="button">
           Failed
         </button>
+      </Badge>
+    </div>
+  ),
+};
+
+export const interactiveAs = {
+  code: `<>
+  <Badge as={NavLink} to="/ui/component/badge" tone="info">
+    Badge docs
+  </Badge>
+
+  <Badge as="a" href="/pending" tone="warning">
+    Pending
+  </Badge>
+</>`,
+  label: 'Interactive with as',
+  sample: (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+      <Badge as={NavLink} to="/ui/component/badge" tone="info">
+        Badge docs
+      </Badge>
+
+      <Badge as="a" href="/pending" tone="warning">
+        Pending
       </Badge>
     </div>
   ),
@@ -206,5 +231,10 @@ export const placementRTL = {
   ),
 };
 
-export const propHighlights = [basicUsage, tonesAndVariants, countAnchored];
+export const propHighlights = [
+  basicUsage,
+  tonesAndVariants,
+  interactiveAs,
+  countAnchored,
+];
 export const placementExamples = [placementLTR, placementRTL];

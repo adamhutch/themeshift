@@ -50,8 +50,10 @@ export const BadgeGuide = () => {
       intro={
         <GuideCallout>
           <code>Badge</code> supports semantic tones, curated colors, and{' '}
-          <code>asChild</code> composition. <code>Badge.Count</code> is a
-          dedicated <code>span</code> indicator for numeric and dot badges.
+          polymorphic composition. Use <code>as</code> for straightforward
+          element/component swaps, and use <code>asChild</code> when you need to
+          preserve an existing child element identity. <code>Badge.Count</code>{' '}
+          is a dedicated <code>span</code> indicator for numeric and dot badges.
         </GuideCallout>
       }
       items={component?.apiReference ?? []}
@@ -101,19 +103,23 @@ export const BadgeGuide = () => {
       <GuideExampleCard>
         <GuideExampleText>
           <TableOfContents.Marker
-            id="examples-as-child"
-            label="asChild"
+            id="examples-as-and-as-child"
+            label="as vs asChild"
             level={2}
           />
-          <Heading level={4}>Interactive with asChild</Heading>
+          <Heading level={4}>Interactive with as and asChild</Heading>
           <p>
-            Compose link and button elements directly with <code>asChild</code>{' '}
-            while keeping badge styling consistent.
+            Use <code>as</code> for direct polymorphic rendering (for example,
+            <code>NavLink</code> or <code>a</code>). Use <code>asChild</code>{' '}
+            when you already have a child element and need to preserve that
+            element while applying Badge styles.
           </p>
         </GuideExampleText>
 
         <GuideExampleViewer>
-          <ExampleViewer example={examples.interactiveAsChild} />
+          <ExampleViewer
+            examples={[examples.interactiveAs, examples.interactiveAsChild]}
+          />
         </GuideExampleViewer>
       </GuideExampleCard>
 

@@ -44,6 +44,25 @@ describe('Button', () => {
     ).not.toBeInTheDocument();
   });
 
+  it('supports polymorphic rendering via the as prop', () => {
+    render(
+      <Button as="a" href="/dashboard">
+        Dashboard
+      </Button>
+    );
+
+    const link = screen.getByRole('link', { name: 'Dashboard' });
+
+    expect(link).toHaveAttribute('href', '/dashboard');
+    expect(link).toHaveClass(styles.container);
+  });
+
+  it('throws when asChild is set without a valid React element child', () => {
+    expect(() => render(<Button asChild>Login</Button>)).toThrowError(
+      'ThemeShift Button with asChild expects a single React element child.'
+    );
+  });
+
   it('applies default size and intent styles', () => {
     render(<Button>Default</Button>);
 

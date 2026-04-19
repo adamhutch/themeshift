@@ -1,0 +1,67 @@
+{
+  "components": {
+    "card": {
+      "layout": {
+        "headerGap": { "$value": "{space.2}" },
+        "actionsGapSmall": { "$value": "{space.2}" },
+        "actionsGapMedium": { "$value": "{space.3}" },
+        "actionsGapLarge": { "$value": "{space.4}" },
+        "dividerInsetInline": { "$value": "{space.4}" },
+        "dividerInsetBlock": { "$value": "{space.3}" }
+      },
+
+      "overlay": {
+        "layer": { "$value": "1" },
+        "interactiveLayer": { "$value": "2" }
+      },
+
+      "dividerThickness": { "$value": "1px" },
+
+      "badgeOffset": {
+        "small": { "$value": "{space.2}" },
+        "medium": { "$value": "{space.3}" }
+      },
+
+      "padding": {
+        "small": { "$value": "{space.3}" },
+        "medium": { "$value": "{space.4}" },
+        "large": { "$value": "{space.6}" }
+      },
+
+      "radius": {
+        "none": { "$value": "0" },
+        "small": { "$value": "{radius.small}" },
+        "medium": { "$value": "{radius.medium}" },
+        "large": { "$value": "{radius.large}" }
+      },
+
+      "shadow": {
+        "small": { "$value": "0 2px 8px rgba(0, 0, 0, 0.08)" },
+        "medium": { "$value": "0 8px 24px rgba(0, 0, 0, 0.12)" },
+        "large": { "$value": "0 16px 36px rgba(0, 0, 0, 0.16)" }
+      },
+
+      "light": {
+        "border": { "$value": "{theme.light.border}" },
+        "divider": { "$value": "{theme.light.border}" },
+
+        "surface": {
+          "default": { "$value": "{theme.light.surface.base}" },
+          "subtle": { "$value": "{theme.light.surface.sunken}" },
+          "elevated": { "$value": "{theme.light.surface.raised}" }
+        }
+      },
+
+      "dark": {
+        "border": { "$value": "{theme.dark.border}" },
+        "divider": { "$value": "{theme.dark.border}" },
+
+        "surface": {
+          "default": { "$value": "{theme.dark.surface.base}" },
+          "subtle": { "$value": "{theme.dark.surface.sunken}" },
+          "elevated": { "$value": "{theme.dark.surface.raised}" }
+        }
+      }
+    }
+  }
+}
