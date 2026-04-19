@@ -97,14 +97,17 @@ export function useHoldToConfirm({
   const onConfirmRef = useRef(onConfirm);
   const onProgressRef = useRef(onProgress);
   const rafRef = useRef<number | undefined>(undefined);
+  const stepRef = useRef<(now: number) => void>(() => {});
   const resetTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
     undefined
   );
   const startedAtRef = useRef(0);
 
-  onCancelRef.current = onCancel;
-  onConfirmRef.current = onConfirm;
-  onProgressRef.current = onProgress;
+  useEffect(() => {
+    onCancelRef.current = onCancel;
+    onConfirmRef.current = onConfirm;
+    onProgressRef.current = onProgress;
+  }, [onCancel, onConfirm, onProgress]);
 
   const clearRaf = useCallback(() => {
     if (rafRef.current !== undefined) {
@@ -154,8 +157,8 @@ export function useHoldToConfirm({
     scheduleResetAfterConfirm();
   }, [clearRaf, emitIdleProgress, scheduleResetAfterConfirm]);
 
-  const step = useCallback(
-    (now: number) => {
+  useEffect(() => {
+    stepRef.current = (now: number) => {
       if (!isPressingRef.current) {
         return;
       }
@@ -180,10 +183,9 @@ export function useHoldToConfirm({
         return;
       }
 
-      rafRef.current = requestAnimationFrame(step);
-    },
-    [confirmationDelay, confirm]
-  );
+      rafRef.current = requestAnimationFrame(stepRef.current);
+    };
+  }, [confirmationDelay, confirm]);
 
   const start = useCallback(() => {
     if (isPressingRef.current) {
@@ -203,8 +205,8 @@ export function useHoldToConfirm({
     setWasCancelled(false);
     setWasConfirmed(false);
 
-    rafRef.current = requestAnimationFrame(step);
-  }, [clearRaf, clearResetTimeout, confirmationDelay, step]);
+    rafRef.current = requestAnimationFrame(stepRef.current);
+  }, [clearRaf, clearResetTimeout, confirmationDelay]);
 
   const cancel = useCallback(() => {
     if (!isPressingRef.current) {

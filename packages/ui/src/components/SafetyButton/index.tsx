@@ -80,7 +80,7 @@ export const SafetyButton = <T extends ElementType = 'button'>({
     onProgress,
   });
 
-  const [announcement, setAnnouncement] = useState('');
+  const [progressAnnouncement, setProgressAnnouncement] = useState('');
   const announcementIntervalRef = useRef<
     ReturnType<typeof setInterval> | undefined
   >(undefined);
@@ -106,28 +106,9 @@ export const SafetyButton = <T extends ElementType = 'button'>({
     [isPressing, progress, timeRemaining, wasCancelled, wasConfirmed]
   );
 
-  stateRef.current = resolverState;
-
   useEffect(() => {
-    if (!announceProgress) {
-      setAnnouncement('');
-      return;
-    }
-
-    if (wasConfirmed) {
-      setAnnouncement('Action confirmed.');
-      return;
-    }
-
-    if (wasCancelled) {
-      setAnnouncement('Confirmation cancelled.');
-      return;
-    }
-
-    if (!isPressing) {
-      setAnnouncement('');
-    }
-  }, [announceProgress, isPressing, wasCancelled, wasConfirmed]);
+    stateRef.current = resolverState;
+  }, [resolverState]);
 
   useEffect(() => {
     if (announcementIntervalRef.current) {
@@ -147,7 +128,7 @@ export const SafetyButton = <T extends ElementType = 'button'>({
         Math.ceil(stateRef.current.timeRemaining / 1000)
       );
 
-      setAnnouncement(
+      setProgressAnnouncement(
         secondsRemaining <= 1
           ? 'Release now to cancel. Confirming in 1 second.'
           : `Release now to cancel. Confirming in ${secondsRemaining} seconds.`
@@ -161,6 +142,32 @@ export const SafetyButton = <T extends ElementType = 'button'>({
       }
     };
   }, [announceProgress, isPressing, progressAnnounceIntervalMs]);
+
+  const announcement = useMemo(() => {
+    if (!announceProgress) {
+      return '';
+    }
+
+    if (wasConfirmed) {
+      return 'Action confirmed.';
+    }
+
+    if (wasCancelled) {
+      return 'Confirmation cancelled.';
+    }
+
+    if (isPressing) {
+      return progressAnnouncement;
+    }
+
+    return '';
+  }, [
+    announceProgress,
+    isPressing,
+    progressAnnouncement,
+    wasCancelled,
+    wasConfirmed,
+  ]);
 
   const resolvedAriaLabel = resolveDynamicValue(ariaLabel, resolverState);
   const resolvedIcon = resolveDynamicValue(icon, resolverState);
