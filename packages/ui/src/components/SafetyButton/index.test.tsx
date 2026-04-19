@@ -154,6 +154,107 @@ describe('SafetyButton', () => {
     expect(screen.getByRole('button', { name: 'Removed' })).toBeInTheDocument();
   });
 
+  it('announces progress, then cancellation, when announceProgress is enabled', () => {
+    const onCancel = vi.fn();
+
+    render(
+      <SafetyButton
+        announceProgress
+        confirmationDelay={2500}
+        onCancel={onCancel}
+        progressAnnounceIntervalMs={250}
+      >
+        Delete
+      </SafetyButton>
+    );
+
+    const button = screen.getByRole('button', { name: 'Delete' });
+    const liveRegion = screen.getByText('', {
+      selector: '[aria-live="polite"]',
+    });
+
+    fireEvent.pointerDown(button, { button: 0 });
+
+    act(() => {
+      vi.advanceTimersByTime(300);
+    });
+
+    expect(liveRegion.textContent).toContain('Release now to cancel.');
+    expect(liveRegion.textContent).toContain('seconds.');
+
+    fireEvent.pointerUp(button);
+
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    expect(liveRegion.textContent).toBe('Confirmation cancelled.');
+  });
+
+  it('announces confirmation when announceProgress is enabled', () => {
+    const onConfirm = vi.fn();
+
+    render(
+      <SafetyButton
+        announceProgress
+        confirmationDelay={200}
+        onConfirm={onConfirm}
+      >
+        Delete
+      </SafetyButton>
+    );
+
+    const button = screen.getByRole('button', { name: 'Delete' });
+    const liveRegion = screen.getByText('', {
+      selector: '[aria-live="polite"]',
+    });
+
+    fireEvent.keyDown(button, { key: 'Enter' });
+    act(() => {
+      vi.advanceTimersByTime(220);
+    });
+
+    expect(onConfirm).toHaveBeenCalledTimes(1);
+    expect(liveRegion.textContent).toBe('Action confirmed.');
+  });
+
+  it('guards non-starting pointer and keyboard interactions', () => {
+    const onAttemptStart = vi.fn();
+
+    render(
+      <SafetyButton
+        onAttemptStart={onAttemptStart}
+        onPointerDown={(event) => event.preventDefault()}
+      >
+        Delete
+      </SafetyButton>
+    );
+
+    const button = screen.getByRole('button', { name: 'Delete' });
+
+    fireEvent.pointerDown(button, { button: 0 });
+    fireEvent.pointerDown(button, { button: 1 });
+    fireEvent.keyDown(button, { key: 'Enter', repeat: true });
+    fireEvent.keyDown(button, { key: 'Escape' });
+    fireEvent.keyUp(button, { key: 'Escape' });
+
+    expect(onAttemptStart).not.toHaveBeenCalled();
+  });
+
+  it('handles resolver children returning null and respects explicit button type', () => {
+    render(
+      <SafetyButton
+        aria-label="Icon only action"
+        icon={() => undefined}
+        type="submit"
+      >
+        {() => null}
+      </SafetyButton>
+    );
+
+    const button = screen.getByRole('button', { name: 'Icon only action' });
+
+    expect(button).toHaveAttribute('type', 'submit');
+    expect(button).toBeEmptyDOMElement();
+  });
+
   it('emits progress values and resets to undefined on idle', () => {
     const onProgress = vi.fn();
 
