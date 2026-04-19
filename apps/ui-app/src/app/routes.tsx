@@ -8,7 +8,7 @@ import {
   Link,
   TableOfContents,
 } from '@/app/components';
-import { ComponentsPage } from '@/pages';
+import { ComponentsPage, Landing } from '@/pages';
 import * as ComponentGuides from '@/pages/componentGuides';
 import * as HookGuides from '@/pages/hookGuides';
 import {
@@ -117,7 +117,7 @@ const HookPlaceholder = () => {
 
 const AppRoutes = () => (
   <Routes>
-    <Route index element={<Placeholder title="Home">Home page!</Placeholder>} />
+    <Route index element={<Landing />} />
 
     <Route path="/ui">
       <Route index element={<ComponentsPage />} />
@@ -131,6 +131,32 @@ const AppRoutes = () => (
       </Route>
 
       <Route path="/ui/component">
+        <Route path="badge">
+          <Route index element={<ComponentGuides.BadgeGuide />} />
+          <Route
+            path="customize"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Badge"
+                componentPath="/ui/component/badge"
+                description="Badge customization guidance will live here."
+                title="Customize"
+              />
+            }
+          />
+          <Route
+            path="playground"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Badge"
+                componentPath="/ui/component/badge"
+                description="An interactive Badge playground will live here."
+                title="Playground"
+              />
+            }
+          />
+        </Route>
+
         <Route path="button">
           <Route index element={<ComponentGuides.ButtonGuide />} />
           <Route
@@ -151,6 +177,32 @@ const AppRoutes = () => (
                 componentName="Button"
                 componentPath="/ui/component/button"
                 description="An interactive Button playground will live here."
+                title="Playground"
+              />
+            }
+          />
+        </Route>
+
+        <Route path="card">
+          <Route index element={<ComponentGuides.CardGuide />} />
+          <Route
+            path="customize"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Card"
+                componentPath="/ui/component/card"
+                description="Card customization guidance will live here."
+                title="Customize"
+              />
+            }
+          />
+          <Route
+            path="playground"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Card"
+                componentPath="/ui/component/card"
+                description="An interactive Card playground will live here."
                 title="Playground"
               />
             }

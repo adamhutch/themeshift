@@ -52,7 +52,9 @@ export const ButtonGuide = () => {
         <GuideCallout>
           <code>Button</code> extends the native <code>button</code> element and
           adds extra props for appearance, icon support, loading states, and
-          composition.
+          composition. Use <code>as</code> for straightforward polymorphic
+          rendering, and use <code>asChild</code> when you need Button to style
+          and preserve an existing child element.
         </GuideCallout>
       }
       items={component?.apiReference ?? []}
@@ -136,19 +138,20 @@ export const ButtonGuide = () => {
       <GuideExampleCard>
         <GuideExampleText>
           <TableOfContents.Marker
-            id="examples-as-child"
-            label="As Child"
+            id="examples-as-and-as-child"
+            label="as vs asChild"
             level={2}
           />
-          <Heading level={4}>As Child</Heading>
+          <Heading level={4}>as vs asChild</Heading>
           <p>
-            Use the <code>asChild</code> prop to render a child element as a
-            button. This works well when you need a link, badge or other
-            primitive to inherit button styling and behavior.
+            Use <code>as</code> when you want Button to render a custom element
+            directly (for example, <code>NavLink</code>). Use{' '}
+            <code>asChild</code> when you already have a child element and want
+            to preserve that element identity while applying Button styles.
           </p>
         </GuideExampleText>
         <GuideExampleViewer>
-          <ExampleViewer example={examples.asChild} />
+          <ExampleViewer examples={[examples.asProp, examples.asChild]} />
         </GuideExampleViewer>
       </GuideExampleCard>
 

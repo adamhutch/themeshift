@@ -130,8 +130,75 @@ export const wrappedSection = {
   ),
 };
 
+const directionCode = `<Navbar aria-label="Primary navigation">
+  <Navbar.Container>
+    <Navbar.Section align="start">
+      <a href="/">ThemeShift</a>
+    </Navbar.Section>
+
+    <Navbar.Section align="center">
+      <a href="/ui">UI</a>
+      <a href="/tokens">Tokens</a>
+    </Navbar.Section>
+
+    <Navbar.Section align="end">
+      <Button size="small">Sign in</Button>
+    </Navbar.Section>
+  </Navbar.Container>
+</Navbar>`;
+
+export const directionLTR = {
+  code: directionCode,
+  label: 'LTR',
+  sample: (
+    <Navbar aria-label="Primary navigation">
+      <Navbar.Container>
+        <Navbar.Section align="start">
+          <a href="/">ThemeShift</a>
+        </Navbar.Section>
+
+        <Navbar.Section align="center">
+          <a href="/ui">UI</a>
+          <a href="/tokens">Tokens</a>
+        </Navbar.Section>
+
+        <Navbar.Section align="end">
+          <Button size="small">Sign in</Button>
+        </Navbar.Section>
+      </Navbar.Container>
+    </Navbar>
+  ),
+};
+
+export const directionRTL = {
+  code: directionCode,
+  label: 'RTL',
+  sample: (
+    <div dir="rtl">
+      <Navbar aria-label="Primary navigation">
+        <Navbar.Container>
+          <Navbar.Section align="start">
+            <a href="/">ThemeShift</a>
+          </Navbar.Section>
+
+          <Navbar.Section align="center">
+            <a href="/ui">UI</a>
+            <a href="/tokens">Tokens</a>
+          </Navbar.Section>
+
+          <Navbar.Section align="end">
+            <Button size="small">Sign in</Button>
+          </Navbar.Section>
+        </Navbar.Container>
+      </Navbar>
+    </div>
+  ),
+};
+
 export const propHighlights = [
   basicUsage,
   containerControls,
   standalonePrimitives,
 ];
+
+export const directionExamples = [directionLTR, directionRTL];

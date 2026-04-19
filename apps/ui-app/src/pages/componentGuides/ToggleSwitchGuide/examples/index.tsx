@@ -210,6 +210,88 @@ export const icons = {
   ),
 };
 
+const directionCode = `<>
+  <Field layout="inline-control">
+    <ToggleSwitch
+      defaultChecked
+      trackIconOff={<IconMoon aria-hidden />}
+      trackIconOn={<IconSun aria-hidden />}
+    />
+    <Field.Label>Theme mode</Field.Label>
+  </Field>
+
+  <Field layout="inline-control">
+    <ToggleSwitch
+      defaultChecked
+      thumbIconOff={<IconMoon aria-hidden />}
+      thumbIconOn={<IconSun aria-hidden />}
+    />
+    <Field.Label>Thumb icons</Field.Label>
+  </Field>
+</>`;
+
+export const directionLTR = {
+  code: directionCode,
+  label: 'LTR',
+  sample: (
+    <ResponsiveStackInline
+      from="desktop"
+      inlineProps={{ align: 'center', justify: 'center', wrap: true }}
+      stackProps={{ align: 'stretch' }}
+    >
+      <Field layout="inline-control">
+        <ToggleSwitch
+          defaultChecked
+          trackIconOff={<IconMoon aria-hidden />}
+          trackIconOn={<IconSun aria-hidden />}
+        />
+        <Field.Label>Theme mode</Field.Label>
+      </Field>
+
+      <Field layout="inline-control">
+        <ToggleSwitch
+          defaultChecked
+          thumbIconOff={<IconMoon aria-hidden />}
+          thumbIconOn={<IconSun aria-hidden />}
+        />
+        <Field.Label>Thumb icons</Field.Label>
+      </Field>
+    </ResponsiveStackInline>
+  ),
+};
+
+export const directionRTL = {
+  code: directionCode,
+  label: 'RTL',
+  sample: (
+    <div dir="rtl">
+      <ResponsiveStackInline
+        from="desktop"
+        inlineProps={{ align: 'center', justify: 'center', wrap: true }}
+        stackProps={{ align: 'stretch' }}
+      >
+        <Field layout="inline-control">
+          <ToggleSwitch
+            defaultChecked
+            trackIconOff={<IconMoon aria-hidden />}
+            trackIconOn={<IconSun aria-hidden />}
+          />
+          <Field.Label>Theme mode</Field.Label>
+        </Field>
+
+        <Field layout="inline-control">
+          <ToggleSwitch
+            defaultChecked
+            thumbIconOff={<IconMoon aria-hidden />}
+            thumbIconOn={<IconSun aria-hidden />}
+          />
+          <Field.Label>Thumb icons</Field.Label>
+        </Field>
+      </ResponsiveStackInline>
+    </div>
+  ),
+};
+
 export const validationStates = {
   code: `<>
   <Field layout="inline-control" validationState="invalid">
@@ -289,3 +371,5 @@ export const propHighlights = [
   icons,
   states,
 ];
+
+export const directionExamples = [directionLTR, directionRTL];

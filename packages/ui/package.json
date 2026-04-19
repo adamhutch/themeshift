@@ -30,9 +30,17 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./components/Badge": {
+      "types": "./dist/components/Badge/index.d.ts",
+      "import": "./dist/components/Badge/index.js"
+    },
     "./components/Button": {
       "types": "./dist/components/Button/index.d.ts",
       "import": "./dist/components/Button/index.js"
+    },
+    "./components/Card": {
+      "types": "./dist/components/Card/index.d.ts",
+      "import": "./dist/components/Card/index.js"
     },
     "./components/Checkbox": {
       "types": "./dist/components/Checkbox/index.d.ts",
@@ -102,6 +110,9 @@
       "types": "./dist/contexts/index.d.ts",
       "import": "./dist/contexts/index.js"
     },
+    "./css/base.css": "./dist/css/base.css",
+    "./css/fonts.css": "./dist/css/fonts.css",
+    "./css/tokens.css": "./dist/css/tokens.css",
     "./hooks": {
       "types": "./dist/hooks/index.d.ts",
       "import": "./dist/hooks/index.js"
@@ -114,9 +125,6 @@
       "types": "./dist/hooks/useForm/index.d.ts",
       "import": "./dist/hooks/useForm/index.js"
     },
-    "./css/base.css": "./dist/css/base.css",
-    "./css/fonts.css": "./dist/css/fonts.css",
-    "./css/tokens.css": "./dist/css/tokens.css",
     "./icons": {
       "types": "./dist/icons/index.d.ts",
       "import": "./dist/icons/index.js"
@@ -186,22 +194,23 @@
     "./tokens/*": "./dist/tokens/*"
   },
   "scripts": {
-    "dev": "vite",
     "build": "pnpm run build:components",
     "build:app": "vite build",
+    "build:audit": "pnpm run build:components -- --silent && node scripts/build-audit.mjs",
     "build:components": "node scripts/build.mjs",
+    "build-storybook": "storybook build",
+    "dev": "vite",
+    "lint": "eslint .",
     "make:component": "node scripts/maker/index.mjs component",
     "make:icon": "node scripts/maker/index.mjs icon",
     "make:tokens": "node scripts/maker/index.mjs tokens",
-    "test": "vitest run --config vitest.unit.config.ts",
-    "test:watch": "vitest --config vitest.unit.config.ts",
-    "test:coverage": "vitest run --coverage --config vitest.unit.config.ts",
-    "test:storybook": "vitest run --config vitest.config.ts --project storybook",
-    "lint": "eslint .",
-    "typecheck": "tsc -p tsconfig.build.json --pretty false --noEmit",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "test": "vitest run --config vitest.unit.config.ts",
+    "test:coverage": "vitest run --coverage --config vitest.unit.config.ts",
+    "test:storybook": "vitest run --config vitest.config.ts --project storybook",
+    "test:watch": "vitest --config vitest.unit.config.ts",
+    "typecheck": "tsc -p tsconfig.build.json --pretty false --noEmit"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",

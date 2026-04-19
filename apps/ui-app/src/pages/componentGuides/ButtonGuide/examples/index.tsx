@@ -1,8 +1,21 @@
 import { Button } from '@themeshift/ui/components/Button';
 import { IconMoon } from '@themeshift/ui/icons';
+import { NavLink } from 'react-router';
 
 import styles from '../ButtonGuide.module.scss';
 import { ResponsiveStackInline } from '../../components';
+
+export const asProp = {
+  code: `<Button as={NavLink} to="/ui/component/button">
+  View Button docs
+</Button>`,
+  label: 'as prop',
+  sample: (
+    <Button as={NavLink} to="/ui/component/button">
+      View Button docs
+    </Button>
+  ),
+};
 
 export const asChild = {
   code: `<Button asChild>
@@ -138,4 +151,4 @@ export const sizes = {
   ),
 };
 
-export const propHighlights = [basicUsage, sizes, intents, icons, busy];
+export const propHighlights = [basicUsage, sizes, asProp, icons, busy];

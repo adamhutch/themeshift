@@ -1,4 +1,6 @@
+export * from './BadgeGuide';
 export * from './ButtonGuide';
+export * from './CardGuide';
 export * from './CheckboxGuide';
 export * from './ErrorMessageGuide';
 export * from './FieldGuide';
