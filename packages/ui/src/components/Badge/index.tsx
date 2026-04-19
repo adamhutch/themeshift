@@ -5,6 +5,7 @@ import {
   Children,
   cloneElement,
   isValidElement,
+  type ElementType,
   type ReactElement,
   type ReactNode,
 } from 'react';
@@ -74,7 +75,8 @@ const placementClassMap = {
 type SlottableChild = ReactElement<{ children?: ReactNode }>;
 
 /** Root badge primitive for metadata labels. */
-export const BadgeRoot = ({
+export const BadgeRoot = <T extends ElementType = 'span'>({
+  as,
   asChild = false,
   children,
   className,
@@ -85,7 +87,8 @@ export const BadgeRoot = ({
   tone = 'neutral',
   variant = 'soft',
   ...badgeProps
-}: BadgeRootProps) => {
+}: BadgeRootProps<T>) => {
+  const Component = as ?? 'span';
   const childElement =
     asChild && isValidElement(children)
       ? (Children.only(children) as SlottableChild)
@@ -100,7 +103,7 @@ export const BadgeRoot = ({
   const contentSource = asChild ? childElement?.props.children : children;
   const hasContent = contentSource !== null && contentSource !== undefined;
   const isColorMode = color !== undefined;
-  const Comp = asChild ? Slot : 'span';
+  const Comp = asChild ? Slot : Component;
 
   const content = (
     <>
@@ -194,7 +197,9 @@ export const BadgeCount = ({
   );
 };
 
-type BadgeComponent = ((props: BadgeRootProps) => React.JSX.Element) & {
+type BadgeComponent = (<T extends ElementType = 'span'>(
+  props: BadgeRootProps<T>
+) => React.JSX.Element) & {
   Count: typeof BadgeCount;
 };
 

@@ -1,6 +1,11 @@
 import { Slot } from '@radix-ui/react-slot';
 import classNames from 'classnames';
-import { Children, cloneElement, isValidElement } from 'react';
+import {
+  Children,
+  cloneElement,
+  isValidElement,
+  type ElementType,
+} from 'react';
 
 import { Spinner } from '@/components/Spinner';
 
@@ -33,7 +38,8 @@ const intentClassMap = {
 } satisfies Record<ButtonIntent, string>;
 
 /** A theme-aware button with intent and size variants. */
-export const Button = ({
+export const Button = <T extends ElementType = 'button'>({
+  as,
   asChild = false,
   children,
   className,
@@ -45,16 +51,24 @@ export const Button = ({
   startIcon,
   visuallyDisabled = false,
   ...buttonProps
-}: ButtonProps) => {
+}: ButtonProps<T>) => {
+  const Component = as ?? 'button';
   const childElement =
     asChild && isValidElement(children)
       ? (Children.only(children) as SlottableChild)
       : null;
+
+  if (asChild && !childElement) {
+    throw new Error(
+      'ThemeShift Button with asChild expects a single React element child.'
+    );
+  }
+
   const childContent = childElement?.props.children;
   const contentSource = asChild ? childContent : children;
   const hasChildren = contentSource !== undefined && contentSource !== null;
   const isIconOnly = icon !== undefined && icon !== null;
-  const Comp = asChild ? Slot : 'button';
+  const Comp = asChild ? Slot : Component;
 
   let buttonContent = (
     <>

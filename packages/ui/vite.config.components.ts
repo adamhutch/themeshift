@@ -166,6 +166,9 @@ export default defineConfig({
         'components/Button/index': fileURLToPath(
           new URL('./src/entrypoints/components/Button.ts', import.meta.url)
         ),
+        'components/Card/index': fileURLToPath(
+          new URL('./src/entrypoints/components/Card.ts', import.meta.url)
+        ),
         'components/Checkbox/index': fileURLToPath(
           new URL('./src/entrypoints/components/Checkbox.ts', import.meta.url)
         ),

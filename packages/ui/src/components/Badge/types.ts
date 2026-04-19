@@ -1,4 +1,9 @@
-import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react';
+import type {
+  ComponentPropsWithoutRef,
+  ElementType,
+  ReactElement,
+  ReactNode,
+} from 'react';
 
 /** Visual tone options for status-style badges. */
 export type BadgeTone = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
@@ -27,11 +32,17 @@ export type BadgeCountPlacement =
   | 'bottom-start'
   | 'bottom-end';
 
+/** Shared polymorphic prop helper used by Badge. */
+type PolymorphicProps<T extends ElementType, Props = object> = Props & {
+  /** HTML element or component to render instead of the default element. */
+  as?: T;
+} & Omit<ComponentPropsWithoutRef<T>, keyof Props | 'as' | 'children'>;
+
 /** Shared props for the base badge. */
 type BadgeBaseProps = {
   /**
    * Applies badge styles to a single child element instead of rendering a
-   * native span.
+   * native element.
    */
   asChild?: boolean;
 
@@ -73,26 +84,30 @@ type BadgeColorProps = {
   variant?: never;
 };
 
-type BadgeAsSpanProps = {
-  asChild?: false;
-  children: ReactNode;
-};
-
-type BadgeAsChildProps = {
-  asChild: true;
-  children: ReactElement;
-};
-
-type BadgeNativeProps = Omit<
-  ComponentPropsWithoutRef<'span'>,
-  keyof BadgeBaseProps | 'children'
+type BadgeAsElementProps<T extends ElementType> = PolymorphicProps<
+  T,
+  BadgeBaseProps & {
+    asChild?: false;
+    children: ReactNode;
+  }
 >;
 
+type BadgeAsChildProps = Omit<
+  ComponentPropsWithoutRef<'span'>,
+  keyof BadgeBaseProps | 'children'
+> &
+  BadgeBaseProps & {
+    as?: never;
+    asChild: true;
+    children: ReactElement;
+  };
+
 /** Props for the Badge root component. */
-export type BadgeRootProps = BadgeBaseProps &
-  BadgeNativeProps &
-  (BadgeToneVariantProps | BadgeColorProps) &
-  (BadgeAsSpanProps | BadgeAsChildProps);
+export type BadgeRootProps<T extends ElementType = 'span'> = (
+  | BadgeAsElementProps<T>
+  | BadgeAsChildProps
+) &
+  (BadgeToneVariantProps | BadgeColorProps);
 
 /** Props for the Badge.Count subcomponent. */
 export type BadgeCountProps = {

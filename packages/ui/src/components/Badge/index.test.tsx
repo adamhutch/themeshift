@@ -33,6 +33,19 @@ describe('Badge', () => {
     expect(link).toHaveAttribute('href', '/pending');
   });
 
+  it('supports polymorphic rendering via the as prop', () => {
+    render(
+      <Badge as="a" href="/pending" tone="warning">
+        Pending
+      </Badge>
+    );
+
+    const link = screen.getByRole('link', { name: 'Pending' });
+
+    expect(link).toHaveAttribute('href', '/pending');
+    expect(link).toHaveClass(styles.root, styles.toneWarningSoft);
+  });
+
   it('throws when asChild is set without a valid React element child', () => {
     expect(() => render(<Badge asChild>Pending</Badge>)).toThrowError(
       'ThemeShift Badge with asChild expects a single React element child.'
