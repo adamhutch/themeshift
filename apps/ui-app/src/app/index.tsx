@@ -24,9 +24,10 @@ function App() {
               </Link>
 
               <div className={styles.links}>
+                <Link to="/docs">Docs</Link>
                 <Link to="/ui">UI</Link>
                 <Link to="/tokens">Design Tokens</Link>
-                <Link to="/plugin">Plugin</Link>
+                <Link to="/cli">CLI</Link>
               </div>
             </Navbar.Section>
 

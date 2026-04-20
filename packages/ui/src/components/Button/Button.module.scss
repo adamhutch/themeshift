@@ -14,6 +14,7 @@
   justify-content: center;
   transition: 0.15s transform;
   white-space: nowrap;
+  user-select: none;
 
   /**
    * Remove `text-decoration` by default to support the common use-case
@@ -90,6 +91,50 @@
 
   &.iconOnly {
     padding: token('components.button.sizes.large.padding.iconOnly');
+  }
+}
+
+.hero {
+  @include typography.style('button.medium');
+
+  border-radius: clamp(
+    token('components.button.sizes.hero.borderRadius.min'),
+    token('components.button.sizes.hero.borderRadius.fluid'),
+    token('components.button.sizes.hero.borderRadius.max')
+  );
+  font-size: clamp(
+    token('components.button.sizes.hero.fontSize.min'),
+    token('components.button.sizes.hero.fontSize.fluid'),
+    token('components.button.sizes.hero.fontSize.max')
+  );
+  letter-spacing: clamp(
+    token('components.button.sizes.hero.letterSpacing.min'),
+    token('components.button.sizes.hero.letterSpacing.fluid'),
+    token('components.button.sizes.hero.letterSpacing.max')
+  );
+  line-height: clamp(
+    token('components.button.sizes.hero.lineHeight.min'),
+    token('components.button.sizes.hero.lineHeight.fluid'),
+    token('components.button.sizes.hero.lineHeight.max')
+  );
+  min-height: clamp(
+    token('components.button.sizes.hero.height.min'),
+    token('components.button.sizes.hero.height.fluid'),
+    token('components.button.sizes.hero.height.max')
+  );
+  padding-block: 0;
+  padding-inline: clamp(
+    token('components.button.sizes.hero.padding.inline.min'),
+    token('components.button.sizes.hero.padding.inline.fluid'),
+    token('components.button.sizes.hero.padding.inline.max')
+  );
+
+  &.iconOnly {
+    padding-inline: clamp(
+      token('components.button.sizes.hero.padding.iconOnly.inline.min'),
+      token('components.button.sizes.hero.padding.iconOnly.inline.fluid'),
+      token('components.button.sizes.hero.padding.iconOnly.inline.max')
+    );
   }
 }
 

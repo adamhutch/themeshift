@@ -20,7 +20,8 @@ import { useApiReference } from '@/apiReference';
 import styles from './Landing.module.scss';
 import { COMPONENT_PREVIEWS } from './examples/componentPreviews';
 
-const PRIMARY_DOCS_ROUTE = '/ui';
+const UI_ROUTE = '/ui';
+const DOCS_ROUTE = '/docs';
 const TOKENS_ROUTE = '/design-tokens';
 
 const GITHUB_REPO_URL = 'https://github.com/themeshift-dev/themeshift';
@@ -151,12 +152,12 @@ export const Landing = () => {
         </p>
 
         <div className={styles.heroActions}>
-          <Button size="large" asChild>
-            <NavLink to={PRIMARY_DOCS_ROUTE}>Start building</NavLink>
+          <Button size="hero" asChild>
+            <NavLink to={UI_ROUTE}>Start building</NavLink>
           </Button>
 
-          <Button size="large" asChild intent="tertiary">
-            <NavLink to={PRIMARY_DOCS_ROUTE}>Explore docs</NavLink>
+          <Button size="hero" asChild intent="tertiary">
+            <NavLink to={DOCS_ROUTE}>Explore docs</NavLink>
           </Button>
         </div>
 
@@ -298,7 +299,7 @@ export const Landing = () => {
 
         <div className={styles.previewFooter}>
           <Button asChild intent="tertiary">
-            <NavLink to={PRIMARY_DOCS_ROUTE}>Browse all component docs</NavLink>
+            <NavLink to={UI_ROUTE}>Browse all component docs</NavLink>
           </Button>
         </div>
       </section>
@@ -379,11 +380,11 @@ export const Landing = () => {
         <p>Start building with docs you can trust.</p>
 
         <div className={styles.finalCtaActions}>
-          <Button asChild size="large">
-            <NavLink to={PRIMARY_DOCS_ROUTE}>Start building</NavLink>
+          <Button asChild size="hero">
+            <NavLink to={UI_ROUTE}>Start building</NavLink>
           </Button>
-          <Button asChild intent="tertiary" size="large">
-            <NavLink to={PRIMARY_DOCS_ROUTE}>Explore docs</NavLink>
+          <Button asChild intent="tertiary" size="hero">
+            <NavLink to={DOCS_ROUTE}>Explore docs</NavLink>
           </Button>
         </div>
       </section>

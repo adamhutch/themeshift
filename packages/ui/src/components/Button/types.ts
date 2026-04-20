@@ -8,7 +8,7 @@ import type {
 /**
  * Button size options.
  */
-export type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonSize = 'small' | 'medium' | 'large' | 'hero';
 
 /**
  * Button style variants for different action types.

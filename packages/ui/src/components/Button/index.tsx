@@ -21,12 +21,14 @@ const sizeClassMap = {
   small: styles.small,
   medium: styles.medium,
   large: styles.large,
+  hero: styles.hero,
 } satisfies Record<ButtonSize, string>;
 
 const sizeSpinnerMap = {
   small: 12,
   medium: 16,
   large: 20,
+  hero: 24,
 } satisfies Record<ButtonSize, number>;
 
 const intentClassMap = {
