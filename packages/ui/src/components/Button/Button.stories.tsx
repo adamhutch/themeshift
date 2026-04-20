@@ -30,7 +30,7 @@ const meta = {
     },
     size: {
       control: 'inline-radio',
-      options: ['small', 'medium', 'large'],
+      options: ['small', 'medium', 'large', 'hero'],
     },
     visuallyDisabled: {
       control: 'boolean',
@@ -95,6 +95,9 @@ export const Sizes: Story = {
       </Button>
       <Button {...args} size="large">
         Large
+      </Button>
+      <Button {...args} size="hero">
+        Hero
       </Button>
     </div>
   ),

@@ -68,12 +68,35 @@ export const ButtonGuide = () => {
           <TableOfContents.Marker id="examples-sizes" label="Sizes" level={2} />
           <Heading level={4}>Sizes</Heading>
           <p>
-            Use the <code>size</code> prop to change the size of the button.
+            Use the <code>size</code> prop to change spacing and type scale.
+            Choose <code>hero</code> for high-emphasis page intro actions. It
+            uses token-driven <code>clamp(...)</code> sizing, with minimums set
+            to the medium button defaults.
           </p>
         </GuideExampleText>
 
         <GuideExampleViewer>
           <ExampleViewer example={examples.sizes} />
+        </GuideExampleViewer>
+      </GuideExampleCard>
+
+      <GuideExampleCard>
+        <GuideExampleText>
+          <TableOfContents.Marker
+            id="examples-hero-size"
+            label="Hero size"
+            level={2}
+          />
+          <Heading level={4}>Hero size</Heading>
+          <p>
+            Pair <code>size="hero"</code> with your top CTA row to keep larger
+            desktop sizing while preserving a medium-sized floor on smaller
+            screens.
+          </p>
+        </GuideExampleText>
+
+        <GuideExampleViewer>
+          <ExampleViewer example={examples.heroSize} />
         </GuideExampleViewer>
       </GuideExampleCard>
 

@@ -8,7 +8,7 @@ import {
   Link,
   TableOfContents,
 } from '@/app/components';
-import { ComponentsPage, Landing } from '@/pages';
+import { ComponentsPage, DocsHome, Landing } from '@/pages';
 import * as ComponentGuides from '@/pages/componentGuides';
 import * as HookGuides from '@/pages/hookGuides';
 import {
@@ -118,6 +118,7 @@ const HookPlaceholder = () => {
 const AppRoutes = () => (
   <Routes>
     <Route index element={<Landing />} />
+    <Route path="/docs" element={<DocsHome />} />
 
     <Route path="/ui">
       <Route index element={<ComponentsPage />} />

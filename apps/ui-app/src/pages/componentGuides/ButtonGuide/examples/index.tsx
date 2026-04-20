@@ -136,6 +136,7 @@ export const sizes = {
   <Button size="small">Small</Button>
   <Button>Medium</Button>
   <Button size="large">Large</Button>
+  <Button size="hero">Hero</Button>
 </>`,
   label: 'Sizes',
   sample: (
@@ -147,8 +148,36 @@ export const sizes = {
       <Button size="small">Small</Button>
       <Button>Medium</Button>
       <Button size="large">Large</Button>
+      <Button size="hero">Hero</Button>
     </ResponsiveStackInline>
   ),
 };
 
-export const propHighlights = [basicUsage, sizes, asProp, icons, busy];
+export const heroSize = {
+  code: `<>
+  <Button size="hero">Start building</Button>
+  <Button size="hero" intent="tertiary">Explore docs</Button>
+</>`,
+  label: 'Hero size',
+  sample: (
+    <ResponsiveStackInline
+      from="desktop"
+      inlineProps={{ justify: 'center' }}
+      stackProps={{ align: 'center' }}
+    >
+      <Button size="hero">Start building</Button>
+      <Button size="hero" intent="tertiary">
+        Explore docs
+      </Button>
+    </ResponsiveStackInline>
+  ),
+};
+
+export const propHighlights = [
+  basicUsage,
+  heroSize,
+  sizes,
+  asProp,
+  icons,
+  busy,
+];

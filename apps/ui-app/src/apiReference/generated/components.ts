@@ -283,7 +283,7 @@ export const components = [
         displayName: 'Button',
         propName: 'size',
         type: 'ButtonSize',
-        values: ['small', 'medium', 'large'],
+        values: ['small', 'medium', 'large', 'hero'],
       },
       {
         comments: 'Icon shown before the button label.',

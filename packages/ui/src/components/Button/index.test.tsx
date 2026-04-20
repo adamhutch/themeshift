@@ -77,6 +77,7 @@ describe('Button', () => {
     ['small', styles.small],
     ['medium', styles.medium],
     ['large', styles.large],
+    ['hero', styles.hero],
   ] as const)('applies the %s size class', (size, className) => {
     render(<Button size={size}>Sized</Button>);
 
@@ -198,6 +199,24 @@ describe('Button', () => {
     expect(button).toHaveClass(styles.iconOnly);
     expect(screen.queryByTestId('theme-icon')).not.toBeInTheDocument();
     expect(button.querySelector('svg')).toHaveAttribute('width', '20');
+  });
+
+  it('uses the hero spinner size for icon-only busy buttons', () => {
+    render(
+      <Button
+        aria-label="Loading docs"
+        icon={
+          <svg aria-hidden="true" data-testid="docs-icon" viewBox="0 0 16 16" />
+        }
+        isBusy
+        size="hero"
+      />
+    );
+
+    const button = screen.getByRole('button', { name: 'Loading docs' });
+
+    expect(screen.queryByTestId('docs-icon')).not.toBeInTheDocument();
+    expect(button.querySelector('svg')).toHaveAttribute('width', '24');
   });
 
   it('ignores children when the icon prop is provided', () => {
