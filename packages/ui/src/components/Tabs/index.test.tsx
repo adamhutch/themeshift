@@ -330,6 +330,215 @@ describe('Tabs', () => {
     );
   });
 
+  it('applies the fitted list class when fitted is enabled', () => {
+    render(
+      <Tabs fitted>
+        <Tabs.List aria-label="Sections" data-testid="tabs-list">
+          <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+          <Tabs.Trigger value="reports">Reports</Tabs.Trigger>
+        </Tabs.List>
+
+        <Tabs.Panel value="overview">Overview panel</Tabs.Panel>
+        <Tabs.Panel value="reports">Reports panel</Tabs.Panel>
+      </Tabs>
+    );
+
+    expect(screen.getByTestId('tabs-list')).toHaveAttribute(
+      'class',
+      expect.stringContaining('listFitted')
+    );
+  });
+
+  it('does not render indicator when there is no selected value and forceMount is false', () => {
+    render(
+      <Tabs>
+        <Tabs.List aria-label="Sections">
+          <Tabs.Indicator data-testid="indicator-no-selection" />
+          <Tabs.Trigger disabled value="overview">
+            Overview
+          </Tabs.Trigger>
+        </Tabs.List>
+
+        <Tabs.Panel value="overview">Overview panel</Tabs.Panel>
+      </Tabs>
+    );
+
+    expect(
+      screen.queryByTestId('indicator-no-selection')
+    ).not.toBeInTheDocument();
+  });
+
+  it('uses trigger height to compute indicator size for vertical orientation', async () => {
+    const getBoundingClientRectSpy = vi
+      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+      .mockImplementation(function mockRect() {
+        if (this.getAttribute('role') === 'tablist') {
+          return {
+            bottom: 280,
+            height: 260,
+            left: 20,
+            right: 220,
+            toJSON: () => ({}),
+            top: 20,
+            width: 200,
+            x: 20,
+            y: 20,
+          } as DOMRect;
+        }
+
+        if (
+          this.getAttribute('role') === 'tab' &&
+          this.getAttribute('aria-selected') === 'true'
+        ) {
+          return {
+            bottom: 150,
+            height: 36,
+            left: 30,
+            right: 130,
+            toJSON: () => ({}),
+            top: 114,
+            width: 100,
+            x: 30,
+            y: 114,
+          } as DOMRect;
+        }
+
+        return {
+          bottom: 0,
+          height: 0,
+          left: 0,
+          right: 0,
+          toJSON: () => ({}),
+          top: 0,
+          width: 0,
+          x: 0,
+          y: 0,
+        } as DOMRect;
+      });
+
+    render(
+      <Tabs defaultValue="overview" orientation="vertical">
+        <Tabs.List aria-label="Sections">
+          <Tabs.Indicator data-testid="indicator-vertical" forceMount />
+          <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+          <Tabs.Trigger value="reports">Reports</Tabs.Trigger>
+        </Tabs.List>
+
+        <Tabs.Panel value="overview">Overview panel</Tabs.Panel>
+        <Tabs.Panel value="reports">Reports panel</Tabs.Panel>
+      </Tabs>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId('indicator-vertical')).toHaveStyle(
+        '--tabs-indicator-size: 36px'
+      );
+    });
+
+    getBoundingClientRectSpy.mockRestore();
+  });
+
+  it('ignores empty trigger values when clicked', async () => {
+    const user = userEvent.setup();
+    const onValueChange = vi.fn();
+
+    render(
+      <Tabs onValueChange={onValueChange}>
+        <Tabs.List aria-label="Sections">
+          <Tabs.Trigger value="">Empty</Tabs.Trigger>
+          <Tabs.Trigger value="reports">Reports</Tabs.Trigger>
+        </Tabs.List>
+
+        <Tabs.Panel value="">Empty panel</Tabs.Panel>
+        <Tabs.Panel value="reports">Reports panel</Tabs.Panel>
+      </Tabs>
+    );
+
+    await user.click(screen.getByRole('tab', { name: 'Empty' }));
+    expect(onValueChange).not.toHaveBeenCalled();
+  });
+
+  it('does not activate a trigger when click default is prevented', async () => {
+    const user = userEvent.setup();
+    const onValueChange = vi.fn();
+
+    render(
+      <Tabs defaultValue="overview" onValueChange={onValueChange}>
+        <Tabs.List aria-label="Sections">
+          <Tabs.Trigger
+            onClick={(event) => {
+              event.preventDefault();
+            }}
+            value="reports"
+          >
+            Reports
+          </Tabs.Trigger>
+          <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+        </Tabs.List>
+
+        <Tabs.Panel value="overview">Overview panel</Tabs.Panel>
+        <Tabs.Panel value="reports">Reports panel</Tabs.Panel>
+      </Tabs>
+    );
+
+    await user.click(screen.getByRole('tab', { name: 'Reports' }));
+
+    expect(onValueChange).not.toHaveBeenCalled();
+    expect(screen.getByRole('tab', { name: 'Overview' })).toHaveAttribute(
+      'aria-selected',
+      'true'
+    );
+  });
+
+  it('unregisters duplicate trigger values without crashing on unmount', () => {
+    const { unmount } = render(
+      <Tabs defaultValue="overview">
+        <Tabs.List aria-label="Sections">
+          <Tabs.Trigger value="overview">Overview primary</Tabs.Trigger>
+          <Tabs.Trigger value="overview">Overview duplicate</Tabs.Trigger>
+        </Tabs.List>
+
+        <Tabs.Panel value="overview">Overview panel</Tabs.Panel>
+      </Tabs>
+    );
+
+    expect(() => unmount()).not.toThrow();
+  });
+
+  it('supports medium inset and large indicator size presets', async () => {
+    render(
+      <Tabs defaultValue="overview">
+        <Tabs.List aria-label="Sections">
+          <Tabs.Indicator
+            data-testid="indicator-large-medium-inset"
+            inset="medium"
+            size="large"
+          />
+          <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+          <Tabs.Trigger value="reports">Reports</Tabs.Trigger>
+        </Tabs.List>
+
+        <Tabs.Panel value="overview">Overview panel</Tabs.Panel>
+        <Tabs.Panel value="reports">Reports panel</Tabs.Panel>
+      </Tabs>
+    );
+
+    await waitFor(() => {
+      expect(
+        screen.getByTestId('indicator-large-medium-inset')
+      ).toHaveAttribute('data-state', 'visible');
+    });
+
+    expect(screen.getByTestId('indicator-large-medium-inset')).toHaveAttribute(
+      'class',
+      expect.stringContaining('indicatorInsetMedium')
+    );
+    expect(screen.getByTestId('indicator-large-medium-inset')).toHaveAttribute(
+      'class',
+      expect.stringContaining('indicatorSizeLarge')
+    );
+  });
+
   it('has no accessibility violations for representative usage', async () => {
     const ControlledTabs = () => {
       const [value, setValue] = useState('overview');
