@@ -205,6 +205,58 @@ describe('Grid', () => {
     });
   });
 
+  it('prefers direct column and row values over span shortcuts when provided', () => {
+    render(
+      <Grid columns="240px 1fr" data-testid="grid" rows="auto 1fr">
+        <Grid.Item
+          column="2 / span 1"
+          columnSpan={4}
+          data-testid="item"
+          row="1 / 3"
+          rowSpan={2}
+        >
+          Panel
+        </Grid.Item>
+      </Grid>
+    );
+
+    const grid = screen.getByTestId('grid');
+    const item = screen.getByTestId('item');
+
+    expect(grid).toHaveStyle({
+      '--ts-grid-template-columns-base': '240px 1fr',
+      '--ts-grid-template-rows-base': 'auto 1fr',
+    });
+
+    expect(item).toHaveStyle({
+      '--ts-grid-column-base': '2 / span 1',
+      '--ts-grid-row-end-base': 'span 2',
+    });
+
+    expect(item.getAttribute('style')).not.toContain(
+      '--ts-grid-column-end-base: span 4'
+    );
+    expect(item.getAttribute('style')).not.toContain(
+      '--ts-grid-row-base: 1 / 3'
+    );
+  });
+
+  it('uses templateRows when both rows and templateRows are provided', () => {
+    render(
+      <Grid
+        data-testid="grid"
+        rows="repeat(2, minmax(0, 1fr))"
+        templateRows="auto auto"
+      >
+        Content
+      </Grid>
+    );
+
+    expect(screen.getByTestId('grid')).toHaveStyle({
+      '--ts-grid-template-rows-base': 'auto auto',
+    });
+  });
+
   it('has no accessibility violations for representative content', async () => {
     const { container } = render(
       <Grid columns={{ base: 1, tablet: 2 }} gap="4">
