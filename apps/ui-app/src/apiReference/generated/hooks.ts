@@ -451,4 +451,25 @@ export const hooks = [
       'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/hooks/useResizeObserver',
     type: 'hook',
   },
+  {
+    apiReference: [],
+    returnReference: [],
+    name: 'useScrollLock',
+    exportName: 'useScrollLock',
+    importPath: '@themeshift/ui/hooks/useScrollLock',
+    importString:
+      "import { useScrollLock } from '@themeshift/ui/hooks/useScrollLock';",
+    meta: {
+      category: 'layout-utilities',
+      description:
+        'Locks document scrolling while overlays or drawers are open.',
+      tags: ['scroll', 'overlay', 'drawer', 'accessibility'],
+      type: 'hook',
+    },
+    slug: 'usescrolllock',
+    routeSlug: 'use-scroll-lock',
+    sourceCodeUrl:
+      'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/hooks/useScrollLock',
+    type: 'hook',
+  },
 ] satisfies ApiReferenceHook[];

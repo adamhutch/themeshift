@@ -298,6 +298,9 @@ export default defineConfig({
         'hooks/useResizeObserver/index': fileURLToPath(
           new URL('./src/hooks/useResizeObserver/index.ts', import.meta.url)
         ),
+        'hooks/useScrollLock/index': fileURLToPath(
+          new URL('./src/hooks/useScrollLock/index.ts', import.meta.url)
+        ),
       },
       formats: ['es'],
     },

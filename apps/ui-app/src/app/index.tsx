@@ -19,27 +19,52 @@ function App() {
       <SkipLink href="#main-content">Skip to main content</SkipLink>
 
       <header className={styles.header}>
-        <Navbar>
+        <Navbar aria-label="Primary navigation" surface="transparent">
           <Navbar.Container>
-            <Navbar.Section align="start">
+            <Navbar.Brand asChild>
               <Link to="/" className={styles.logo}>
                 <Logo size={120} />
               </Link>
+            </Navbar.Brand>
 
+            <Navbar.Content hideBelow="tablet">
               <div className={styles.links}>
                 <Link to="/docs">Docs</Link>
                 <Link to="/ui">UI</Link>
                 <Link to="/tokens">Design Tokens</Link>
                 <Link to="/cli">CLI</Link>
               </div>
-            </Navbar.Section>
+            </Navbar.Content>
 
-            <Navbar.Section align="end">
+            <Navbar.Actions hideBelow="tablet">
               <Button onClick={toggleTheme}>
                 {theme === 'dark' ? 'Dark mode' : 'Light mode'}
               </Button>
-            </Navbar.Section>
+            </Navbar.Actions>
+
+            <Navbar.Toggle
+              aria-label="Open navigation menu"
+              showBelow="tablet"
+            />
           </Navbar.Container>
+
+          <Navbar.Menu placement="drawer" showBelow="tablet">
+            <div className={styles.mobileMenu}>
+              <div className={styles.mobileLinks}>
+                <Link to="/docs">Docs</Link>
+                <Link to="/ui">UI</Link>
+                <Link to="/tokens">Design Tokens</Link>
+                <Link to="/cli">CLI</Link>
+              </div>
+
+              <Button
+                className={styles.mobileThemeToggle}
+                onClick={toggleTheme}
+              >
+                {theme === 'dark' ? 'Dark mode' : 'Light mode'}
+              </Button>
+            </div>
+          </Navbar.Menu>
         </Navbar>
       </header>
 
