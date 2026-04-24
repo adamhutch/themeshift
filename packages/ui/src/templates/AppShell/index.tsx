@@ -246,14 +246,14 @@ export const AppShell = ({
   const navigationInertProps = useMemo(
     () =>
       navigationClosedOverlay
-        ? ({ inert: '' } as Record<string, string>)
+        ? ({ inert: true } as Record<string, boolean>)
         : undefined,
     [navigationClosedOverlay]
   );
   const sidebarInertProps = useMemo(
     () =>
       sidebarClosedOverlay
-        ? ({ inert: '' } as Record<string, string>)
+        ? ({ inert: true } as Record<string, boolean>)
         : undefined,
     [sidebarClosedOverlay]
   );
