@@ -89,13 +89,24 @@ describe('Button', () => {
   it.each([
     ['primary', styles.primary],
     ['secondary', styles.secondary],
-    ['tertiary', styles.tertiary],
     ['constructive', styles.constructive],
     ['destructive', styles.destructive],
   ] as const)('applies the %s intent class', (intent, className) => {
     render(<Button intent={intent}>Intent</Button>);
 
     expect(screen.getByRole('button', { name: 'Intent' })).toHaveClass(
+      className
+    );
+  });
+
+  it.each([
+    ['solid', styles.variantSolid],
+    ['outline', styles.variantOutline],
+    ['link', styles.variantLink],
+  ] as const)('applies the %s variant class', (variant, className) => {
+    render(<Button variant={variant}>Variant</Button>);
+
+    expect(screen.getByRole('button', { name: 'Variant' })).toHaveClass(
       className
     );
   });
@@ -312,6 +323,20 @@ describe('Button', () => {
     expect(await axe(container)).toHaveNoViolations();
 
     rerender(<Button intent="secondary">Secondary button</Button>);
+    expect(await axe(container)).toHaveNoViolations();
+
+    rerender(
+      <Button intent="secondary" variant="outline">
+        Secondary outline button
+      </Button>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+
+    rerender(
+      <Button intent="constructive" variant="link">
+        Constructive link button
+      </Button>
+    );
     expect(await axe(container)).toHaveNoViolations();
 
     rerender(

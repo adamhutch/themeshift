@@ -1,9 +1,8 @@
 import { Button } from '@themeshift/ui/components/Button';
-import {
-  FocusLock,
-  type FocusLockAdapterComponent,
-} from '@themeshift/ui/components/FocusLock';
+import type { FocusLockAdapterComponent } from '@themeshift/ui/components/FocusLock';
 import { Navbar } from '@themeshift/ui/components/Navbar';
+
+import { LazyFocusLock as FocusLock } from '@/app/components/LazyFocusLock';
 
 export const quickStart = {
   code: `<Navbar aria-label="Primary navigation">
@@ -383,7 +382,6 @@ export const customFocusLockAdapter = {
       </Navbar.Container>
 
       <Navbar.Menu
-        defaultOpen
         focusLockComponent={softFocusLockAdapter}
         labelledBy="adapter-menu-title"
         placement="drawer"

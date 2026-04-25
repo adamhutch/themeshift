@@ -1,11 +1,10 @@
 import { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Button } from '@themeshift/ui/components/Button';
-import {
-  FocusLock,
-  type FocusLockAdapterComponent,
-} from '@themeshift/ui/components/FocusLock';
+import type { FocusLockAdapterComponent } from '@themeshift/ui/components/FocusLock';
 import { Navbar } from '@themeshift/ui/components/Navbar';
+
+import { LazyFocusLock as FocusLock } from '@/app/components/LazyFocusLock';
 
 export const basicUsage = {
   code: `<div ref={containerRef} role="dialog" aria-modal="true" aria-label="Quick actions">
@@ -16,7 +15,7 @@ export const basicUsage = {
   </div>`,
   label: 'Basic usage',
   sample: function useBasicUsageSample() {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement | null>(null);
 
     return (
@@ -103,13 +102,14 @@ export const autoFocusAndReturnFocus = {
 };
 
 export const shardsWithPortal = {
-  code: `const shardRef = useRef<HTMLDivElement | null>(null);
+  code: `const [open, setOpen] = useState(false);
+const shardRef = useRef<HTMLDivElement | null>(null);
 
-<FocusLock active containerRef={containerRef} shards={[shardRef]}>
+<FocusLock active={open} containerRef={containerRef} shards={[shardRef]}>
   <button type="button">Menu action</button>
 </FocusLock>
 
-{createPortal(
+{open && createPortal(
   <div ref={shardRef}>
     <button type="button">Portaled action</button>
   </div>,
@@ -117,11 +117,16 @@ export const shardsWithPortal = {
 )}`,
   label: 'Shards + portal',
   sample: function useShardsWithPortalSample() {
+    const [open, setOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const shardRef = useRef<HTMLDivElement | null>(null);
 
     return (
       <div style={{ display: 'grid', gap: '0.75rem' }}>
+        <Button onClick={() => setOpen((value) => !value)}>
+          {open ? 'Disable lock' : 'Enable lock'}
+        </Button>
+
         <div
           ref={containerRef}
           style={{
@@ -131,7 +136,7 @@ export const shardsWithPortal = {
           }}
         >
           <FocusLock
-            active
+            active={open}
             autoFocus={false}
             containerRef={containerRef}
             shards={[shardRef]}
@@ -142,22 +147,23 @@ export const shardsWithPortal = {
 
         <button type="button">Outside action</button>
 
-        {createPortal(
-          <div
-            ref={shardRef}
-            style={{
-              border: '1px dashed currentColor',
-              borderRadius: 8,
-              left: 16,
-              padding: 12,
-              position: 'fixed',
-              top: 16,
-            }}
-          >
-            <button type="button">Portaled action</button>
-          </div>,
-          document.body
-        )}
+        {open &&
+          createPortal(
+            <div
+              ref={shardRef}
+              style={{
+                border: '1px dashed currentColor',
+                borderRadius: 8,
+                left: 16,
+                padding: 12,
+                position: 'fixed',
+                top: 16,
+              }}
+            >
+              <button type="button">Portaled action</button>
+            </div>,
+            document.body
+          )}
       </div>
     );
   },
@@ -217,29 +223,41 @@ export const customAdapter = {
   ...
 </Navbar.Menu>`,
   label: 'Custom adapter with Navbar',
-  sample: (
-    <Navbar aria-label="FocusLock adapter demo">
-      <Navbar.Container>
-        <Navbar.Brand href="/">ThemeShift</Navbar.Brand>
-        <Navbar.Toggle aria-label="Toggle drawer menu">Menu</Navbar.Toggle>
-      </Navbar.Container>
+  sample: function useCustomAdapterSample() {
+    return (
+      <Navbar aria-label="FocusLock adapter demo">
+        <Navbar.Container>
+          <Navbar.Brand as="span">ThemeShift</Navbar.Brand>
+          <Navbar.Toggle aria-label="Toggle drawer menu">Menu</Navbar.Toggle>
+        </Navbar.Container>
 
-      <Navbar.Menu
-        defaultOpen
-        focusLockComponent={softFocusLockAdapter}
-        placement="drawer"
-      >
-        <Navbar.List>
-          <Navbar.Item>
-            <Navbar.Link href="/docs">Docs</Navbar.Link>
-          </Navbar.Item>
-          <Navbar.Item>
-            <Navbar.Link href="/components">Components</Navbar.Link>
-          </Navbar.Item>
-        </Navbar.List>
-      </Navbar.Menu>
-    </Navbar>
-  ),
+        <Navbar.Menu
+          focusLockComponent={softFocusLockAdapter}
+          onClickOutside="close"
+          placement="drawer"
+        >
+          <Navbar.List>
+            <Navbar.Item>
+              <Navbar.Link
+                href="#focus-lock-docs"
+                onClick={(event) => event.preventDefault()}
+              >
+                Docs
+              </Navbar.Link>
+            </Navbar.Item>
+            <Navbar.Item>
+              <Navbar.Link
+                href="#focus-lock-components"
+                onClick={(event) => event.preventDefault()}
+              >
+                Components
+              </Navbar.Link>
+            </Navbar.Item>
+          </Navbar.List>
+        </Navbar.Menu>
+      </Navbar>
+    );
+  },
 };
 
 export const propHighlights = [

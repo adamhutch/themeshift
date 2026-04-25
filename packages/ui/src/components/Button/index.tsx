@@ -14,6 +14,7 @@ import type {
   ButtonIntent,
   ButtonProps,
   ButtonSize,
+  ButtonVariant,
   SlottableChild,
 } from './types';
 
@@ -32,14 +33,19 @@ const sizeSpinnerMap = {
 } satisfies Record<ButtonSize, number>;
 
 const intentClassMap = {
-  primary: styles.primary,
-  secondary: styles.secondary,
-  tertiary: styles.tertiary,
   constructive: styles.constructive,
   destructive: styles.destructive,
+  primary: styles.primary,
+  secondary: styles.secondary,
 } satisfies Record<ButtonIntent, string>;
 
-/** A theme-aware button with intent and size variants. */
+const variantClassMap = {
+  link: styles.variantLink,
+  outline: styles.variantOutline,
+  solid: styles.variantSolid,
+} satisfies Record<ButtonVariant, string>;
+
+/** A theme-aware button with intent, variant, and size options. */
 export const Button = <T extends ElementType = 'button'>({
   as,
   asChild = false,
@@ -51,6 +57,7 @@ export const Button = <T extends ElementType = 'button'>({
   isBusy,
   size = 'medium',
   startIcon,
+  variant = 'solid',
   visuallyDisabled = false,
   ...buttonProps
 }: ButtonProps<T>) => {
@@ -101,6 +108,7 @@ export const Button = <T extends ElementType = 'button'>({
         styles.container,
         sizeClassMap[size],
         intentClassMap[intent],
+        variantClassMap[variant],
         visuallyDisabled && styles.visuallyDisabled,
         isIconOnly && styles.iconOnly,
         className

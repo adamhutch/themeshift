@@ -3,6 +3,7 @@
     "button": {
       "font": { "$value": "{font.family.sans}" },
       "padding": { "$value": "0 {space.4}" },
+
       "size": {
         "small": {
           "borderRadius": { "$value": "{radius.small}" },
@@ -83,56 +84,108 @@
         }
       },
 
-      "variant": {
+      "intent": {
         "light": {
           "primary": {
-            "background": { "$value": "{color.blue.400}" },
-            "text": { "$value": "{color.blue.400.text}" },
-            "hover": { "$value": "{color.blue.300}" }
+            "background": { "$value": "{intent.light.primary.background}" },
+            "text": { "$value": "{intent.light.primary.text}" },
+            "hover": { "$value": "{intent.light.primary.hover}" }
           },
 
           "secondary": {
-            "background": { "$value": "{color.gray.400}" },
-            "text": { "$value": "{color.gray.400.text}" },
-            "hover": { "$value": "{color.gray.300}" }
+            "background": { "$value": "{intent.light.secondary.background}" },
+            "text": { "$value": "{intent.light.secondary.text}" },
+            "hover": { "$value": "{intent.light.secondary.hover}" }
           },
 
           "constructive": {
-            "background": { "$value": "{color.green.400}" },
-            "text": { "$value": "{color.green.400.text}" },
-            "hover": { "$value": "{color.green.300}" }
+            "background": {
+              "$value": "{intent.light.constructive.background}"
+            },
+            "text": { "$value": "{intent.light.constructive.text}" },
+            "hover": { "$value": "{intent.light.constructive.hover}" }
           },
 
           "destructive": {
-            "background": { "$value": "{color.red.400}" },
-            "text": { "$value": "{color.red.400.text}" },
-            "hover": { "$value": "{color.red.300}" }
+            "background": { "$value": "{intent.light.destructive.background}" },
+            "text": { "$value": "{intent.light.destructive.text}" },
+            "hover": { "$value": "{intent.light.destructive.hover}" }
           }
         },
 
         "dark": {
           "primary": {
-            "background": { "$value": "{color.blue.400}" },
-            "text": { "$value": "{color.blue.400.text}" },
-            "hover": { "$value": "lighten({color.blue.400}, .1)" }
+            "background": { "$value": "{intent.dark.primary.background}" },
+            "text": { "$value": "{intent.dark.primary.text}" },
+            "hover": { "$value": "{intent.dark.primary.hover}" }
           },
 
           "secondary": {
-            "background": { "$value": "{color.gray.400}" },
-            "text": { "$value": "{color.gray.400.text}" },
-            "hover": { "$value": "{color.gray.300}" }
+            "background": { "$value": "{intent.dark.secondary.background}" },
+            "text": { "$value": "{intent.dark.secondary.text}" },
+            "hover": { "$value": "{intent.dark.secondary.hover}" }
           },
 
           "constructive": {
-            "background": { "$value": "{color.green.400}" },
-            "text": { "$value": "{color.green.400.text}" },
-            "hover": { "$value": "{color.green.300}" }
+            "background": { "$value": "{intent.dark.constructive.background}" },
+            "text": { "$value": "{intent.dark.constructive.text}" },
+            "hover": { "$value": "{intent.dark.constructive.hover}" }
           },
 
           "destructive": {
-            "background": { "$value": "{color.red.400}" },
-            "text": { "$value": "{color.red.400.text}" },
-            "hover": { "$value": "{color.red.300}" }
+            "background": { "$value": "{intent.dark.destructive.background}" },
+            "text": { "$value": "{intent.dark.destructive.text}" },
+            "hover": { "$value": "{intent.dark.destructive.hover}" }
+          }
+        }
+      },
+
+      "variant": {
+        "outline": {
+          "primary": {
+            "borderColor": { "$value": "{intent.light.primary.background}" },
+            "text": { "$value": "{intent.light.primary.background}" }
+          },
+
+          "secondary": {
+            "borderColor": { "$value": "{intent.light.secondary.background}" },
+            "text": { "$value": "{intent.light.secondary.background}" }
+          },
+
+          "constructive": {
+            "borderColor": {
+              "$value": "{intent.light.constructive.background}"
+            },
+            "text": { "$value": "{intent.light.constructive.background}" }
+          },
+
+          "destructive": {
+            "borderColor": {
+              "$value": "{intent.light.destructive.background}"
+            },
+            "text": { "$value": "{intent.light.destructive.background}" }
+          }
+        },
+
+        "link": {
+          "primary": {
+            "text": { "$value": "{intent.light.primary.background}" },
+            "hoverText": { "$value": "{intent.light.primary.hover}" }
+          },
+
+          "secondary": {
+            "text": { "$value": "{intent.light.secondary.background}" },
+            "hoverText": { "$value": "{intent.light.secondary.hover}" }
+          },
+
+          "constructive": {
+            "text": { "$value": "{intent.light.constructive.background}" },
+            "hoverText": { "$value": "{intent.light.constructive.hover}" }
+          },
+
+          "destructive": {
+            "text": { "$value": "{intent.light.destructive.background}" },
+            "hoverText": { "$value": "{intent.light.destructive.hover}" }
           }
         }
       }

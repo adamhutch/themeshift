@@ -64,14 +64,23 @@ function normalizePath(filePath) {
 }
 
 async function hasIndexFile(componentName) {
-  try {
-    const indexPath = path.join(componentsDir, componentName, 'index.tsx');
-    const indexStat = await stat(indexPath);
+  const candidatePaths = ['index.tsx', 'index.ts'].map((fileName) =>
+    path.join(componentsDir, componentName, fileName)
+  );
 
-    return indexStat.isFile();
-  } catch {
-    return false;
+  for (const candidatePath of candidatePaths) {
+    try {
+      const indexStat = await stat(candidatePath);
+
+      if (indexStat.isFile()) {
+        return true;
+      }
+    } catch {
+      // continue checking other candidate file names
+    }
   }
+
+  return false;
 }
 
 async function getComponentNames() {

@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ButtonProps } from '@/components/Button/types';
+import type { ButtonProps, ButtonVariant } from '@/components/Button/types';
 
 type CopyButtonResolver<T> = (wasCopied: boolean) => T | void;
 type CopyButtonDynamicValue<T> = T | CopyButtonResolver<T>;
@@ -40,6 +40,11 @@ type CopyButtonOverrideProps = {
    * You can pass static content or derive it from the current copied state.
    */
   startIcon?: CopyButtonDynamicValue<ReactNode>;
+
+  /**
+   * Visual treatment forwarded to the underlying Button.
+   */
+  variant?: ButtonVariant;
 
   /**
    * Title attribute value shown on hover in supporting browsers.
@@ -92,7 +97,8 @@ type OverriddenButtonPropNames =
   | 'icon'
   | 'onClick'
   | 'startIcon'
-  | 'title';
+  | 'title'
+  | 'variant';
 
 /**
  * Props for the ThemeShift copy button component.

@@ -143,7 +143,6 @@ export const directionRTL = {
 export const intents = {
   code: `<Button>Primary</Button>
 <Button intent="secondary">Secondary</Button>
-<Button intent="tertiary">Tertiary</Button>
 <Button intent="constructive">Constructive</Button>
 <Button intent="destructive">Destructive</Button>`,
   label: 'Intents',
@@ -155,10 +154,50 @@ export const intents = {
     >
       <Button>Primary</Button>
       <Button intent="secondary">Secondary</Button>
-      <Button intent="tertiary">Tertiary</Button>
       <Button intent="constructive">Constructive</Button>
       <Button intent="destructive">Destructive</Button>
     </ResponsiveStackInline>
+  ),
+};
+
+export const variants = {
+  code: `<Button>Solid</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="link">Link</Button>
+
+<Button intent="secondary">Solid</Button>
+<Button intent="secondary" variant="outline">Outline</Button>
+<Button intent="secondary" variant="link">Link</Button>
+
+<Button intent="constructive">Solid</Button>
+<Button intent="constructive" variant="outline">Outline</Button>
+<Button intent="constructive" variant="link">Link</Button>
+
+<Button intent="destructive">Solid</Button>
+<Button intent="destructive" variant="outline">Outline</Button>
+<Button intent="destructive" variant="link">Link</Button>`,
+  label: 'Variants',
+  sample: (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+      {(['primary', 'secondary', 'constructive', 'destructive'] as const).map(
+        (intent) => (
+          <ResponsiveStackInline
+            from="desktop"
+            inlineProps={{ justify: 'center' }}
+            key={intent}
+            stackProps={{ align: 'center' }}
+          >
+            <Button intent={intent}>Solid</Button>
+            <Button intent={intent} variant="outline">
+              Outline
+            </Button>
+            <Button intent={intent} variant="link">
+              Link
+            </Button>
+          </ResponsiveStackInline>
+        )
+      )}
+    </div>
   ),
 };
 
@@ -184,10 +223,8 @@ export const sizes = {
 };
 
 export const heroSize = {
-  code: `<>
-  <Button size="hero">Start building</Button>
-  <Button size="hero" intent="tertiary">Explore docs</Button>
-</>`,
+  code: `<Button size="hero">Start building</Button>
+<Button size="hero" variant="link">Explore docs</Button>`,
   label: 'Hero size',
   sample: (
     <ResponsiveStackInline
@@ -196,7 +233,7 @@ export const heroSize = {
       stackProps={{ align: 'center' }}
     >
       <Button size="hero">Start building</Button>
-      <Button size="hero" intent="tertiary">
+      <Button size="hero" variant="link">
         Explore docs
       </Button>
     </ResponsiveStackInline>

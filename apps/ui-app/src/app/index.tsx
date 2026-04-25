@@ -3,6 +3,7 @@ import { Navbar } from '@themeshift/ui/components/Navbar';
 import { SkipLink } from '@themeshift/ui/components/SkipLink';
 import { useTheme } from '@themeshift/ui/contexts';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { IconSun, IconMoon } from '@themeshift/ui/icons';
 
 import '@themeshift/ui/css/base.css';
 
@@ -38,8 +39,14 @@ function App() {
             </Navbar.Content>
 
             <Navbar.Actions hideBelow="tablet">
-              <Button onClick={toggleTheme}>
-                {theme === 'dark' ? 'Dark mode' : 'Light mode'}
+              <Button
+                onClick={toggleTheme}
+                size="large"
+                aria-label={
+                  theme === 'dark' ? 'Use light theme' : 'Use dark theme'
+                }
+              >
+                {theme === 'dark' ? <IconSun /> : <IconMoon />}
               </Button>
             </Navbar.Actions>
 
@@ -48,6 +55,7 @@ function App() {
               showBelow="tablet"
               as={Button}
               size="large"
+              variant="outline"
             >
               {(isOpen) => (isOpen ? <FaTimes /> : <FaBars />)}
             </Navbar.Toggle>
@@ -69,6 +77,7 @@ function App() {
               <Button
                 className={styles.mobileThemeToggle}
                 onClick={toggleTheme}
+                variant="outline"
               >
                 {theme === 'dark' ? 'Dark mode' : 'Light mode'}
               </Button>

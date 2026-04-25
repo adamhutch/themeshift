@@ -5,7 +5,7 @@ import type {
   ReactNode,
 } from 'react';
 
-import type { ButtonProps } from '@/components/Button/types';
+import type { ButtonProps, ButtonVariant } from '@/components/Button/types';
 
 export type SafetyButtonResolverState = {
   isPressing: boolean;
@@ -48,6 +48,11 @@ type SafetyButtonOverrideProps = {
    * Icon content shown before the button label.
    */
   startIcon?: SafetyButtonDynamicValue<ReactNode>;
+
+  /**
+   * Visual treatment forwarded to the underlying Button.
+   */
+  variant?: ButtonVariant;
 };
 
 type SafetyButtonBehaviorProps = {
@@ -90,7 +95,8 @@ type OverriddenButtonPropNames =
   | 'endIcon'
   | 'icon'
   | 'onClick'
-  | 'startIcon';
+  | 'startIcon'
+  | 'variant';
 
 export type SafetyButtonProps<T extends ElementType = 'button'> = Omit<
   ButtonProps<T>,

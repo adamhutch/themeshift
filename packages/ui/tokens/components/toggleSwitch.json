@@ -83,7 +83,6 @@
         "light": {
           "primary": { "thumb": { "$value": "{color.blue.400}" } },
           "secondary": { "thumb": { "$value": "{color.gray.400}" } },
-          "tertiary": { "thumb": { "$value": "{color.blue.600}" } },
           "constructive": { "thumb": { "$value": "{color.green.400}" } },
           "destructive": { "thumb": { "$value": "{color.red.400}" } }
         },
@@ -91,7 +90,6 @@
         "dark": {
           "primary": { "thumb": { "$value": "{color.blue.400}" } },
           "secondary": { "thumb": { "$value": "{color.gray.400}" } },
-          "tertiary": { "thumb": { "$value": "{color.lightBlue.400}" } },
           "constructive": { "thumb": { "$value": "{color.green.400}" } },
           "destructive": { "thumb": { "$value": "{color.red.400}" } }
         }
