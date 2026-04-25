@@ -22,6 +22,7 @@ export * from './SelectGuide';
 export * from './SkeletonGuide';
 export * from './SkipLinkGuide';
 export * from './SpinnerGuide';
+export * from './TableGuide';
 export * from './TabsGuide';
 export * from './TextareaGuide';
 export * from './ToggleSwitchGuide';
