@@ -267,8 +267,15 @@
     ),
     var(--themeshift-components-table-body-background);
   inset-inline-start: 0;
+  left: 0;
   position: sticky;
+  right: auto;
   z-index: 2;
+}
+
+[dir='rtl'] .stickyCell {
+  left: auto;
+  right: 0;
 }
 
 .head .stickyCell {
