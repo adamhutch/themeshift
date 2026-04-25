@@ -12,6 +12,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@themeshift/ui/contexts': fileURLToPath(
+        new URL('../../packages/ui/src/contexts/index.ts', import.meta.url)
+      ),
       '@themeshift/ui/sass': fileURLToPath(
         new URL('../../packages/ui/dist/sass', import.meta.url)
       ),

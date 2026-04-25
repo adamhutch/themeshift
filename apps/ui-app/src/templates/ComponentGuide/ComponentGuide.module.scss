@@ -57,5 +57,9 @@
   @media (min-width: 64rem) {
     position: sticky;
     top: calc(var(--themeshift-components-navbar-min-height) + 1rem);
+    max-block-size: calc(
+      100dvh - var(--themeshift-components-navbar-min-height) - 2rem
+    );
+    overflow-y: auto;
   }
 }

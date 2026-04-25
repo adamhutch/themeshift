@@ -757,6 +757,32 @@ const AppRoutes = () => (
           />
         </Route>
 
+        <Route path="table">
+          <Route index element={<ComponentGuides.TableGuide />} />
+          <Route
+            path="customize"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Table"
+                componentPath="/ui/component/table"
+                description="Table customization guidance will live here."
+                title="Customize"
+              />
+            }
+          />
+          <Route
+            path="playground"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Table"
+                componentPath="/ui/component/table"
+                description="An interactive Table playground will live here."
+                title="Playground"
+              />
+            }
+          />
+        </Route>
+
         <Route path="tabs">
           <Route index element={<ComponentGuides.TabsGuide />} />
           <Route
