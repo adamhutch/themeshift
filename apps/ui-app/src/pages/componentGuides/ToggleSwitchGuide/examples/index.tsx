@@ -70,11 +70,6 @@ export const intents = {
 </Field>
 
 <Field layout="inline-control">
-  <ToggleSwitch defaultChecked intent="tertiary" />
-  <Field.Label>Tertiary</Field.Label>
-</Field>
-
-<Field layout="inline-control">
   <ToggleSwitch defaultChecked intent="constructive" />
   <Field.Label>Constructive</Field.Label>
 </Field>
@@ -93,10 +88,6 @@ export const intents = {
       <Field layout="inline-control">
         <ToggleSwitch defaultChecked intent="secondary" />
         <Field.Label>Secondary</Field.Label>
-      </Field>
-      <Field layout="inline-control">
-        <ToggleSwitch defaultChecked intent="tertiary" />
-        <Field.Label>Tertiary</Field.Label>
       </Field>
       <Field layout="inline-control">
         <ToggleSwitch defaultChecked intent="constructive" />

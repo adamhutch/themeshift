@@ -160,7 +160,7 @@ export const Landing = () => {
             <NavLink to={UI_ROUTE}>Start building</NavLink>
           </Button>
 
-          <Button size="hero" asChild intent="tertiary">
+          <Button size="hero" asChild variant="link">
             <NavLink to={DOCS_ROUTE}>Explore docs</NavLink>
           </Button>
         </div>
@@ -302,7 +302,7 @@ export const Landing = () => {
         </div>
 
         <div className={styles.previewFooter}>
-          <Button asChild intent="tertiary">
+          <Button asChild variant="link">
             <NavLink to={UI_ROUTE}>Browse all component docs</NavLink>
           </Button>
         </div>
@@ -321,7 +321,7 @@ export const Landing = () => {
         </p>
 
         <div className={styles.actionsRow}>
-          <Button asChild intent="tertiary">
+          <Button asChild variant="link">
             <NavLink to={TOKENS_ROUTE}>Explore design token docs</NavLink>
           </Button>
         </div>
@@ -341,7 +341,7 @@ export const Landing = () => {
         </ul>
 
         <div className={styles.actionsRow}>
-          <Button asChild intent="tertiary">
+          <Button asChild variant="link">
             <a href={GITHUB_REPO_URL} rel="noreferrer" target="_blank">
               View activity on GitHub
             </a>
@@ -365,7 +365,7 @@ export const Landing = () => {
           {OSS_ACTIONS.map(({ label, icon: Icon, href }) => (
             <Button
               asChild
-              intent="tertiary"
+              variant="link"
               key={label}
               startIcon={<Icon aria-hidden />}
             >
@@ -387,7 +387,7 @@ export const Landing = () => {
           <Button asChild size="hero">
             <NavLink to={UI_ROUTE}>Start building</NavLink>
           </Button>
-          <Button asChild intent="tertiary" size="hero">
+          <Button asChild variant="link" size="hero">
             <NavLink to={DOCS_ROUTE}>Explore docs</NavLink>
           </Button>
         </div>

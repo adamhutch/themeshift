@@ -3,6 +3,7 @@ export * from './Breadcrumb';
 export * from './CopyButton';
 export * from './Inline';
 export * from './Link';
+export * from './LazyFocusLock';
 export * from './Logo';
 export * from './Markdown';
 export * from './ScrollFade';

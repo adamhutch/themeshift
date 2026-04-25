@@ -11,14 +11,18 @@ import type {
 export type ButtonSize = 'small' | 'medium' | 'large' | 'hero';
 
 /**
- * Button style variants for different action types.
+ * Button intent options for communicating the action's purpose or outcome.
  */
 export type ButtonIntent =
   | 'primary'
   | 'secondary'
-  | 'tertiary'
   | 'constructive'
   | 'destructive';
+
+/**
+ * Button variant options for controlling visual treatment.
+ */
+export type ButtonVariant = 'solid' | 'outline' | 'link';
 
 /** Shared polymorphic prop helper used by Button. */
 type PolymorphicProps<T extends ElementType, Props = object> = Props & {
@@ -57,6 +61,11 @@ type ButtonBaseProps = {
    * Size option for button spacing and text.
    */
   size?: ButtonSize;
+
+  /**
+   * Visual treatment for the selected intent.
+   */
+  variant?: ButtonVariant;
 
   /**
    * Shows disabled styling without blocking interaction.

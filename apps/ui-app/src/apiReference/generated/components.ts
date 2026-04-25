@@ -604,13 +604,7 @@ export const components = [
         displayName: 'Button',
         propName: 'intent',
         type: 'ButtonIntent',
-        values: [
-          'primary',
-          'secondary',
-          'tertiary',
-          'constructive',
-          'destructive',
-        ],
+        values: ['primary', 'secondary', 'constructive', 'destructive'],
       },
       {
         comments:
@@ -636,6 +630,14 @@ export const components = [
         propName: 'startIcon',
         type: 'ReactNode',
         values: [],
+      },
+      {
+        comments: 'Visual treatment for the selected intent.',
+        defaultValue: 'solid',
+        displayName: 'Button',
+        propName: 'variant',
+        type: 'ButtonVariant',
+        values: ['solid', 'outline', 'link'],
       },
       {
         comments:
@@ -668,22 +670,23 @@ export const components = [
       'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/Button',
     typesReference: [
       {
-        comments: 'Button style variants for different action types.',
+        comments:
+          "Button intent options for communicating the action's purpose or outcome.",
         defaultValue: null,
         typeName: 'ButtonIntent',
-        values: [
-          'primary',
-          'secondary',
-          'tertiary',
-          'constructive',
-          'destructive',
-        ],
+        values: ['primary', 'secondary', 'constructive', 'destructive'],
       },
       {
         comments: 'Button size options.',
         defaultValue: null,
         typeName: 'ButtonSize',
         values: ['small', 'medium', 'large', 'hero'],
+      },
+      {
+        comments: 'Button variant options for controlling visual treatment.',
+        defaultValue: null,
+        typeName: 'ButtonVariant',
+        values: ['solid', 'outline', 'link'],
       },
     ],
     type: 'component',
@@ -1429,6 +1432,14 @@ export const components = [
         type: 'string',
         values: [],
       },
+      {
+        comments: 'Visual treatment forwarded to the underlying Button.',
+        defaultValue: null,
+        displayName: 'CopyButton',
+        propName: 'variant',
+        type: 'ButtonVariant',
+        values: [],
+      },
     ],
     name: 'CopyButton',
     exportName: 'CopyButton',
@@ -1456,6 +1467,12 @@ export const components = [
         defaultValue: null,
         typeName: 'CopyButtonDynamicValue',
         values: [],
+      },
+      {
+        comments: 'Button variant options for controlling visual treatment.',
+        defaultValue: null,
+        typeName: 'ButtonVariant',
+        values: ['solid', 'outline', 'link'],
       },
     ],
     type: 'component',
@@ -1904,6 +1921,99 @@ export const components = [
         defaultValue: null,
         typeName: 'FlexWrapValue',
         values: ['nowrap', 'wrap', 'wrap-reverse'],
+      },
+    ],
+    type: 'component',
+  },
+  {
+    apiReference: [
+      {
+        comments: 'Whether focus locking behavior is currently active.',
+        defaultValue: null,
+        displayName: 'FocusLock',
+        propName: 'active',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments:
+          'Whether focus should move inside the lock when it becomes active.',
+        defaultValue: true,
+        displayName: 'FocusLock',
+        propName: 'autoFocus',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Content rendered within the focus scope.',
+        defaultValue: null,
+        displayName: 'FocusLock',
+        propName: 'children',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'The lock container used as the primary focus scope root.',
+        defaultValue: null,
+        displayName: 'FocusLock',
+        propName: 'containerRef',
+        type: 'RefObject<HTMLElement | null>',
+        values: [],
+      },
+      {
+        comments:
+          'Disables locking behavior while preserving rendered content.',
+        defaultValue: false,
+        displayName: 'FocusLock',
+        propName: 'disabled',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments:
+          'Whether focus should return to the previously focused element when the lock deactivates.',
+        defaultValue: false,
+        displayName: 'FocusLock',
+        propName: 'returnFocus',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments:
+          'Additional elements or refs that should be treated as part of the same focus scope (for example, portal content).',
+        defaultValue: 'object',
+        displayName: 'FocusLock',
+        propName: 'shards',
+        type: 'FocusLockShard[]',
+        values: [],
+      },
+    ],
+    name: 'FocusLock',
+    exportName: 'FocusLock',
+    importPath: '@themeshift/ui/components/FocusLock',
+    importString:
+      "import { FocusLock } from '@themeshift/ui/components/FocusLock';",
+    meta: {
+      category: 'overlays',
+      description:
+        'Traps focus inside overlays and layered UI while active, with support for custom adapter overrides.',
+      tags: ['focus', 'a11y', 'overlay', 'modal', 'dialog'],
+      order: 20,
+      status: 'stable',
+      featured: false,
+      related: ['Navbar', 'SkipLink', 'Button'],
+      type: 'component',
+    },
+    slug: 'focuslock',
+    routeSlug: 'focus-lock',
+    sourceCodeUrl:
+      'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/FocusLock',
+    typesReference: [
+      {
+        comments: '',
+        defaultValue: null,
+        typeName: 'FocusLockShard',
+        values: [],
       },
     ],
     type: 'component',
@@ -3768,6 +3878,14 @@ export const components = [
         type: 'SafetyButtonDynamicValue<ReactNode>',
         values: [],
       },
+      {
+        comments: 'Visual treatment forwarded to the underlying Button.',
+        defaultValue: null,
+        displayName: 'SafetyButton',
+        propName: 'variant',
+        type: 'ButtonVariant',
+        values: [],
+      },
     ],
     name: 'SafetyButton',
     exportName: 'SafetyButton',
@@ -3794,6 +3912,12 @@ export const components = [
         defaultValue: null,
         typeName: 'SafetyButtonDynamicValue',
         values: [],
+      },
+      {
+        comments: 'Button variant options for controlling visual treatment.',
+        defaultValue: null,
+        typeName: 'ButtonVariant',
+        values: ['solid', 'outline', 'link'],
       },
     ],
     type: 'component',
@@ -4616,13 +4740,7 @@ export const components = [
         displayName: 'ToggleSwitch',
         propName: 'intent',
         type: 'ToggleSwitchIntent',
-        values: [
-          'primary',
-          'secondary',
-          'tertiary',
-          'constructive',
-          'destructive',
-        ],
+        values: ['primary', 'secondary', 'constructive', 'destructive'],
       },
       {
         comments: 'Called with the next checked state after user interaction.',
@@ -4722,13 +4840,7 @@ export const components = [
         comments: 'ToggleSwitch intent options.',
         defaultValue: null,
         typeName: 'ToggleSwitchIntent',
-        values: [
-          'primary',
-          'secondary',
-          'tertiary',
-          'constructive',
-          'destructive',
-        ],
+        values: ['primary', 'secondary', 'constructive', 'destructive'],
       },
       {
         comments: 'ToggleSwitch size options.',

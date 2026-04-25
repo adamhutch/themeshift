@@ -54,7 +54,7 @@ Component-specific customization points.
 
 Examples:
 
-- components.button.variant.primary.background
+- components.button.intent.primary.background
 - components.input.border.focus
 
 These tokens:
@@ -80,7 +80,7 @@ Follow this order:
 
 ### 2. Use component tokens if needed
 
-- components.button.variant.primary.background
+- components.button.intent.primary.background
 
 Use when:
 
@@ -107,7 +107,7 @@ Themes (light/dark) are handled by changing values, not token names.
 
 ✅ Good:
 
-- components.button.variant.primary.background
+- components.button.intent.primary.background
 
 ❌ Avoid:
 

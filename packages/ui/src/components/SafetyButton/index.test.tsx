@@ -2,6 +2,8 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
+import buttonStyles from '@/components/Button/Button.module.scss';
+
 import { SafetyButton } from './index';
 
 type RafId = ReturnType<typeof setTimeout>;
@@ -253,6 +255,18 @@ describe('SafetyButton', () => {
 
     expect(button).toHaveAttribute('type', 'submit');
     expect(button).toBeEmptyDOMElement();
+  });
+
+  it('forwards variant to the underlying button styles', () => {
+    render(
+      <SafetyButton intent="destructive" variant="outline">
+        Delete
+      </SafetyButton>
+    );
+
+    const button = screen.getByRole('button', { name: 'Delete' });
+
+    expect(button).toHaveClass(buttonStyles.variantOutline);
   });
 
   it('emits progress values and resets to undefined on idle', () => {

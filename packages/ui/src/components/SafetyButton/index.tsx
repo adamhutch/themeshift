@@ -24,7 +24,6 @@ const intentClassMap = {
   destructive: styles.intentDestructive,
   primary: styles.intentPrimary,
   secondary: styles.intentSecondary,
-  tertiary: styles.intentTertiary,
 } satisfies Record<ButtonIntent, string>;
 
 const HOLD_KEYS = new Set([' ', 'Enter', 'NumpadEnter', 'Space', 'Spacebar']);

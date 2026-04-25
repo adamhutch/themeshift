@@ -49,12 +49,6 @@
     )};
 }
 
-.intentTertiary {
-  --safety-progress-fill: #{token(
-      'components.safetyButton.variant.tertiary.fill'
-    )};
-}
-
 .intentConstructive {
   --safety-progress-fill: #{token(
       'components.safetyButton.variant.constructive.fill'

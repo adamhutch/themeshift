@@ -18,7 +18,7 @@ export const ComponentsAuthPreview = () => (
     </div>
     <div className={styles.previewInlineBetween}>
       <span>Backup codes</span>
-      <Button intent="tertiary" size="small">
+      <Button variant="link" size="small">
         View
       </Button>
     </div>

@@ -21,7 +21,7 @@ export const CopyButton = ({ className, text }: CopyButtonProps) => {
           <LuCopy aria-hidden size={20} />
         )
       }
-      intent="tertiary"
+      variant="link"
       value={text}
     />
   );

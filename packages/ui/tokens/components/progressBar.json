@@ -40,53 +40,37 @@
       "variant": {
         "light": {
           "primary": {
-            "fill": {
-              "$value": "{components.button.variant.light.primary.background}"
-            }
+            "fill": { "$value": "{intent.light.primary.background}" }
           },
 
           "secondary": {
-            "fill": {
-              "$value": "{components.button.variant.light.secondary.background}"
-            }
+            "fill": { "$value": "{intent.light.secondary.background}" }
           },
 
           "constructive": {
-            "fill": {
-              "$value": "{components.button.variant.light.constructive.background}"
-            }
+            "fill": { "$value": "{intent.light.constructive.background}" }
           },
 
           "destructive": {
-            "fill": {
-              "$value": "{components.button.variant.light.destructive.background}"
-            }
+            "fill": { "$value": "{intent.light.destructive.background}" }
           }
         },
 
         "dark": {
           "primary": {
-            "fill": {
-              "$value": "{components.button.variant.dark.primary.background}"
-            }
+            "fill": { "$value": "{intent.dark.primary.background}" }
           },
 
           "secondary": {
-            "fill": {
-              "$value": "{components.button.variant.dark.secondary.background}"
-            }
+            "fill": { "$value": "{intent.dark.secondary.background}" }
           },
 
           "constructive": {
-            "fill": {
-              "$value": "{components.button.variant.dark.constructive.background}"
-            }
+            "fill": { "$value": "{intent.dark.constructive.background}" }
           },
 
           "destructive": {
-            "fill": {
-              "$value": "{components.button.variant.dark.destructive.background}"
-            }
+            "fill": { "$value": "{intent.dark.destructive.background}" }
           }
         }
       }

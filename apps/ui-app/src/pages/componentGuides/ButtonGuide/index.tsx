@@ -109,12 +109,34 @@ export const ButtonGuide = () => {
           />
           <Heading level={4}>Intents</Heading>
           <p>
-            Use the <code>intent</code> prop to render a variant appearance.
+            Use the <code>intent</code> prop to communicate the action's purpose
+            or outcome. <code>primary</code> is the default.
           </p>
         </GuideExampleText>
 
         <GuideExampleViewer>
           <ExampleViewer example={examples.intents} />
+        </GuideExampleViewer>
+      </GuideExampleCard>
+
+      <GuideExampleCard>
+        <GuideExampleText>
+          <TableOfContents.Marker
+            id="examples-variants"
+            label="Variants"
+            level={2}
+          />
+          <Heading level={4}>Variants</Heading>
+          <p>
+            Use the <code>variant</code> prop to control how the accent colour
+            is applied. <code>solid</code> fills the background (default),{' '}
+            <code>outline</code> applies it to the border, and <code>link</code>{' '}
+            applies it to the text with an underline on hover.
+          </p>
+        </GuideExampleText>
+
+        <GuideExampleViewer>
+          <ExampleViewer example={examples.variants} />
         </GuideExampleViewer>
       </GuideExampleCard>
 
