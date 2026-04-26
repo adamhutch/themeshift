@@ -4,10 +4,11 @@ This repo releases public packages with release-please and GitHub Actions.
 
 ## What gets released
 
-This repo has four public npm packages:
+This repo has five public npm packages:
 
 - `@themeshift/cli`
 - `@themeshift/core`
+- `@themeshift/next`
 - `@themeshift/ui`
 - `@themeshift/vite-plugin`
 
@@ -63,6 +64,7 @@ Make sure these things are ready:
 
 - npm trusted publishing is enabled for `@themeshift/cli`
 - npm trusted publishing is enabled for `@themeshift/core`
+- npm trusted publishing is enabled for `@themeshift/next`
 - npm trusted publishing is enabled for `@themeshift/ui`
 - npm trusted publishing is enabled for `@themeshift/vite-plugin`
 - both npm packages trust the GitHub Actions workflow named `release.yml`

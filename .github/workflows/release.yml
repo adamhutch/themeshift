@@ -29,22 +29,22 @@ jobs:
           target-branch: main
 
       - uses: pnpm/action-setup@v4
-        if: ${{ steps.release.outputs['packages/cli--release_created'] == 'true' || steps.release.outputs['packages/core--release_created'] == 'true' || steps.release.outputs['packages/ui--release_created'] == 'true' || steps.release.outputs['packages/vite-plugin--release_created'] == 'true' }}
+        if: ${{ steps.release.outputs['packages/cli--release_created'] == 'true' || steps.release.outputs['packages/core--release_created'] == 'true' || steps.release.outputs['packages/next--release_created'] == 'true' || steps.release.outputs['packages/ui--release_created'] == 'true' || steps.release.outputs['packages/vite-plugin--release_created'] == 'true' }}
         with:
           version: 10.18.0
 
       - uses: actions/setup-node@v4
-        if: ${{ steps.release.outputs['packages/cli--release_created'] == 'true' || steps.release.outputs['packages/core--release_created'] == 'true' || steps.release.outputs['packages/ui--release_created'] == 'true' || steps.release.outputs['packages/vite-plugin--release_created'] == 'true' }}
+        if: ${{ steps.release.outputs['packages/cli--release_created'] == 'true' || steps.release.outputs['packages/core--release_created'] == 'true' || steps.release.outputs['packages/next--release_created'] == 'true' || steps.release.outputs['packages/ui--release_created'] == 'true' || steps.release.outputs['packages/vite-plugin--release_created'] == 'true' }}
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
       - run: pnpm install --frozen-lockfile
-        if: ${{ steps.release.outputs['packages/cli--release_created'] == 'true' || steps.release.outputs['packages/core--release_created'] == 'true' || steps.release.outputs['packages/ui--release_created'] == 'true' || steps.release.outputs['packages/vite-plugin--release_created'] == 'true' }}
+        if: ${{ steps.release.outputs['packages/cli--release_created'] == 'true' || steps.release.outputs['packages/core--release_created'] == 'true' || steps.release.outputs['packages/next--release_created'] == 'true' || steps.release.outputs['packages/ui--release_created'] == 'true' || steps.release.outputs['packages/vite-plugin--release_created'] == 'true' }}
 
       - run: pnpm build
-        if: ${{ steps.release.outputs['packages/cli--release_created'] == 'true' || steps.release.outputs['packages/core--release_created'] == 'true' || steps.release.outputs['packages/ui--release_created'] == 'true' || steps.release.outputs['packages/vite-plugin--release_created'] == 'true' }}
+        if: ${{ steps.release.outputs['packages/cli--release_created'] == 'true' || steps.release.outputs['packages/core--release_created'] == 'true' || steps.release.outputs['packages/next--release_created'] == 'true' || steps.release.outputs['packages/ui--release_created'] == 'true' || steps.release.outputs['packages/vite-plugin--release_created'] == 'true' }}
 
       - name: Publish @themeshift/cli
         if: ${{ steps.release.outputs['packages/cli--release_created'] == 'true' }}
@@ -53,6 +53,10 @@ jobs:
       - name: Publish @themeshift/core
         if: ${{ steps.release.outputs['packages/core--release_created'] == 'true' }}
         run: pnpm --filter @themeshift/core publish --access public --no-git-checks
+
+      - name: Publish @themeshift/next
+        if: ${{ steps.release.outputs['packages/next--release_created'] == 'true' }}
+        run: pnpm --filter @themeshift/next publish --access public --no-git-checks
 
       - name: Publish @themeshift/ui
         if: ${{ steps.release.outputs['packages/ui--release_created'] == 'true' }}
