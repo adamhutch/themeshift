@@ -207,4 +207,93 @@ describe('withThemeShift', () => {
       './_token-defaults': expect.any(Object),
     });
   });
+
+  it('supports being called with only a Next config object', async () => {
+    const wrapped = withThemeShift({
+      poweredByHeader: false,
+    });
+
+    const resolved = await wrapped('phase-production-build', { dir: '/repo' });
+
+    expect(resolved.poweredByHeader).toBe(false);
+    expect(coreMocks.buildTokens).toHaveBeenCalledTimes(1);
+    expect(coreMocks.watchTokens).not.toHaveBeenCalled();
+  });
+
+  it('returns original webpack config when user webpack is not provided', async () => {
+    const wrapped = withThemeShift({}, { watch: true });
+    const resolved = await wrapped('phase-development-server', {
+      dir: '/repo',
+    });
+
+    const webpackResult = await resolved.webpack?.(
+      { entry: './src/index.ts' },
+      {
+        dev: true,
+        dir: '/repo',
+      }
+    );
+
+    expect(webpackResult).toEqual({ entry: './src/index.ts' });
+    expect(coreMocks.watchTokens).toHaveBeenCalledTimes(1);
+  });
+
+  it('handles non-object first argument by falling back to defaults', async () => {
+    const wrapped = withThemeShift('invalid input' as never);
+
+    const resolved = await wrapped('phase-production-build', { dir: '/repo' });
+
+    expect(resolved).toEqual(
+      expect.objectContaining({
+        sassOptions: expect.any(Object),
+      })
+    );
+    expect(coreMocks.buildTokens).toHaveBeenCalledWith(
+      expect.objectContaining({
+        mode: 'build',
+        root: '/repo',
+      })
+    );
+  });
+
+  it('supports withThemeShift(nextConfigFactory) overload', async () => {
+    const nextConfigFactory = vi.fn(() => ({
+      reactStrictMode: true,
+    }));
+    const wrapped = withThemeShift(nextConfigFactory);
+
+    const resolved = await wrapped('phase-production-build', { dir: '/repo' });
+
+    expect(nextConfigFactory).toHaveBeenCalledWith('phase-production-build', {
+      dir: '/repo',
+    });
+    expect(resolved.reactStrictMode).toBe(true);
+    expect(coreMocks.buildTokens).toHaveBeenCalledWith(
+      expect.objectContaining({
+        mode: 'build',
+        root: '/repo',
+      })
+    );
+  });
+
+  it('forwards watch errors through the plugin onError logger', async () => {
+    const errorSpy = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => undefined);
+
+    coreMocks.watchTokens.mockImplementationOnce(async (options) => {
+      options.onError?.(new Error('watch exploded'));
+
+      return {
+        close: vi.fn(async () => {}),
+      };
+    });
+
+    const wrapped = withThemeShift({}, { watch: true });
+    await wrapped('phase-development-server', { dir: '/repo' });
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      '[themeshift] token watch failed:\nError: watch exploded'
+    );
+  });
 });

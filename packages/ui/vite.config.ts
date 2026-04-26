@@ -27,6 +27,7 @@ const cssGroups = [
   },
   { label: 'Other', match: () => true },
 ];
+const isVitest = Boolean(process.env.VITEST);
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -40,6 +41,7 @@ export default defineConfig({
     react(),
     themeShift({
       cssVarPrefix: 'themeshift',
+      watch: !isVitest,
       platforms: ['css', 'meta', 'scss'],
       groups: cssGroups,
       filters: {

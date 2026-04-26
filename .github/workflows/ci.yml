@@ -104,7 +104,7 @@ jobs:
           flags: cli
 
       # Generate Next package coverage output for Codecov
-      - run: pnpm --filter @themeshift/next exec vitest run --coverage --coverage.thresholds.lines=0 --coverage.thresholds.functions=0 --coverage.thresholds.statements=0 --coverage.thresholds.branches=0
+      - run: pnpm --filter @themeshift/next test:coverage
 
       # Upload Next package coverage to Codecov
       - name: Upload next coverage reports to Codecov

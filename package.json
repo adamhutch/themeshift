@@ -31,6 +31,7 @@
     "release:preflight:verbose": "node scripts/preflight.ts --verbose",
     "release:preflight": "node scripts/preflight.ts",
     "storybook": "turbo run storybook --filter=@themeshift/ui",
+    "test:coverage": "pnpm -r --no-bail --filter \"./packages/*\" --filter \"./apps/*\" --if-present run test:coverage",
     "test:packages": "turbo run test --filter=./packages/*",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck"
