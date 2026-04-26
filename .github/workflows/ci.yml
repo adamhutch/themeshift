@@ -81,6 +81,39 @@ jobs:
       - run: pnpm --filter @themeshift/core build
       - run: pnpm --filter @themeshift/vite-plugin build
 
+      # Generate core package coverage output for Codecov
+      - run: pnpm --filter @themeshift/core exec vitest run --coverage --coverage.reporter=text --coverage.reporter=html --coverage.reporter=lcov
+
+      # Upload core package coverage to Codecov
+      - name: Upload core coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./packages/core/coverage/lcov.info
+          flags: core
+
+      # Generate CLI package coverage output for Codecov
+      - run: pnpm --filter @themeshift/cli exec vitest run --coverage --coverage.reporter=text --coverage.reporter=html --coverage.reporter=lcov
+
+      # Upload CLI package coverage to Codecov
+      - name: Upload cli coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./packages/cli/coverage/lcov.info
+          flags: cli
+
+      # Generate Next package coverage output for Codecov
+      - run: pnpm --filter @themeshift/next exec vitest run --coverage --coverage.thresholds.lines=0 --coverage.thresholds.functions=0 --coverage.thresholds.statements=0 --coverage.thresholds.branches=0
+
+      # Upload Next package coverage to Codecov
+      - name: Upload next coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./packages/next/coverage/lcov.info
+          flags: next
+
       # Generate UI package coverage output for Codecov
       - run: pnpm --filter @themeshift/ui test:coverage
 
