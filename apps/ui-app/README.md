@@ -1,8 +1,8 @@
 # ThemeShift UI App
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)
-![Build](https://github.com/themeshift-dev/themeshift/actions/workflows/ci.yml/badge.svg)
-![Coverage](https://codecov.io/gh/themeshift-dev/themeshift/graph/badge.svg)
+![Build](https://github.com/themeshift-dev/themeshift/actions/workflows/ci.yml/badge.svg?branch=develop)
+![Coverage](https://codecov.io/gh/themeshift-dev/themeshift/graph/badge.svg?branch=develop)
 ![npm](https://img.shields.io/badge/npm-private-lightgrey.svg)
 
 `@themeshift/ui-app` is the private documentation and tooling app for the ThemeShift monorepo.

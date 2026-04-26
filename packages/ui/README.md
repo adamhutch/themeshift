@@ -1,8 +1,8 @@
 # ThemeShift UI
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)
-![Build](https://github.com/themeshift-dev/themeshift/actions/workflows/ci.yml/badge.svg)
-![Coverage](https://codecov.io/gh/themeshift-dev/themeshift/graph/badge.svg?flag=ui)
+![Build](https://github.com/themeshift-dev/themeshift/actions/workflows/ci.yml/badge.svg?branch=develop)
+![Coverage](https://codecov.io/gh/themeshift-dev/themeshift/graph/badge.svg?flag=ui&branch=develop)
 ![npm](https://img.shields.io/npm/v/@themeshift/ui)
 ![Components](https://img.shields.io/badge/components-27-blue.svg)
 

@@ -6,14 +6,14 @@ ThemeShift is now managed as a single monorepo so the Vite plugin, UI library, a
 
 ### Plugin
 
-![Build](https://github.com/themeshift-dev/themeshift/actions/workflows/ci.yml/badge.svg)
-![Coverage](https://codecov.io/gh/themeshift-dev/themeshift/graph/badge.svg?flag=vite-plugin)
+![Build](https://github.com/themeshift-dev/themeshift/actions/workflows/ci.yml/badge.svg?branch=develop)
+![Coverage](https://codecov.io/gh/themeshift-dev/themeshift/graph/badge.svg?flag=vite-plugin&branch=develop)
 ![npm](https://img.shields.io/npm/v/@themeshift/vite-plugin)
 
 ### UI
 
-![Build](https://github.com/themeshift-dev/themeshift/actions/workflows/ci.yml/badge.svg)
-![Coverage](https://codecov.io/gh/themeshift-dev/themeshift/graph/badge.svg?flag=ui)
+![Build](https://github.com/themeshift-dev/themeshift/actions/workflows/ci.yml/badge.svg?branch=develop)
+![Coverage](https://codecov.io/gh/themeshift-dev/themeshift/graph/badge.svg?flag=ui&branch=develop)
 ![npm](https://img.shields.io/npm/v/@themeshift/ui)
 ![Components](https://img.shields.io/badge/components-27-blue.svg)
 

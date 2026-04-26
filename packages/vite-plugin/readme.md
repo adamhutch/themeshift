@@ -1,8 +1,8 @@
 # @themeshift/vite-plugin
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)
-![Build](https://github.com/themeshift-dev/themeshift/actions/workflows/ci.yml/badge.svg)
-![Coverage](https://codecov.io/gh/themeshift-dev/themeshift/graph/badge.svg?flag=vite-plugin)
+![Build](https://github.com/themeshift-dev/themeshift/actions/workflows/ci.yml/badge.svg?branch=develop)
+![Coverage](https://codecov.io/gh/themeshift-dev/themeshift/graph/badge.svg?flag=vite-plugin&branch=develop)
 ![npm](https://img.shields.io/npm/v/@themeshift/vite-plugin)
 
 ThemeShift is a Vite plugin that makes working with Style Dictionary easy as pie 🥧
