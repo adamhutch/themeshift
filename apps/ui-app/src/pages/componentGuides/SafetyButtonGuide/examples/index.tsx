@@ -31,10 +31,12 @@ export const countdownLabel = {
 };
 
 export const visualOnly = {
-  code: `<SafetyButton onConfirm={removeRow}>Press and hold to delete</SafetyButton>`,
+  code: `<SafetyButton onConfirm={removeRow} variant="outline">
+  Press and hold to delete
+</SafetyButton>`,
   label: 'Visual feedback only',
   sample: () => (
-    <SafetyButton confirmationDelay={2000}>
+    <SafetyButton confirmationDelay={2000} variant="outline">
       Press and hold to delete
     </SafetyButton>
   ),
@@ -72,9 +74,8 @@ export const iconOnly = {
 export const intents = {
   code: `<SafetyButton icon={<LuTrash />} aria-label="Hold to confirm" />
 <SafetyButton intent="secondary" icon={<LuTrash />} aria-label="Hold to confirm" />
-<SafetyButton intent="tertiary" icon={<LuTrash />} aria-label="Hold to confirm" />
-<SafetyButton intent="constructive" icon={<LuTrash />} aria-label="Hold to confirm" />
-<SafetyButton intent="destructive" icon={<LuTrash />} aria-label="Hold to confirm" />
+<SafetyButton intent="constructive" variant="outline" icon={<LuTrash />} aria-label="Hold to confirm" />
+<SafetyButton intent="destructive" variant="link" icon={<LuTrash />} aria-label="Hold to confirm" />
 `,
   label: 'Intents',
   sample: () => (
@@ -86,17 +87,14 @@ export const intents = {
         aria-label="Hold to confirm"
       />
       <SafetyButton
-        intent="tertiary"
-        icon={<LuTrash />}
-        aria-label="Hold to confirm"
-      />
-      <SafetyButton
         intent="constructive"
+        variant="outline"
         icon={<LuTrash />}
         aria-label="Hold to confirm"
       />
       <SafetyButton
         intent="destructive"
+        variant="link"
         icon={<LuTrash />}
         aria-label="Hold to confirm"
       />

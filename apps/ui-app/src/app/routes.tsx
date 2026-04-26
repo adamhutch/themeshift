@@ -9,6 +9,7 @@ import {
   TableOfContents,
 } from '@/app/components';
 import { ComponentsPage, Landing } from '@/pages';
+import { docsPages, DocsLayout } from '@/pages/docs';
 import * as ComponentGuides from '@/pages/componentGuides';
 import * as HookGuides from '@/pages/hookGuides';
 import {
@@ -118,6 +119,17 @@ const HookPlaceholder = () => {
 const AppRoutes = () => (
   <Routes>
     <Route index element={<Landing />} />
+    <Route path="/docs" element={<DocsLayout />}>
+      {docsPages.map((page) => {
+        const Component = page.Component;
+
+        return page.route ? (
+          <Route key={page.id} path={page.route} element={<Component />} />
+        ) : (
+          <Route key={page.id} index element={<Component />} />
+        );
+      })}
+    </Route>
 
     <Route path="/ui">
       <Route index element={<ComponentsPage />} />
@@ -130,7 +142,15 @@ const AppRoutes = () => (
           path="use-hold-to-confirm"
           element={<HookGuides.UseHoldToConfirmGuide />}
         />
+        <Route
+          path="use-on-click-outside"
+          element={<HookGuides.UseOnClickOutsideGuide />}
+        />
         <Route path="use-form" element={<HookGuides.UseFormGuide />} />
+        <Route
+          path="use-resize-observer"
+          element={<HookGuides.UseResizeObserverGuide />}
+        />
         <Route path=":hookId" element={<HookPlaceholder />} />
       </Route>
 
@@ -155,6 +175,32 @@ const AppRoutes = () => (
                 componentName="Badge"
                 componentPath="/ui/component/badge"
                 description="An interactive Badge playground will live here."
+                title="Playground"
+              />
+            }
+          />
+        </Route>
+
+        <Route path="box">
+          <Route index element={<ComponentGuides.BoxGuide />} />
+          <Route
+            path="customize"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Box"
+                componentPath="/ui/component/box"
+                description="Box customization guidance will live here."
+                title="Customize"
+              />
+            }
+          />
+          <Route
+            path="playground"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Box"
+                componentPath="/ui/component/box"
+                description="An interactive Box playground will live here."
                 title="Playground"
               />
             }
@@ -363,6 +409,84 @@ const AppRoutes = () => (
                 componentName="Field"
                 componentPath="/ui/component/field"
                 description="An interactive Field playground will live here."
+                title="Playground"
+              />
+            }
+          />
+        </Route>
+
+        <Route path="flex">
+          <Route index element={<ComponentGuides.FlexGuide />} />
+          <Route
+            path="customize"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Flex"
+                componentPath="/ui/component/flex"
+                description="Flex customization guidance will live here."
+                title="Customize"
+              />
+            }
+          />
+          <Route
+            path="playground"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Flex"
+                componentPath="/ui/component/flex"
+                description="An interactive Flex playground will live here."
+                title="Playground"
+              />
+            }
+          />
+        </Route>
+
+        <Route path="focus-lock">
+          <Route index element={<ComponentGuides.FocusLockGuide />} />
+          <Route
+            path="customize"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="FocusLock"
+                componentPath="/ui/component/focus-lock"
+                description="FocusLock customization guidance will live here."
+                title="Customize"
+              />
+            }
+          />
+          <Route
+            path="playground"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="FocusLock"
+                componentPath="/ui/component/focus-lock"
+                description="An interactive FocusLock playground will live here."
+                title="Playground"
+              />
+            }
+          />
+        </Route>
+
+        <Route path="grid">
+          <Route index element={<ComponentGuides.GridGuide />} />
+          <Route
+            path="customize"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Grid"
+                componentPath="/ui/component/grid"
+                description="Grid customization guidance will live here."
+                title="Customize"
+              />
+            }
+          />
+          <Route
+            path="playground"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Grid"
+                componentPath="/ui/component/grid"
+                description="An interactive Grid playground will live here."
                 title="Playground"
               />
             }
@@ -627,6 +751,58 @@ const AppRoutes = () => (
                 componentName="Spinner"
                 componentPath="/ui/component/spinner"
                 description="An interactive Spinner playground will live here."
+                title="Playground"
+              />
+            }
+          />
+        </Route>
+
+        <Route path="table">
+          <Route index element={<ComponentGuides.TableGuide />} />
+          <Route
+            path="customize"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Table"
+                componentPath="/ui/component/table"
+                description="Table customization guidance will live here."
+                title="Customize"
+              />
+            }
+          />
+          <Route
+            path="playground"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Table"
+                componentPath="/ui/component/table"
+                description="An interactive Table playground will live here."
+                title="Playground"
+              />
+            }
+          />
+        </Route>
+
+        <Route path="tabs">
+          <Route index element={<ComponentGuides.TabsGuide />} />
+          <Route
+            path="customize"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Tabs"
+                componentPath="/ui/component/tabs"
+                description="Tabs customization guidance will live here."
+                title="Customize"
+              />
+            }
+          />
+          <Route
+            path="playground"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="Tabs"
+                componentPath="/ui/component/tabs"
+                description="An interactive Tabs playground will live here."
                 title="Playground"
               />
             }

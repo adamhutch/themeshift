@@ -3,13 +3,18 @@ import { CopyButton } from '@themeshift/ui/components/CopyButton';
 import { LuCheck, LuCopy } from 'react-icons/lu';
 
 export const basicUsage = {
-  code: `<CopyButton confirmationMessage="Copied" value={csvSheet}>
+  code: `<CopyButton
+  confirmationMessage="Copied"
+  variant="outline"
+  value={csvSheet}
+>
   Copy CSV
 </CopyButton>`,
   label: 'Basic usage',
   sample: (
     <CopyButton
       confirmationMessage="Copied"
+      variant="outline"
       value={'name,email\nSam,sam@site.com'}
     >
       Copy CSV
@@ -108,7 +113,7 @@ export const titleAndIconSlots = {
 export const inToolbar = {
   code: `<div style={{ display: 'flex', gap: '0.5rem' }}>
   <Button intent="secondary">Cancel</Button>
-  <CopyButton confirmationMessage="Copied" value={generatedReport}>
+  <CopyButton confirmationMessage="Copied" variant="link" value={generatedReport}>
     Copy report
   </CopyButton>
 </div>`,
@@ -116,11 +121,64 @@ export const inToolbar = {
   sample: (
     <div style={{ display: 'flex', gap: '0.5rem' }}>
       <Button intent="secondary">Cancel</Button>
-      <CopyButton confirmationMessage="Copied" value="Quarterly report summary">
+      <CopyButton
+        confirmationMessage="Copied"
+        variant="link"
+        value="Quarterly report summary"
+      >
         Copy report
       </CopyButton>
     </div>
   ),
 };
 
+const directionCode = `<CopyButton
+  endIcon={(wasCopied) => (wasCopied ? <LuCheck aria-hidden /> : <LuCopy aria-hidden />)}
+  value={shareCode}
+>
+  Copy share code
+</CopyButton>`;
+
+export const directionLTR = {
+  code: directionCode,
+  label: 'LTR',
+  sample: (
+    <CopyButton
+      endIcon={(wasCopied) =>
+        wasCopied ? (
+          <LuCheck aria-hidden size={16} />
+        ) : (
+          <LuCopy aria-hidden size={16} />
+        )
+      }
+      value="TS-4821"
+    >
+      Copy share code
+    </CopyButton>
+  ),
+};
+
+export const directionRTL = {
+  code: directionCode,
+  label: 'RTL',
+  sample: (
+    <div dir="rtl">
+      <CopyButton
+        endIcon={(wasCopied) =>
+          wasCopied ? (
+            <LuCheck aria-hidden size={16} />
+          ) : (
+            <LuCopy aria-hidden size={16} />
+          )
+        }
+        value="TS-4821"
+      >
+        Copy share code
+      </CopyButton>
+    </div>
+  ),
+};
+
 export const propHighlights = [basicUsage, iconOnly, renderPropChildren];
+
+export const directionExamples = [directionLTR, directionRTL];

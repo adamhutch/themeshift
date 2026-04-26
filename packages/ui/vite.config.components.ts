@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import type { Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
-import { themeShift } from '@themeshift/vite-plugin-themeshift';
+import { themeShift } from '@themeshift/vite-plugin';
 import type { OutputAsset, OutputBundle, OutputChunk } from 'rollup';
 
 const cssGroups = [
@@ -36,6 +36,7 @@ function injectComponentCss(): Plugin {
     name: 'inject-component-css',
     generateBundle(_options: unknown, bundle: OutputBundle) {
       const cssAssetsToRemove = new Set<string>();
+      const componentCssAssets = new Set<string>();
 
       const collectImportedCss = (
         chunk: OutputChunk,
@@ -66,10 +67,31 @@ function injectComponentCss(): Plugin {
           continue;
         }
 
-        const isStyleInjectableEntry =
-          (chunk.fileName.startsWith('components/') ||
-            chunk.fileName.startsWith('templates/')) &&
+        const isComponentEntry =
+          chunk.fileName.startsWith('components/') &&
           chunk.fileName.endsWith('/index.js');
+
+        if (!isComponentEntry) {
+          continue;
+        }
+
+        for (const cssFileName of collectImportedCss(chunk)) {
+          componentCssAssets.add(cssFileName);
+        }
+      }
+
+      for (const chunk of Object.values(bundle)) {
+        if (chunk.type !== 'chunk' || !chunk.isEntry) {
+          continue;
+        }
+
+        const isComponentEntry =
+          chunk.fileName.startsWith('components/') &&
+          chunk.fileName.endsWith('/index.js');
+        const isTemplateEntry =
+          chunk.fileName.startsWith('templates/') &&
+          chunk.fileName.endsWith('/index.js');
+        const isStyleInjectableEntry = isComponentEntry || isTemplateEntry;
 
         if (!isStyleInjectableEntry) {
           continue;
@@ -78,6 +100,35 @@ function injectComponentCss(): Plugin {
         const importedCss = collectImportedCss(chunk);
 
         if (importedCss.length === 0) {
+          continue;
+        }
+
+        const styleFileName = `${path.posix.dirname(chunk.fileName)}/style.css`;
+
+        if (isComponentEntry) {
+          // For component entries, reference CSS assets via @import so
+          // transitive styles are not duplicated into every component style
+          // file, while still preserving automatic style loading.
+          const cssImports = [...new Set(importedCss)]
+            .map((cssFileName) => {
+              const relativePath = path.posix.relative(
+                path.posix.dirname(styleFileName),
+                cssFileName
+              );
+
+              return relativePath.startsWith('.')
+                ? relativePath
+                : `./${relativePath}`;
+            })
+            .map((relativePath) => `@import "${relativePath}";`);
+
+          this.emitFile({
+            type: 'asset',
+            fileName: styleFileName,
+            source: `${cssImports.join('\n')}\n`,
+          });
+
+          chunk.code = `import "./style.css";\n${chunk.code}`;
           continue;
         }
 
@@ -98,14 +149,15 @@ function injectComponentCss(): Plugin {
               ? asset.source
               : asset.source.toString()
           );
-          cssAssetsToRemove.add(cssFileName);
+
+          if (!componentCssAssets.has(cssFileName)) {
+            cssAssetsToRemove.add(cssFileName);
+          }
         }
 
         if (cssParts.length === 0) {
           continue;
         }
-
-        const styleFileName = `${path.posix.dirname(chunk.fileName)}/style.css`;
 
         this.emitFile({
           type: 'asset',
@@ -163,6 +215,9 @@ export default defineConfig({
         'components/Badge/index': fileURLToPath(
           new URL('./src/entrypoints/components/Badge.ts', import.meta.url)
         ),
+        'components/Box/index': fileURLToPath(
+          new URL('./src/entrypoints/components/Box.ts', import.meta.url)
+        ),
         'components/Button/index': fileURLToPath(
           new URL('./src/entrypoints/components/Button.ts', import.meta.url)
         ),
@@ -183,6 +238,15 @@ export default defineConfig({
         ),
         'components/Field/index': fileURLToPath(
           new URL('./src/entrypoints/components/Field.ts', import.meta.url)
+        ),
+        'components/Flex/index': fileURLToPath(
+          new URL('./src/entrypoints/components/Flex.ts', import.meta.url)
+        ),
+        'components/FocusLock/index': fileURLToPath(
+          new URL('./src/entrypoints/components/FocusLock.ts', import.meta.url)
+        ),
+        'components/Grid/index': fileURLToPath(
+          new URL('./src/entrypoints/components/Grid.ts', import.meta.url)
         ),
         'components/Heading/index': fileURLToPath(
           new URL('./src/entrypoints/components/Heading.ts', import.meta.url)
@@ -228,6 +292,12 @@ export default defineConfig({
         ),
         'components/Spinner/index': fileURLToPath(
           new URL('./src/entrypoints/components/Spinner.ts', import.meta.url)
+        ),
+        'components/Table/index': fileURLToPath(
+          new URL('./src/entrypoints/components/Table.ts', import.meta.url)
+        ),
+        'components/Tabs/index': fileURLToPath(
+          new URL('./src/entrypoints/components/Tabs.ts', import.meta.url)
         ),
         'components/Textarea/index': fileURLToPath(
           new URL('./src/entrypoints/components/Textarea.ts', import.meta.url)
@@ -282,6 +352,15 @@ export default defineConfig({
         ),
         'hooks/useHoldToConfirm/index': fileURLToPath(
           new URL('./src/hooks/useHoldToConfirm/index.ts', import.meta.url)
+        ),
+        'hooks/useOnClickOutside/index': fileURLToPath(
+          new URL('./src/hooks/useOnClickOutside/index.ts', import.meta.url)
+        ),
+        'hooks/useResizeObserver/index': fileURLToPath(
+          new URL('./src/hooks/useResizeObserver/index.ts', import.meta.url)
+        ),
+        'hooks/useScrollLock/index': fileURLToPath(
+          new URL('./src/hooks/useScrollLock/index.ts', import.meta.url)
         ),
       },
       formats: ['es'],

@@ -34,6 +34,10 @@
       "types": "./dist/components/Badge/index.d.ts",
       "import": "./dist/components/Badge/index.js"
     },
+    "./components/Box": {
+      "types": "./dist/components/Box/index.d.ts",
+      "import": "./dist/components/Box/index.js"
+    },
     "./components/Button": {
       "types": "./dist/components/Button/index.d.ts",
       "import": "./dist/components/Button/index.js"
@@ -57,6 +61,18 @@
     "./components/Field": {
       "types": "./dist/components/Field/index.d.ts",
       "import": "./dist/components/Field/index.js"
+    },
+    "./components/Flex": {
+      "types": "./dist/components/Flex/index.d.ts",
+      "import": "./dist/components/Flex/index.js"
+    },
+    "./components/FocusLock": {
+      "types": "./dist/components/FocusLock/index.d.ts",
+      "import": "./dist/components/FocusLock/index.js"
+    },
+    "./components/Grid": {
+      "types": "./dist/components/Grid/index.d.ts",
+      "import": "./dist/components/Grid/index.js"
     },
     "./components/Heading": {
       "types": "./dist/components/Heading/index.d.ts",
@@ -110,6 +126,14 @@
       "types": "./dist/components/Spinner/index.d.ts",
       "import": "./dist/components/Spinner/index.js"
     },
+    "./components/Table": {
+      "types": "./dist/components/Table/index.d.ts",
+      "import": "./dist/components/Table/index.js"
+    },
+    "./components/Tabs": {
+      "types": "./dist/components/Tabs/index.d.ts",
+      "import": "./dist/components/Tabs/index.js"
+    },
     "./components/Textarea": {
       "types": "./dist/components/Textarea/index.d.ts",
       "import": "./dist/components/Textarea/index.js"
@@ -122,9 +146,14 @@
       "types": "./dist/contexts/index.d.ts",
       "import": "./dist/contexts/index.js"
     },
-    "./css/base.css": "./dist/css/base.css",
-    "./css/fonts.css": "./dist/css/fonts.css",
-    "./css/tokens.css": "./dist/css/tokens.css",
+    "./css/base.css": {
+      "types": "./dist/css/base.css.d.ts",
+      "default": "./dist/css/base.css"
+    },
+    "./css/tokens.css": {
+      "types": "./dist/css/tokens.css.d.ts",
+      "default": "./dist/css/tokens.css"
+    },
     "./hooks": {
       "types": "./dist/hooks/index.d.ts",
       "import": "./dist/hooks/index.js"
@@ -140,6 +169,18 @@
     "./hooks/useHoldToConfirm": {
       "types": "./dist/hooks/useHoldToConfirm/index.d.ts",
       "import": "./dist/hooks/useHoldToConfirm/index.js"
+    },
+    "./hooks/useOnClickOutside": {
+      "types": "./dist/hooks/useOnClickOutside/index.d.ts",
+      "import": "./dist/hooks/useOnClickOutside/index.js"
+    },
+    "./hooks/useResizeObserver": {
+      "types": "./dist/hooks/useResizeObserver/index.d.ts",
+      "import": "./dist/hooks/useResizeObserver/index.js"
+    },
+    "./hooks/useScrollLock": {
+      "types": "./dist/hooks/useScrollLock/index.d.ts",
+      "import": "./dist/hooks/useScrollLock/index.js"
     },
     "./icons": {
       "types": "./dist/icons/index.d.ts",
@@ -229,9 +270,8 @@
     "typecheck": "tsc -p tsconfig.build.json --pretty false --noEmit"
   },
   "dependencies": {
-    "@fontsource-variable/inter": "^5.2.8",
     "@radix-ui/react-slot": "^1.2.4",
-    "@themeshift/vite-plugin-themeshift": "workspace:*",
+    "@themeshift/vite-plugin": "workspace:*",
     "classnames": "^2.5.1",
     "react-textarea-autosize": "^8.5.9"
   },

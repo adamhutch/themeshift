@@ -377,4 +377,121 @@ export const hooks = [
       'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/hooks/useHoldToConfirm',
     type: 'hook',
   },
+  {
+    apiReference: [],
+    returnReference: [],
+    name: 'useOnClickOutside',
+    exportName: 'useOnClickOutside',
+    importPath: '@themeshift/ui/hooks/useOnClickOutside',
+    importString:
+      "import { useOnClickOutside } from '@themeshift/ui/hooks/useOnClickOutside';",
+    meta: {
+      category: 'actions',
+      description:
+        'Calls a handler when pointer or focus events happen outside a target element.',
+      tags: ['outside-click', 'dismiss', 'interaction'],
+      status: 'stable',
+      type: 'hook',
+    },
+    slug: 'useonclickoutside',
+    routeSlug: 'use-on-click-outside',
+    sourceCodeUrl:
+      'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/hooks/useOnClickOutside',
+    type: 'hook',
+  },
+  {
+    apiReference: [
+      {
+        comments:
+          'Selects which box size should drive resize updates.\n\nDefaults to `content-box`.',
+        defaultValue: 'content-box',
+        displayName: 'useResizeObserver',
+        propName: 'box',
+        type: 'ResizeObserverBox',
+        values: [],
+      },
+      {
+        comments: 'Disables observation while keeping the same return shape.',
+        defaultValue: false,
+        displayName: 'useResizeObserver',
+        propName: 'disabled',
+        type: 'boolean',
+        values: [],
+      },
+    ],
+    returnReference: [
+      {
+        comments: 'Latest resize observer entry for the observed element.',
+        defaultValue: null,
+        displayName: 'useResizeObserver',
+        propName: 'entry',
+        type: 'ResizeObserverEntry',
+        values: [],
+      },
+      {
+        comments:
+          '`true` when the current environment supports `ResizeObserver`.',
+        defaultValue: null,
+        displayName: 'useResizeObserver',
+        propName: 'isSupported',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Latest observed content rectangle.',
+        defaultValue: null,
+        displayName: 'useResizeObserver',
+        propName: 'rect',
+        type: 'DOMRectReadOnly',
+        values: [],
+      },
+      {
+        comments: 'Ref callback used to attach the observed element.',
+        defaultValue: null,
+        displayName: 'useResizeObserver',
+        propName: 'ref',
+        type: 'RefCallback<Element>',
+        values: [],
+      },
+    ],
+    name: 'useResizeObserver',
+    exportName: 'useResizeObserver',
+    importPath: '@themeshift/ui/hooks/useResizeObserver',
+    importString:
+      "import { useResizeObserver } from '@themeshift/ui/hooks/useResizeObserver';",
+    meta: {
+      category: 'layout-utilities',
+      description:
+        'Observes element resize changes and returns reactive `ResizeObserver` entry and rect state.',
+      tags: ['resize-observer', 'layout', 'measurement'],
+      status: 'experimental',
+      type: 'hook',
+    },
+    slug: 'useresizeobserver',
+    routeSlug: 'use-resize-observer',
+    sourceCodeUrl:
+      'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/hooks/useResizeObserver',
+    type: 'hook',
+  },
+  {
+    apiReference: [],
+    returnReference: [],
+    name: 'useScrollLock',
+    exportName: 'useScrollLock',
+    importPath: '@themeshift/ui/hooks/useScrollLock',
+    importString:
+      "import { useScrollLock } from '@themeshift/ui/hooks/useScrollLock';",
+    meta: {
+      category: 'layout-utilities',
+      description:
+        'Locks document scrolling while overlays or drawers are open.',
+      tags: ['scroll', 'overlay', 'drawer', 'accessibility'],
+      type: 'hook',
+    },
+    slug: 'usescrolllock',
+    routeSlug: 'use-scroll-lock',
+    sourceCodeUrl:
+      'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/hooks/useScrollLock',
+    type: 'hook',
+  },
 ] satisfies ApiReferenceHook[];

@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import buttonStyles from '@/components/Button/Button.module.scss';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 
 import { CopyButton } from './index';
@@ -184,6 +185,18 @@ describe('CopyButton', () => {
     expect(button).toHaveAttribute('data-testid', 'copy-button');
     expect(button).toBeDisabled();
     expect(button).toHaveClass('custom-copy-button');
+  });
+
+  it('forwards variant to Button', () => {
+    render(
+      <CopyButton value="alpha" variant="link">
+        Copy
+      </CopyButton>
+    );
+
+    expect(screen.getByRole('button', { name: 'Copy' })).toHaveClass(
+      buttonStyles.variantLink
+    );
   });
 
   it('has no detectable accessibility violations in a representative state', async () => {

@@ -20,7 +20,8 @@ import { useApiReference } from '@/apiReference';
 import styles from './Landing.module.scss';
 import { COMPONENT_PREVIEWS } from './examples/componentPreviews';
 
-const PRIMARY_DOCS_ROUTE = '/ui';
+const UI_ROUTE = '/ui';
+const DOCS_ROUTE = '/docs';
 const TOKENS_ROUTE = '/design-tokens';
 
 const GITHUB_REPO_URL = 'https://github.com/themeshift-dev/themeshift';
@@ -137,7 +138,11 @@ export const Landing = () => {
   );
 
   return (
-    <main aria-label="ThemeShift UI home" className={styles.main}>
+    <main
+      aria-label="ThemeShift UI home"
+      className={styles.main}
+      id="main-content"
+    >
       <section aria-labelledby="landing-hero-title" className={styles.hero}>
         <p className={styles.eyebrow}>ThemeShift UI</p>
         <Heading className={styles.heroTitle} level={1}>
@@ -151,12 +156,12 @@ export const Landing = () => {
         </p>
 
         <div className={styles.heroActions}>
-          <Button size="large" asChild>
-            <NavLink to={PRIMARY_DOCS_ROUTE}>Start building</NavLink>
+          <Button size="hero" asChild>
+            <NavLink to={UI_ROUTE}>Start building</NavLink>
           </Button>
 
-          <Button size="large" asChild intent="tertiary">
-            <NavLink to={PRIMARY_DOCS_ROUTE}>Explore docs</NavLink>
+          <Button size="hero" asChild variant="link">
+            <NavLink to={DOCS_ROUTE}>Explore docs</NavLink>
           </Button>
         </div>
 
@@ -297,8 +302,8 @@ export const Landing = () => {
         </div>
 
         <div className={styles.previewFooter}>
-          <Button asChild intent="tertiary">
-            <NavLink to={PRIMARY_DOCS_ROUTE}>Browse all component docs</NavLink>
+          <Button asChild variant="link">
+            <NavLink to={UI_ROUTE}>Browse all component docs</NavLink>
           </Button>
         </div>
       </section>
@@ -316,7 +321,7 @@ export const Landing = () => {
         </p>
 
         <div className={styles.actionsRow}>
-          <Button asChild intent="tertiary">
+          <Button asChild variant="link">
             <NavLink to={TOKENS_ROUTE}>Explore design token docs</NavLink>
           </Button>
         </div>
@@ -336,7 +341,7 @@ export const Landing = () => {
         </ul>
 
         <div className={styles.actionsRow}>
-          <Button asChild intent="tertiary">
+          <Button asChild variant="link">
             <a href={GITHUB_REPO_URL} rel="noreferrer" target="_blank">
               View activity on GitHub
             </a>
@@ -360,7 +365,7 @@ export const Landing = () => {
           {OSS_ACTIONS.map(({ label, icon: Icon, href }) => (
             <Button
               asChild
-              intent="tertiary"
+              variant="link"
               key={label}
               startIcon={<Icon aria-hidden />}
             >
@@ -379,11 +384,11 @@ export const Landing = () => {
         <p>Start building with docs you can trust.</p>
 
         <div className={styles.finalCtaActions}>
-          <Button asChild size="large">
-            <NavLink to={PRIMARY_DOCS_ROUTE}>Start building</NavLink>
+          <Button asChild size="hero">
+            <NavLink to={UI_ROUTE}>Start building</NavLink>
           </Button>
-          <Button asChild intent="tertiary" size="large">
-            <NavLink to={PRIMARY_DOCS_ROUTE}>Explore docs</NavLink>
+          <Button asChild variant="link" size="hero">
+            <NavLink to={DOCS_ROUTE}>Explore docs</NavLink>
           </Button>
         </div>
       </section>
