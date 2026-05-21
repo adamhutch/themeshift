@@ -7,5 +7,6 @@ export const meta = {
   tags: ['tooltip', 'overlay', 'floating', 'compound'],
   order: 44,
   status: 'experimental',
+  hasHeadlessVersion: true,
   related: ['Portal', 'Button', 'Navbar'],
 } satisfies ComponentMeta;

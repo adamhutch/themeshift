@@ -7,5 +7,6 @@ export const meta = {
   tags: ['portal', 'overlay', 'layering', 'layout'],
   order: 34,
   status: 'experimental',
+  hasHeadlessVersion: true,
   related: ['Tooltip', 'Navbar', 'FocusLock'],
 } satisfies ComponentMeta;

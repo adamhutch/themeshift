@@ -15,6 +15,7 @@ export type ComponentMeta = {
   order?: number;
   status?: 'stable' | 'beta' | 'experimental' | 'deprecated';
   featured?: boolean;
+  hasHeadlessVersion?: boolean;
   aliases?: string[];
   related?: string[];
 };

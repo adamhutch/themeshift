@@ -32,6 +32,10 @@
       "types": "./dist/components/Tabs/index.d.ts",
       "import": "./dist/components/Tabs/index.js"
     },
+    "./components/Tooltip": {
+      "types": "./dist/components/Tooltip/index.d.ts",
+      "import": "./dist/components/Tooltip/index.js"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {
