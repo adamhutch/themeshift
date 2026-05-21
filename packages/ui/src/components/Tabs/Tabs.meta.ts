@@ -7,5 +7,6 @@ export const meta = {
   tags: ['tabs', 'navigation', 'compound'],
   order: 33,
   status: 'experimental',
+  hasHeadlessVersion: true,
   related: ['Button', 'ProgressBar', 'Responsive'],
 } satisfies ComponentMeta;

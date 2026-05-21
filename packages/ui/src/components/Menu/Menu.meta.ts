@@ -7,5 +7,6 @@ export const meta = {
   tags: ['menu', 'submenu', 'navigation', 'command', 'a11y'],
   order: 49,
   status: 'stable',
+  hasHeadlessVersion: true,
   related: ['Navbar', 'Sidebar', 'Tooltip'],
 } satisfies ComponentMeta;

@@ -21,6 +21,9 @@ export default defineConfig({
         'components/Tabs/index': fileURLToPath(
           new URL('./src/entrypoints/components/Tabs.ts', import.meta.url)
         ),
+        'components/Tooltip/index': fileURLToPath(
+          new URL('./src/entrypoints/components/Tooltip.ts', import.meta.url)
+        ),
       },
       formats: ['es'],
     },

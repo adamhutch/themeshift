@@ -11,3 +11,17 @@
     transform: translateY(-1px);
   }
 }
+
+.titleRow {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.headlessBadge {
+  align-items: center;
+  color: currentColor;
+  display: inline-flex;
+  font-size: 0.85em;
+  opacity: 0.72;
+}
