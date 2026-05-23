@@ -1,0 +1,298 @@
+@use '@/sass/mixins/accessibility';
+@use '@/sass/mixins/typography';
+
+.root {
+  @include typography.style('caption.default');
+
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: token('components.chip.radius.full');
+  color: token('text.primary');
+  display: inline-flex;
+  gap: token('components.chip.layout.gap');
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  padding-block: token('components.chip.size.medium.paddingBlock');
+  padding-inline: token('components.chip.size.medium.paddingInline');
+  text-decoration: none;
+  vertical-align: middle;
+
+  &:where(button) {
+    @include accessibility.focusVisibleRing;
+
+    appearance: none;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+    margin: 0;
+    text-align: inherit;
+  }
+
+  &:where(button):disabled {
+    cursor: default;
+  }
+}
+
+.interactive {
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.sizeSmall {
+  @include typography.style('caption.default');
+
+  gap: token('components.chip.layout.gapSmall');
+  min-block-size: token('components.chip.size.small.height');
+  padding-block: token('components.chip.size.small.paddingBlock');
+  padding-inline: token('components.chip.size.small.paddingInline');
+}
+
+.sizeMedium {
+  @include typography.style('caption.default');
+
+  gap: token('components.chip.layout.gap');
+  min-block-size: token('components.chip.size.medium.height');
+  padding-block: token('components.chip.size.medium.paddingBlock');
+  padding-inline: token('components.chip.size.medium.paddingInline');
+}
+
+.sizeLarge {
+  @include typography.scale(0, semiBold);
+
+  gap: token('components.chip.layout.gapLarge');
+  min-block-size: token('components.chip.size.large.height');
+  padding-block: token('components.chip.size.large.paddingBlock');
+  padding-inline: token('components.chip.size.large.paddingInline');
+}
+
+.radiusFull {
+  border-radius: token('components.chip.radius.full');
+}
+
+.radiusNone {
+  border-radius: token('components.chip.radius.none');
+}
+
+.radiusLarge {
+  border-radius: token('components.chip.radius.large');
+}
+
+.radiusMedium {
+  border-radius: token('components.chip.radius.medium');
+}
+
+.variantSubtle {
+  background-color: token('components.chip.variant.neutral.subtle.background');
+  border-color: token('components.chip.variant.neutral.subtle.border');
+  color: token('components.chip.variant.neutral.subtle.text');
+}
+
+.variantOutline {
+  background-color: token('components.chip.variant.neutral.outline.background');
+  border-color: token('components.chip.variant.neutral.outline.border');
+  color: token('components.chip.variant.neutral.outline.text');
+}
+
+.variantSolid {
+  background-color: token('components.chip.variant.neutral.solid.background');
+  border-color: token('components.chip.variant.neutral.solid.border');
+  color: token('components.chip.variant.neutral.solid.text');
+}
+
+.colorNeutral.variantSubtle {
+  background-color: token('components.chip.variant.neutral.subtle.background');
+  border-color: token('components.chip.variant.neutral.subtle.border');
+  color: token('components.chip.variant.neutral.subtle.text');
+}
+
+.colorNeutral.variantOutline {
+  background-color: token('components.chip.variant.neutral.outline.background');
+  border-color: token('components.chip.variant.neutral.outline.border');
+  color: token('components.chip.variant.neutral.outline.text');
+}
+
+.colorNeutral.variantSolid {
+  background-color: token('components.chip.variant.neutral.solid.background');
+  border-color: token('components.chip.variant.neutral.solid.border');
+  color: token('components.chip.variant.neutral.solid.text');
+}
+
+.colorAccent.variantSubtle {
+  background-color: token('components.chip.variant.accent.subtle.background');
+  border-color: token('components.chip.variant.accent.subtle.border');
+  color: token('components.chip.variant.accent.subtle.text');
+}
+
+.colorAccent.variantOutline {
+  background-color: token('components.chip.variant.accent.outline.background');
+  border-color: token('components.chip.variant.accent.outline.border');
+  color: token('components.chip.variant.accent.outline.text');
+}
+
+.colorAccent.variantSolid {
+  background-color: token('components.chip.variant.accent.solid.background');
+  border-color: token('components.chip.variant.accent.solid.border');
+  color: token('components.chip.variant.accent.solid.text');
+}
+
+.colorSuccess.variantSubtle {
+  background-color: token('components.chip.variant.success.subtle.background');
+  border-color: token('components.chip.variant.success.subtle.border');
+  color: token('components.chip.variant.success.subtle.text');
+}
+
+.colorSuccess.variantOutline {
+  background-color: token('components.chip.variant.success.outline.background');
+  border-color: token('components.chip.variant.success.outline.border');
+  color: token('components.chip.variant.success.outline.text');
+}
+
+.colorSuccess.variantSolid {
+  background-color: token('components.chip.variant.success.solid.background');
+  border-color: token('components.chip.variant.success.solid.border');
+  color: token('components.chip.variant.success.solid.text');
+}
+
+.colorWarning.variantSubtle {
+  background-color: token('components.chip.variant.warning.subtle.background');
+  border-color: token('components.chip.variant.warning.subtle.border');
+  color: token('components.chip.variant.warning.subtle.text');
+}
+
+.colorWarning.variantOutline {
+  background-color: token('components.chip.variant.warning.outline.background');
+  border-color: token('components.chip.variant.warning.outline.border');
+  color: token('components.chip.variant.warning.outline.text');
+}
+
+.colorWarning.variantSolid {
+  background-color: token('components.chip.variant.warning.solid.background');
+  border-color: token('components.chip.variant.warning.solid.border');
+  color: token('components.chip.variant.warning.solid.text');
+}
+
+.colorDanger.variantSubtle {
+  background-color: token('components.chip.variant.danger.subtle.background');
+  border-color: token('components.chip.variant.danger.subtle.border');
+  color: token('components.chip.variant.danger.subtle.text');
+}
+
+.colorDanger.variantOutline {
+  background-color: token('components.chip.variant.danger.outline.background');
+  border-color: token('components.chip.variant.danger.outline.border');
+  color: token('components.chip.variant.danger.outline.text');
+}
+
+.colorDanger.variantSolid {
+  background-color: token('components.chip.variant.danger.solid.background');
+  border-color: token('components.chip.variant.danger.solid.border');
+  color: token('components.chip.variant.danger.solid.text');
+}
+
+.icon,
+.label,
+.avatar {
+  align-items: center;
+  display: inline-flex;
+  min-inline-size: 0;
+}
+
+.icon {
+  color: currentcolor;
+  line-height: 0;
+
+  > svg {
+    block-size: 1em;
+    inline-size: 1em;
+  }
+}
+
+.iconStart {
+  margin-inline-end: 0;
+}
+
+.iconEnd {
+  margin-inline-start: 0;
+}
+
+.avatar {
+  block-size: token('components.chip.avatar.size');
+  border-radius: token('components.chip.avatar.radius');
+  inline-size: token('components.chip.avatar.size');
+  overflow: hidden;
+
+  img {
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
+  }
+}
+
+.label {
+  min-inline-size: 0;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.removeButton {
+  @include accessibility.focusVisibleRing;
+
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: token('radius.xLarge');
+  color: currentcolor;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  margin: 0;
+  min-block-size: token('components.chip.removeButton.size');
+  min-inline-size: token('components.chip.removeButton.size');
+  padding: 0;
+}
+
+.removeButton:disabled,
+.disabled .removeButton {
+  cursor: default;
+}
+
+.group {
+  align-items: center;
+  display: flex;
+  gap: token('components.chip.group.gap.small');
+}
+
+.groupHorizontal {
+  flex-direction: row;
+}
+
+.groupVertical {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.groupWrap {
+  flex-wrap: wrap;
+}
+
+.groupGapXSmall {
+  gap: token('components.chip.group.gap.xSmall');
+}
+
+.groupGapSmall {
+  gap: token('components.chip.group.gap.small');
+}
+
+.groupGapMedium {
+  gap: token('components.chip.group.gap.medium');
+}

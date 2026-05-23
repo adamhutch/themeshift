@@ -54,6 +54,10 @@
       "types": "./dist/components/Checkbox/index.d.ts",
       "import": "./dist/components/Checkbox/index.js"
     },
+    "./components/Chip": {
+      "types": "./dist/components/Chip/index.d.ts",
+      "import": "./dist/components/Chip/index.js"
+    },
     "./components/CopyButton": {
       "types": "./dist/components/CopyButton/index.d.ts",
       "import": "./dist/components/CopyButton/index.js"

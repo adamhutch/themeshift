@@ -4,6 +4,7 @@ export * from './Box';
 export * from './Button';
 export * from './Card';
 export * from './Checkbox';
+export * from './Chip';
 export * from './CopyButton';
 export * from './ErrorMessage';
 export * from './Field';

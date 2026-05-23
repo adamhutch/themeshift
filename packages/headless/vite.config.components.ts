@@ -15,6 +15,9 @@ export default defineConfig({
     emptyOutDir: true,
     lib: {
       entry: {
+        'components/Chip/index': fileURLToPath(
+          new URL('./src/entrypoints/components/Chip.ts', import.meta.url)
+        ),
         'components/Menu/index': fileURLToPath(
           new URL('./src/entrypoints/components/Menu.ts', import.meta.url)
         ),

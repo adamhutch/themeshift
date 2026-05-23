@@ -230,6 +230,9 @@ export default defineConfig({
         'components/Checkbox/index': fileURLToPath(
           new URL('./src/entrypoints/components/Checkbox.ts', import.meta.url)
         ),
+        'components/Chip/index': fileURLToPath(
+          new URL('./src/entrypoints/components/Chip.ts', import.meta.url)
+        ),
         'components/CopyButton/index': fileURLToPath(
           new URL('./src/entrypoints/components/CopyButton.ts', import.meta.url)
         ),

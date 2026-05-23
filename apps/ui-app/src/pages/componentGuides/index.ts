@@ -4,6 +4,7 @@ export * from './BoxGuide';
 export * from './ButtonGuide';
 export * from './CardGuide';
 export * from './CheckboxGuide';
+export * from './ChipGuide';
 export * from './CopyButtonGuide';
 export * from './ErrorMessageGuide';
 export * from './FieldGuide';

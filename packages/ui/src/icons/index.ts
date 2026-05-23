@@ -1,5 +1,6 @@
 export * from './IconCheck';
 export * from './IconChevronRight';
+export * from './IconClose';
 export * from './IconMinus';
 export * from './IconMoon';
 export * from './IconSelectChevron';

@@ -1,0 +1,259 @@
+{
+  "components": {
+    "chip": {
+      "layout": {
+        "gap": { "$value": "{space.1}" },
+        "gapSmall": { "$value": "{space.1}" },
+        "gapLarge": { "$value": "{space.2}" }
+      },
+
+      "size": {
+        "small": {
+          "height": { "$value": "{space.5}" },
+          "paddingBlock": { "$value": "{space.1}" },
+          "paddingInline": { "$value": "{space.2}" }
+        },
+
+        "medium": {
+          "height": { "$value": "{space.6}" },
+          "paddingBlock": { "$value": "{space.1}" },
+          "paddingInline": { "$value": "{space.2}" }
+        },
+
+        "large": {
+          "height": { "$value": "{space.7}" },
+          "paddingBlock": { "$value": "{space.1}" },
+          "paddingInline": { "$value": "{space.3}" }
+        }
+      },
+
+      "radius": {
+        "none": { "$value": "0px" },
+        "full": { "$value": "{radius.xLarge}" },
+        "large": { "$value": "{radius.small}" },
+        "medium": { "$value": "{radius.xSmall}" }
+      },
+
+      "avatar": {
+        "size": { "$value": "{space.4}" },
+        "radius": { "$value": "{radius.xLarge}" }
+      },
+
+      "removeButton": { "size": { "$value": "{space.4}" } },
+
+      "group": {
+        "gap": {
+          "xSmall": { "$value": "{space.1}" },
+          "small": { "$value": "{space.2}" },
+          "medium": { "$value": "{space.3}" }
+        }
+      },
+
+      "variant": {
+        "light": {
+          "neutral": {
+            "subtle": {
+              "background": { "$value": "{color.gray.100}" },
+              "border": { "$value": "{color.gray.200}" },
+              "text": { "$value": "{color.gray.800}" }
+            },
+
+            "outline": {
+              "background": { "$value": "transparent" },
+              "border": { "$value": "{color.gray.300}" },
+              "text": { "$value": "{color.gray.800}" }
+            },
+
+            "solid": {
+              "background": { "$value": "{color.gray.600}" },
+              "border": { "$value": "{color.gray.600}" },
+              "text": { "$value": "{color.gray.600.text}" }
+            }
+          },
+
+          "accent": {
+            "subtle": {
+              "background": { "$value": "{color.blue.100}" },
+              "border": { "$value": "{color.blue.200}" },
+              "text": { "$value": "{color.blue.800}" }
+            },
+
+            "outline": {
+              "background": { "$value": "transparent" },
+              "border": { "$value": "{color.blue.300}" },
+              "text": { "$value": "{color.blue.800}" }
+            },
+
+            "solid": {
+              "background": { "$value": "{color.blue.600}" },
+              "border": { "$value": "{color.blue.600}" },
+              "text": { "$value": "{color.blue.600.text}" }
+            }
+          },
+
+          "success": {
+            "subtle": {
+              "background": { "$value": "{color.green.100}" },
+              "border": { "$value": "{color.green.200}" },
+              "text": { "$value": "{color.green.800}" }
+            },
+
+            "outline": {
+              "background": { "$value": "transparent" },
+              "border": { "$value": "{color.green.300}" },
+              "text": { "$value": "{color.green.800}" }
+            },
+
+            "solid": {
+              "background": { "$value": "{color.green.600}" },
+              "border": { "$value": "{color.green.600}" },
+              "text": { "$value": "{color.green.600.text}" }
+            }
+          },
+
+          "warning": {
+            "subtle": {
+              "background": { "$value": "#FFF4CF" },
+              "border": { "$value": "#FFE4A3" },
+              "text": { "$value": "#684C00" }
+            },
+
+            "outline": {
+              "background": { "$value": "transparent" },
+              "border": { "$value": "#F0C75E" },
+              "text": { "$value": "#8A6200" }
+            },
+
+            "solid": {
+              "background": { "$value": "#D89A00" },
+              "border": { "$value": "#D89A00" },
+              "text": { "$value": "{color.black}" }
+            }
+          },
+
+          "danger": {
+            "subtle": {
+              "background": { "$value": "{color.red.100}" },
+              "border": { "$value": "{color.red.200}" },
+              "text": { "$value": "{color.red.800}" }
+            },
+
+            "outline": {
+              "background": { "$value": "transparent" },
+              "border": { "$value": "{color.red.300}" },
+              "text": { "$value": "{color.red.800}" }
+            },
+
+            "solid": {
+              "background": { "$value": "{color.red.600}" },
+              "border": { "$value": "{color.red.600}" },
+              "text": { "$value": "{color.red.600.text}" }
+            }
+          }
+        },
+
+        "dark": {
+          "neutral": {
+            "subtle": {
+              "background": { "$value": "{color.white.10}" },
+              "border": { "$value": "{color.white.10}" },
+              "text": { "$value": "{color.white.80}" }
+            },
+
+            "outline": {
+              "background": { "$value": "transparent" },
+              "border": { "$value": "{color.white.30}" },
+              "text": { "$value": "{color.white.80}" }
+            },
+
+            "solid": {
+              "background": { "$value": "{color.gray.600}" },
+              "border": { "$value": "{color.gray.600}" },
+              "text": { "$value": "{color.gray.600.text}" }
+            }
+          },
+
+          "accent": {
+            "subtle": {
+              "background": { "$value": "{color.blue.900}" },
+              "border": { "$value": "{color.blue.800}" },
+              "text": { "$value": "{color.white.90}" }
+            },
+
+            "outline": {
+              "background": { "$value": "transparent" },
+              "border": { "$value": "{color.blue.500}" },
+              "text": { "$value": "{color.lightBlue.300}" }
+            },
+
+            "solid": {
+              "background": { "$value": "{color.blue.500}" },
+              "border": { "$value": "{color.blue.500}" },
+              "text": { "$value": "{color.blue.500.text}" }
+            }
+          },
+
+          "success": {
+            "subtle": {
+              "background": { "$value": "{color.green.900}" },
+              "border": { "$value": "{color.green.800}" },
+              "text": { "$value": "{color.white.90}" }
+            },
+
+            "outline": {
+              "background": { "$value": "transparent" },
+              "border": { "$value": "{color.green.500}" },
+              "text": { "$value": "{color.green.300}" }
+            },
+
+            "solid": {
+              "background": { "$value": "{color.green.500}" },
+              "border": { "$value": "{color.green.500}" },
+              "text": { "$value": "{color.green.500.text}" }
+            }
+          },
+
+          "warning": {
+            "subtle": {
+              "background": { "$value": "#4A3500" },
+              "border": { "$value": "#5E4300" },
+              "text": { "$value": "#FFD98A" }
+            },
+
+            "outline": {
+              "background": { "$value": "transparent" },
+              "border": { "$value": "#D89A00" },
+              "text": { "$value": "#FFD98A" }
+            },
+
+            "solid": {
+              "background": { "$value": "#D89A00" },
+              "border": { "$value": "#D89A00" },
+              "text": { "$value": "{color.black}" }
+            }
+          },
+
+          "danger": {
+            "subtle": {
+              "background": { "$value": "{color.red.900}" },
+              "border": { "$value": "{color.red.800}" },
+              "text": { "$value": "{color.white.90}" }
+            },
+
+            "outline": {
+              "background": { "$value": "transparent" },
+              "border": { "$value": "{color.red.500}" },
+              "text": { "$value": "{color.red.300}" }
+            },
+
+            "solid": {
+              "background": { "$value": "{color.red.500}" },
+              "border": { "$value": "{color.red.500}" },
+              "text": { "$value": "{color.red.500.text}" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -24,6 +24,10 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./components/Chip": {
+      "types": "./dist/components/Chip/index.d.ts",
+      "import": "./dist/components/Chip/index.js"
+    },
     "./components/Menu": {
       "types": "./dist/components/Menu/index.d.ts",
       "import": "./dist/components/Menu/index.js"
