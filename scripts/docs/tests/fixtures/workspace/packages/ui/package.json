@@ -1,0 +1,11 @@
+{
+  "name": "@fixture/ui",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./components/Alpha": "./src/entrypoints/components/Alpha.ts",
+    "./components/Compound": "./src/entrypoints/components/Compound.ts",
+    "./components/Zebra": "./src/entrypoints/components/Zebra.ts",
+    "./components/NoIndex": "./src/entrypoints/components/NoIndex.ts"
+  }
+}

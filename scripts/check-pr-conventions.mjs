@@ -5,7 +5,7 @@ const prTitle = process.env.PR_TITLE ?? '';
 const branchPattern =
   /^(feat|fix|chore)\/(?:[A-Z]+-[0-9]+-)?[a-z0-9][a-z0-9-]*$/;
 const conventionalTitlePattern =
-  /^(feat|fix|docs|chore|refactor|test|build|ci|perf|style)(\([a-z0-9-]+\))?!?: .+$/;
+  /^(feat|fix|docs|chore|refactor|test|build|ci|perf|style)(\([a-z0-9-]+(?:,[a-z0-9-]+)*\))?!?: .+$/;
 
 if (baseBranch !== 'develop') {
   console.log(`Skipping PR convention checks for base branch: ${baseBranch}`);

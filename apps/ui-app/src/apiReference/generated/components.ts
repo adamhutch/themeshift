@@ -1539,7 +1539,7 @@ export const components = [
       },
       {
         comments: 'Direction used to lay out actions.',
-        defaultValue: null,
+        defaultValue: 'row',
         displayDescription:
           'Flex layout helper for action groups inside Card sections.',
         displayName: 'Card.Actions',
@@ -1549,7 +1549,7 @@ export const components = [
       },
       {
         comments: 'Gap between actions.',
-        defaultValue: null,
+        defaultValue: 'medium',
         displayDescription:
           'Flex layout helper for action groups inside Card sections.',
         displayName: 'Card.Actions',
@@ -1569,7 +1569,7 @@ export const components = [
       },
       {
         comments: 'Allows actions to wrap onto multiple lines.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription:
           'Flex layout helper for action groups inside Card sections.',
         displayName: 'Card.Actions',
@@ -1579,7 +1579,7 @@ export const components = [
       },
       {
         comments: 'Edge offset between card bounds and badge.',
-        defaultValue: null,
+        defaultValue: 'small',
         displayDescription:
           'Positioned badge wrapper for card-local status and metadata indicators.',
         displayName: 'Card.Badge',
@@ -1589,7 +1589,7 @@ export const components = [
       },
       {
         comments: 'Positioned corner for the badge wrapper.',
-        defaultValue: null,
+        defaultValue: 'top-end',
         displayDescription:
           'Positioned badge wrapper for card-local status and metadata indicators.',
         displayName: 'Card.Badge',
@@ -1657,7 +1657,7 @@ export const components = [
       },
       {
         comments: 'Applies logical inset spacing based on divider orientation.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription:
           'Orientation-aware divider for separating card sections and inline groups.',
         displayName: 'Card.Divider',
@@ -1667,7 +1667,7 @@ export const components = [
       },
       {
         comments: 'Divider orientation.',
-        defaultValue: null,
+        defaultValue: 'horizontal',
         displayDescription:
           'Orientation-aware divider for separating card sections and inline groups.',
         displayName: 'Card.Divider',
@@ -1869,7 +1869,7 @@ export const components = [
       },
       {
         comments: 'Media ratio preset for the media region wrapper.',
-        defaultValue: null,
+        defaultValue: 'auto',
         displayDescription:
           'Media slot for layout-only media regions inside Card.',
         displayName: 'Card.Media',
@@ -1899,7 +1899,7 @@ export const components = [
       },
       {
         comments: 'Object-fit behavior applied to direct media descendants.',
-        defaultValue: null,
+        defaultValue: 'cover',
         displayDescription:
           'Media slot for layout-only media regions inside Card.',
         displayName: 'Card.Media',
@@ -1910,7 +1910,7 @@ export const components = [
       {
         comments:
           'Vertical position of the media section within the card stack.',
-        defaultValue: null,
+        defaultValue: 'top',
         displayDescription:
           'Media slot for layout-only media regions inside Card.',
         displayName: 'Card.Media',
@@ -2059,7 +2059,7 @@ export const components = [
       {
         comments:
           'Makes the checkbox wrapper span the full width of its container.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription:
           'A theme-aware native checkbox with optional indeterminate and Field wiring.',
         displayName: 'Checkbox',
@@ -2070,7 +2070,7 @@ export const components = [
       {
         comments:
           'Sets the checkbox to the mixed state.\n\nThis updates the DOM `indeterminate` property through JavaScript.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription:
           'A theme-aware native checkbox with optional indeterminate and Field wiring.',
         displayName: 'Checkbox',
@@ -2080,7 +2080,7 @@ export const components = [
       },
       {
         comments: 'Visual size for the control.',
-        defaultValue: null,
+        defaultValue: 'medium',
         displayDescription:
           'A theme-aware native checkbox with optional indeterminate and Field wiring.',
         displayName: 'Checkbox',
@@ -2130,6 +2130,452 @@ export const components = [
         defaultValue: null,
         typeName: 'CheckboxValidationState',
         values: ['none', 'invalid', 'valid', 'warning'],
+      },
+    ],
+    type: 'component',
+  },
+  {
+    apiReference: [
+      {
+        comments:
+          'Applies chip behavior and attributes to a single child element.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'asChild',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Optional avatar content rendered at the start of the chip.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'avatar',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments:
+          'Chip content. For plain text usage, content is wrapped with `Chip.Label`.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'children',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Additional class names for the chip root.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'className',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Semantic chip color.',
+        defaultValue: 'neutral',
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'color',
+        type: 'ChipColor',
+        values: ['neutral', 'accent', 'success', 'warning', 'danger'],
+      },
+      {
+        comments: 'Disables root and remove-action interactions.',
+        defaultValue: false,
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'disabled',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Optional icon content rendered at the end of the chip.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'endIcon',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments:
+          'Enables interactive root semantics.\n\nWhen true and `asChild` is false, the root renders a native button.',
+        defaultValue: false,
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'interactive',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Called when shorthand remove button is activated.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'onRemove',
+        type: '() => void',
+        values: [],
+      },
+      {
+        comments: 'Radius preset.',
+        defaultValue: 'full',
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'radius',
+        type: 'ChipRadius',
+        values: ['none', 'full', 'large', 'medium'],
+      },
+      {
+        comments: 'Enables shorthand remove button rendering.',
+        defaultValue: false,
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'removable',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Accessible label used by the shorthand remove button.',
+        defaultValue: 'Remove',
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'removeLabel',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Size preset.',
+        defaultValue: 'medium',
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'size',
+        type: 'ChipSize',
+        values: ['small', 'medium', 'large'],
+      },
+      {
+        comments: 'Optional icon content rendered at the start of the chip.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'startIcon',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Visual variant preset.',
+        defaultValue: 'subtle',
+        displayDescription:
+          'Theme-aware chip root primitive with shorthand and compound composition.',
+        displayName: 'Chip',
+        propName: 'variant',
+        type: 'ChipVariant',
+        values: ['subtle', 'outline', 'solid'],
+      },
+      {
+        comments: 'Optional image alternate text.',
+        defaultValue: null,
+        displayDescription: 'Avatar slot for identity visuals inside a chip.',
+        displayName: 'Chip.Avatar',
+        propName: 'alt',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Optional custom avatar content.',
+        defaultValue: null,
+        displayDescription: 'Avatar slot for identity visuals inside a chip.',
+        displayName: 'Chip.Avatar',
+        propName: 'children',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Additional class names for the avatar slot.',
+        defaultValue: null,
+        displayDescription: 'Avatar slot for identity visuals inside a chip.',
+        displayName: 'Chip.Avatar',
+        propName: 'className',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Optional fallback content when no image source is provided.',
+        defaultValue: null,
+        displayDescription: 'Avatar slot for identity visuals inside a chip.',
+        displayName: 'Chip.Avatar',
+        propName: 'fallback',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments:
+          'Name used to derive initials when no children/fallback are provided.',
+        defaultValue: null,
+        displayDescription: 'Avatar slot for identity visuals inside a chip.',
+        displayName: 'Chip.Avatar',
+        propName: 'name',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Optional image source URL.',
+        defaultValue: null,
+        displayDescription: 'Avatar slot for identity visuals inside a chip.',
+        displayName: 'Chip.Avatar',
+        propName: 'src',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Optional accessible label for grouped chips.',
+        defaultValue: null,
+        displayDescription: 'Layout-only chip group primitive.',
+        displayName: 'Chip.Group',
+        propName: 'aria-label',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Optional accessible label relationship for grouped chips.',
+        defaultValue: null,
+        displayDescription: 'Layout-only chip group primitive.',
+        displayName: 'Chip.Group',
+        propName: 'aria-labelledby',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Chip items and related inline content.',
+        defaultValue: null,
+        displayDescription: 'Layout-only chip group primitive.',
+        displayName: 'Chip.Group',
+        propName: 'children',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Additional class names for the group wrapper.',
+        defaultValue: null,
+        displayDescription: 'Layout-only chip group primitive.',
+        displayName: 'Chip.Group',
+        propName: 'className',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Gap metadata for convenience wrappers.',
+        defaultValue: 'small',
+        displayDescription: 'Layout-only chip group primitive.',
+        displayName: 'Chip.Group',
+        propName: 'gap',
+        type: 'ChipGroupGap',
+        values: ['xSmall', 'small', 'medium'],
+      },
+      {
+        comments: 'Orientation metadata for convenience wrappers.',
+        defaultValue: 'horizontal',
+        displayDescription: 'Layout-only chip group primitive.',
+        displayName: 'Chip.Group',
+        propName: 'orientation',
+        type: 'ChipGroupOrientation',
+        values: ['horizontal', 'vertical'],
+      },
+      {
+        comments: 'Wrap behavior metadata for convenience wrappers.',
+        defaultValue: true,
+        displayDescription: 'Layout-only chip group primitive.',
+        displayName: 'Chip.Group',
+        propName: 'wrap',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Icon content.',
+        defaultValue: null,
+        displayDescription: 'Icon slot for start and end adornments.',
+        displayName: 'Chip.Icon',
+        propName: 'children',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Additional class names for the icon slot.',
+        defaultValue: null,
+        displayDescription: 'Icon slot for start and end adornments.',
+        displayName: 'Chip.Icon',
+        propName: 'className',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Marks the icon as decorative by default.',
+        defaultValue: true,
+        displayDescription: 'Icon slot for start and end adornments.',
+        displayName: 'Chip.Icon',
+        propName: 'decorative',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Position metadata for convenience wrappers.',
+        defaultValue: 'start',
+        displayDescription: 'Icon slot for start and end adornments.',
+        displayName: 'Chip.Icon',
+        propName: 'position',
+        type: "'start' | 'end'",
+        values: ['start', 'end'],
+      },
+      {
+        comments: 'Label content.',
+        defaultValue: null,
+        displayDescription: 'Label slot for Chip text content.',
+        displayName: 'Chip.Label',
+        propName: 'children',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Additional class names for the label.',
+        defaultValue: null,
+        displayDescription: 'Label slot for Chip text content.',
+        displayName: 'Chip.Label',
+        propName: 'className',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Enables single-line truncation behavior.',
+        defaultValue: false,
+        displayDescription: 'Label slot for Chip text content.',
+        displayName: 'Chip.Label',
+        propName: 'truncate',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Accessible name for the remove action.',
+        defaultValue: null,
+        displayDescription:
+          'Remove-action button slot for dismissible chip patterns.',
+        displayName: 'Chip.RemoveButton',
+        propName: 'aria-label',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Optional custom button content.',
+        defaultValue: null,
+        displayDescription:
+          'Remove-action button slot for dismissible chip patterns.',
+        displayName: 'Chip.RemoveButton',
+        propName: 'children',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Additional class names for the remove button.',
+        defaultValue: null,
+        displayDescription:
+          'Remove-action button slot for dismissible chip patterns.',
+        displayName: 'Chip.RemoveButton',
+        propName: 'className',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Explicit disabled override.',
+        defaultValue: null,
+        displayDescription:
+          'Remove-action button slot for dismissible chip patterns.',
+        displayName: 'Chip.RemoveButton',
+        propName: 'disabled',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Called after the default stop-propagation behavior.',
+        defaultValue: null,
+        displayDescription:
+          'Remove-action button slot for dismissible chip patterns.',
+        displayName: 'Chip.RemoveButton',
+        propName: 'onClick',
+        type: 'React.MouseEventHandler<HTMLButtonElement>',
+        values: [],
+      },
+    ],
+    name: 'Chip',
+    exportName: 'Chip',
+    importPath: '@themeshift/ui/components/Chip',
+    importString: "import { Chip } from '@themeshift/ui/components/Chip';",
+    meta: {
+      category: 'inputs-forms',
+      description:
+        'A composable chip primitive with headless and styled APIs for labels, icons, avatars, and remove actions.',
+      tags: ['chip', 'tag', 'pill', 'compound', 'a11y'],
+      order: 46,
+      status: 'experimental',
+      hasHeadlessVersion: true,
+      related: ['Badge', 'Avatar', 'Radio', 'ToggleSwitch'],
+      type: 'component',
+    },
+    slug: 'chip',
+    routeSlug: 'chip',
+    sourceCodeUrl:
+      'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/Chip',
+    typesReference: [
+      {
+        comments: 'Semantic color intent used by Chip primitives.',
+        defaultValue: null,
+        typeName: 'ChipColor',
+        values: ['neutral', 'accent', 'success', 'warning', 'danger'],
+      },
+      {
+        comments: 'Border radius presets used by Chip primitives.',
+        defaultValue: null,
+        typeName: 'ChipRadius',
+        values: ['none', 'full', 'large', 'medium'],
+      },
+      {
+        comments: 'Visual size scale used by Chip primitives.',
+        defaultValue: null,
+        typeName: 'ChipSize',
+        values: ['small', 'medium', 'large'],
+      },
+      {
+        comments: 'Visual style treatment used by Chip primitives.',
+        defaultValue: null,
+        typeName: 'ChipVariant',
+        values: ['subtle', 'outline', 'solid'],
+      },
+      {
+        comments: 'Spacing scale used by `Chip.Group`.',
+        defaultValue: null,
+        typeName: 'ChipGroupGap',
+        values: ['xSmall', 'small', 'medium'],
+      },
+      {
+        comments: 'Layout direction used by `Chip.Group`.',
+        defaultValue: null,
+        typeName: 'ChipGroupOrientation',
+        values: ['horizontal', 'vertical'],
       },
     ],
     type: 'component',
@@ -2588,6 +3034,388 @@ export const components = [
         defaultValue: null,
         typeName: 'FieldLayout',
         values: ['stacked', 'inline-control'],
+      },
+    ],
+    type: 'component',
+  },
+  {
+    apiReference: [
+      {
+        comments: 'Applies behavior and attributes to a single child element.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'asChild',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Optional avatar content rendered before the label.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'avatar',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Chip content.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'children',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Additional class names for the root element.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'className',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Semantic color preset.',
+        defaultValue: 'neutral',
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'color',
+        type: 'FilterChipColor',
+        values: ['neutral', 'accent', 'success', 'warning', 'danger'],
+      },
+      {
+        comments: 'Initial selected state for uncontrolled usage.',
+        defaultValue: false,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'defaultSelected',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Disables interaction.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'disabled',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Optional icon content rendered after the label.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'endIcon',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Hides selected-state icon rendering.',
+        defaultValue: false,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'hideSelectedIcon',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Called with the next selected state.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'onSelectedChange',
+        type: '(selected: boolean) => void',
+        values: [],
+      },
+      {
+        comments:
+          'Reserves selected-icon layout space while unselected.\n\nUse this to prevent label/content shifting when the selected icon appears.',
+        defaultValue: true,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'reserveSelectedIconSpace',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Controlled selected state.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'selected',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments:
+          'Optional selected-state icon content.\n\nSet to `true` to use the default check icon.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'selectedIcon',
+        type: 'ReactNode | boolean',
+        values: [],
+      },
+      {
+        comments: 'Visual size preset.',
+        defaultValue: 'medium',
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'size',
+        type: 'FilterChipSize',
+        values: ['small', 'medium', 'large'],
+      },
+      {
+        comments: 'Optional icon content rendered before the label.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'startIcon',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Optional selection value used by `FilterChip.Group`.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'value',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Visual variant preset.',
+        defaultValue: 'subtle',
+        displayDescription:
+          'Theme-aware filter chip built on top of the headless toggle primitive and `Chip` layout composition.',
+        displayName: 'FilterChip',
+        propName: 'variant',
+        type: 'FilterChipVariant',
+        values: ['subtle', 'outline', 'solid'],
+      },
+      {
+        comments: 'Optional accessible label for grouped chips.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware grouped filter chip primitive with built-in selection state behavior.',
+        displayName: 'FilterChip.Group',
+        propName: 'aria-label',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Optional accessible label relationship for grouped chips.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware grouped filter chip primitive with built-in selection state behavior.',
+        displayName: 'FilterChip.Group',
+        propName: 'aria-labelledby',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Filter chips and related inline content.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware grouped filter chip primitive with built-in selection state behavior.',
+        displayName: 'FilterChip.Group',
+        propName: 'children',
+        type: 'ReactNode',
+        values: [],
+      },
+      {
+        comments: 'Additional class names for the group wrapper.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware grouped filter chip primitive with built-in selection state behavior.',
+        displayName: 'FilterChip.Group',
+        propName: 'className',
+        type: 'string',
+        values: [],
+      },
+      {
+        comments: 'Initial group value for uncontrolled usage.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware grouped filter chip primitive with built-in selection state behavior.',
+        displayName: 'FilterChip.Group',
+        propName: 'defaultValue',
+        type: 'FilterChipGroupValue',
+        values: [],
+      },
+      {
+        comments: 'Disables all group descendants.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware grouped filter chip primitive with built-in selection state behavior.',
+        displayName: 'FilterChip.Group',
+        propName: 'disabled',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Gap preset for grouped chips.',
+        defaultValue: 'small',
+        displayDescription:
+          'Theme-aware grouped filter chip primitive with built-in selection state behavior.',
+        displayName: 'FilterChip.Group',
+        propName: 'gap',
+        type: 'FilterChipGroupGap',
+        values: ['xSmall', 'small', 'medium'],
+      },
+      {
+        comments: 'Called with the next group value.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware grouped filter chip primitive with built-in selection state behavior.',
+        displayName: 'FilterChip.Group',
+        propName: 'onValueChange',
+        type: '(value: FilterChipGroupValue) => void',
+        values: [],
+      },
+      {
+        comments: 'Layout direction for grouped chips.',
+        defaultValue: 'horizontal',
+        displayDescription:
+          'Theme-aware grouped filter chip primitive with built-in selection state behavior.',
+        displayName: 'FilterChip.Group',
+        propName: 'orientation',
+        type: 'FilterChipGroupOrientation',
+        values: ['horizontal', 'vertical'],
+      },
+      {
+        comments: 'Selection behavior for descendants.',
+        defaultValue: 'multiple',
+        displayDescription:
+          'Theme-aware grouped filter chip primitive with built-in selection state behavior.',
+        displayName: 'FilterChip.Group',
+        propName: 'type',
+        type: 'FilterChipGroupType',
+        values: ['single', 'multiple'],
+      },
+      {
+        comments: 'Controlled group value.',
+        defaultValue: null,
+        displayDescription:
+          'Theme-aware grouped filter chip primitive with built-in selection state behavior.',
+        displayName: 'FilterChip.Group',
+        propName: 'value',
+        type: 'FilterChipGroupValue',
+        values: [],
+      },
+      {
+        comments: 'Wrap behavior for grouped chips.',
+        defaultValue: true,
+        displayDescription:
+          'Theme-aware grouped filter chip primitive with built-in selection state behavior.',
+        displayName: 'FilterChip.Group',
+        propName: 'wrap',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Disabled state override for hidden inputs.',
+        defaultValue: null,
+        displayDescription:
+          'Hidden input serializer for integrating `FilterChip.Group` with native form submission.',
+        displayName: 'FilterChip.HiddenInput',
+        propName: 'disabled',
+        type: 'boolean',
+        values: [],
+      },
+      {
+        comments: 'Form field name used for hidden input serialization.',
+        defaultValue: null,
+        displayDescription:
+          'Hidden input serializer for integrating `FilterChip.Group` with native form submission.',
+        displayName: 'FilterChip.HiddenInput',
+        propName: 'name',
+        type: 'string',
+        values: [],
+      },
+    ],
+    name: 'FilterChip',
+    exportName: 'FilterChip',
+    importPath: '@themeshift/ui/components/FilterChip',
+    importString:
+      "import { FilterChip } from '@themeshift/ui/components/FilterChip';",
+    meta: {
+      category: 'inputs-forms',
+      description:
+        'A selectable chip variant with toggle semantics, group state, and optional hidden input serialization.',
+      tags: ['chip', 'filter', 'toggle', 'selection', 'a11y'],
+      order: 47,
+      status: 'experimental',
+      hasHeadlessVersion: true,
+      related: ['Chip', 'Checkbox', 'Radio', 'ToggleSwitch'],
+      type: 'component',
+    },
+    slug: 'filterchip',
+    routeSlug: 'filter-chip',
+    sourceCodeUrl:
+      'https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/FilterChip',
+    typesReference: [
+      {
+        comments: 'Visual size scale used by FilterChip primitives.',
+        defaultValue: null,
+        typeName: 'FilterChipSize',
+        values: ['small', 'medium', 'large'],
+      },
+      {
+        comments: 'Visual style treatment used by FilterChip primitives.',
+        defaultValue: null,
+        typeName: 'FilterChipVariant',
+        values: ['subtle', 'outline', 'solid'],
+      },
+      {
+        comments: 'Semantic color intent used by FilterChip primitives.',
+        defaultValue: null,
+        typeName: 'FilterChipColor',
+        values: ['neutral', 'accent', 'success', 'warning', 'danger'],
+      },
+      {
+        comments: 'Selection behavior used by `FilterChip.Group`.',
+        defaultValue: null,
+        typeName: 'FilterChipGroupType',
+        values: ['single', 'multiple'],
+      },
+      {
+        comments:
+          'Controlled or uncontrolled value shape used by `FilterChip.Group`.',
+        defaultValue: null,
+        typeName: 'FilterChipGroupValue',
+        values: [],
+      },
+      {
+        comments: 'Layout direction used by `FilterChip.Group`.',
+        defaultValue: null,
+        typeName: 'FilterChipGroupOrientation',
+        values: ['horizontal', 'vertical'],
+      },
+      {
+        comments: 'Spacing scale used by `FilterChip.Group`.',
+        defaultValue: null,
+        typeName: 'FilterChipGroupGap',
+        values: ['xSmall', 'small', 'medium'],
       },
     ],
     type: 'component',
@@ -3220,7 +4048,7 @@ export const components = [
       },
       {
         comments: 'Makes the input span the full width of its container.',
-        defaultValue: null,
+        defaultValue: true,
         displayDescription:
           'A theme-aware text input with size, adornment, and validation variants.',
         displayName: 'Input',
@@ -3240,7 +4068,7 @@ export const components = [
       },
       {
         comments: 'Visual size for the control.',
-        defaultValue: null,
+        defaultValue: 'medium',
         displayDescription:
           'A theme-aware text input with size, adornment, and validation variants.',
         displayName: 'Input',
@@ -6866,7 +7694,7 @@ export const components = [
       },
       {
         comments: 'Makes the select span the full width of its container.',
-        defaultValue: null,
+        defaultValue: true,
         displayDescription:
           'A theme-aware select control with native behavior and Field integration.',
         displayName: 'Select',
@@ -6898,7 +7726,7 @@ export const components = [
       },
       {
         comments: 'Visual size for the control.',
-        defaultValue: null,
+        defaultValue: 'medium',
         displayDescription:
           'A theme-aware select control with native behavior and Field integration.',
         displayName: 'Select',
@@ -9198,7 +10026,7 @@ export const components = [
     apiReference: [
       {
         comments: 'Shows a border around the table shell.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription: '',
         displayName: 'Table',
         propName: 'border',
@@ -9254,7 +10082,7 @@ export const components = [
       },
       {
         comments: 'Density preset applied to row spacing.',
-        defaultValue: null,
+        defaultValue: 'comfortable',
         displayDescription: '',
         displayName: 'Table',
         propName: 'density',
@@ -9273,7 +10101,7 @@ export const components = [
       },
       {
         comments: 'Makes the table span the full available inline size.',
-        defaultValue: null,
+        defaultValue: true,
         displayDescription: '',
         displayName: 'Table',
         propName: 'fullWidth',
@@ -9300,7 +10128,7 @@ export const components = [
       },
       {
         comments: 'Enables hover background styles for rows.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription: '',
         displayName: 'Table',
         propName: 'hover',
@@ -9309,7 +10137,7 @@ export const components = [
       },
       {
         comments: 'Responsive table behavior mode.',
-        defaultValue: null,
+        defaultValue: 'none',
         displayDescription: '',
         displayName: 'Table',
         propName: 'responsive',
@@ -9318,7 +10146,7 @@ export const components = [
       },
       {
         comments: 'Breakpoint used by table-level responsive mode.',
-        defaultValue: null,
+        defaultValue: 'tablet',
         displayDescription: '',
         displayName: 'Table',
         propName: 'responsiveBreakpoint',
@@ -9327,7 +10155,7 @@ export const components = [
       },
       {
         comments: 'Size preset applied to typography and spacing scale.',
-        defaultValue: null,
+        defaultValue: 'medium',
         displayDescription: '',
         displayName: 'Table',
         propName: 'size',
@@ -9336,7 +10164,7 @@ export const components = [
       },
       {
         comments: 'Enables striped row backgrounds.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription: '',
         displayName: 'Table',
         propName: 'striped',
@@ -9354,7 +10182,7 @@ export const components = [
       },
       {
         comments: 'Surface style for table background treatments.',
-        defaultValue: null,
+        defaultValue: 'default',
         displayDescription: '',
         displayName: 'Table',
         propName: 'surface',
@@ -9408,7 +10236,7 @@ export const components = [
       },
       {
         comments: 'Placement control for caption visual position.',
-        defaultValue: null,
+        defaultValue: 'top',
         displayDescription: '',
         displayName: 'Table.Caption',
         propName: 'placement',
@@ -9427,7 +10255,7 @@ export const components = [
       {
         comments:
           'Renders the caption visually hidden while preserving semantics.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription: '',
         displayName: 'Table.Caption',
         propName: 'visuallyHidden',
@@ -9445,7 +10273,7 @@ export const components = [
       },
       {
         comments: 'Data or header cell element to render.',
-        defaultValue: null,
+        defaultValue: 'td',
         displayDescription: '',
         displayName: 'Table.Cell',
         propName: 'as',
@@ -9517,7 +10345,7 @@ export const components = [
       },
       {
         comments: 'Pins the cell to inline-start with sticky positioning.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription: '',
         displayName: 'Table.Cell',
         propName: 'sticky',
@@ -9545,7 +10373,7 @@ export const components = [
       },
       {
         comments: 'Vertical alignment for cell content.',
-        defaultValue: null,
+        defaultValue: 'middle',
         displayDescription: '',
         displayName: 'Table.Cell',
         propName: 'verticalAlign',
@@ -9599,7 +10427,7 @@ export const components = [
       },
       {
         comments: 'Scroll direction behavior for the container.',
-        defaultValue: null,
+        defaultValue: 'none',
         displayDescription: '',
         displayName: 'Table.Container',
         propName: 'scroll',
@@ -9680,7 +10508,7 @@ export const components = [
       },
       {
         comments: 'Pins the cell to inline-start with sticky positioning.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription: '',
         displayName: 'Table.Data',
         propName: 'sticky',
@@ -9708,7 +10536,7 @@ export const components = [
       },
       {
         comments: 'Vertical alignment for cell content.',
-        defaultValue: null,
+        defaultValue: 'middle',
         displayDescription: '',
         displayName: 'Table.Data',
         propName: 'verticalAlign',
@@ -9782,7 +10610,7 @@ export const components = [
       },
       {
         comments: 'Optional title content for the built-in empty-state layout.',
-        defaultValue: null,
+        defaultValue: 'No data available',
         displayDescription: '',
         displayName: 'Table.Empty',
         propName: 'title',
@@ -9836,7 +10664,7 @@ export const components = [
       },
       {
         comments: 'Enables sticky header positioning.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription: '',
         displayName: 'Table.Head',
         propName: 'sticky',
@@ -9926,7 +10754,7 @@ export const components = [
       },
       {
         comments: 'Header scope for table semantics.',
-        defaultValue: null,
+        defaultValue: 'col',
         displayDescription: '',
         displayName: 'Table.Header',
         propName: 'scope',
@@ -9944,7 +10772,7 @@ export const components = [
       },
       {
         comments: 'Pins the cell to inline-start with sticky positioning.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription: '',
         displayName: 'Table.Header',
         propName: 'sticky',
@@ -9972,7 +10800,7 @@ export const components = [
       },
       {
         comments: 'Vertical alignment for cell content.',
-        defaultValue: null,
+        defaultValue: 'middle',
         displayDescription: '',
         displayName: 'Table.Header',
         propName: 'verticalAlign',
@@ -10008,7 +10836,7 @@ export const components = [
       },
       {
         comments: 'Disables row interaction styling and event handling.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription: '',
         displayName: 'Table.Row',
         propName: 'disabled',
@@ -10054,7 +10882,7 @@ export const components = [
       {
         comments:
           'Visual selected state with matching `aria-selected` semantics.',
-        defaultValue: null,
+        defaultValue: false,
         displayDescription: '',
         displayName: 'Table.Row',
         propName: 'selected',
@@ -10540,7 +11368,7 @@ export const components = [
     apiReference: [
       {
         comments: 'Makes the textarea span the full width of its container.',
-        defaultValue: null,
+        defaultValue: true,
         displayDescription:
           'A theme-aware textarea with native and autosize resize modes.',
         displayName: 'Textarea',
@@ -10570,7 +11398,7 @@ export const components = [
       },
       {
         comments: 'Resize behavior for the control.',
-        defaultValue: null,
+        defaultValue: 'vertical',
         displayDescription:
           'A theme-aware textarea with native and autosize resize modes.',
         displayName: 'Textarea',
@@ -10580,7 +11408,7 @@ export const components = [
       },
       {
         comments: 'Visual size for the control.',
-        defaultValue: null,
+        defaultValue: 'medium',
         displayDescription:
           'A theme-aware textarea with native and autosize resize modes.',
         displayName: 'Textarea',
@@ -10654,7 +11482,7 @@ export const components = [
       },
       {
         comments: 'Visual style used for the thumb color.',
-        defaultValue: null,
+        defaultValue: 'primary',
         displayDescription:
           'A theme-aware switch built on top of a native checkbox input.',
         displayName: 'ToggleSwitch',
@@ -10674,7 +11502,7 @@ export const components = [
       },
       {
         comments: 'Size option for the track and thumb.',
-        defaultValue: null,
+        defaultValue: 'medium',
         displayDescription:
           'A theme-aware switch built on top of a native checkbox input.',
         displayName: 'ToggleSwitch',

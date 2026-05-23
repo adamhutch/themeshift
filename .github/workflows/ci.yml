@@ -65,6 +65,9 @@ jobs:
       # Confirm generated README badges match the current package surface
       - run: pnpm docs:check-badges
 
+      # Run docs data collection regression tests
+      - run: pnpm test:docs-scripts
+
       - name: Configure Turborepo SCM range
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then

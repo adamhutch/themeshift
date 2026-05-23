@@ -54,6 +54,10 @@
       "types": "./dist/components/Checkbox/index.d.ts",
       "import": "./dist/components/Checkbox/index.js"
     },
+    "./components/Chip": {
+      "types": "./dist/components/Chip/index.d.ts",
+      "import": "./dist/components/Chip/index.js"
+    },
     "./components/CopyButton": {
       "types": "./dist/components/CopyButton/index.d.ts",
       "import": "./dist/components/CopyButton/index.js"
@@ -65,6 +69,10 @@
     "./components/Field": {
       "types": "./dist/components/Field/index.d.ts",
       "import": "./dist/components/Field/index.js"
+    },
+    "./components/FilterChip": {
+      "types": "./dist/components/FilterChip/index.d.ts",
+      "import": "./dist/components/FilterChip/index.js"
     },
     "./components/Flex": {
       "types": "./dist/components/Flex/index.d.ts",

@@ -1,0 +1,136 @@
+[
+  {
+    "apiReference": [
+      {
+        "comments": "Enables active visuals.",
+        "defaultValue": false,
+        "displayDescription": "Alpha fixture docs description.",
+        "displayName": "Alpha",
+        "propName": "active",
+        "type": "boolean",
+        "values": []
+      },
+      {
+        "comments": "Optional asChild composition.",
+        "defaultValue": null,
+        "displayDescription": "Alpha fixture docs description.",
+        "displayName": "Alpha",
+        "propName": "asChild",
+        "type": "boolean",
+        "values": []
+      },
+      {
+        "comments": "Numeric count badge.",
+        "defaultValue": 1,
+        "displayDescription": "Alpha fixture docs description.",
+        "displayName": "Alpha",
+        "propName": "count",
+        "type": "number",
+        "values": []
+      },
+      {
+        "comments": "Secondary label text.",
+        "defaultValue": "ready",
+        "displayDescription": "Alpha fixture docs description.",
+        "displayName": "Alpha",
+        "propName": "note",
+        "type": "string",
+        "values": []
+      },
+      {
+        "comments": "Visual tone for Alpha.",
+        "defaultValue": "neutral",
+        "displayDescription": "Alpha fixture docs description.",
+        "displayName": "Alpha",
+        "propName": "tone",
+        "type": "AlphaTone",
+        "values": ["neutral", "brand"]
+      }
+    ],
+    "name": "Alpha",
+    "exportName": "Alpha",
+    "importPath": "@themeshift/ui/components/Alpha",
+    "importString": "import { Alpha } from '@themeshift/ui/components/Alpha';",
+    "meta": {
+      "category": "forms",
+      "description": "Fixture alpha component",
+      "type": "component"
+    },
+    "slug": "alpha",
+    "routeSlug": "alpha",
+    "sourceCodeUrl": "https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/Alpha",
+    "typesReference": [
+      {
+        "comments": "",
+        "defaultValue": null,
+        "typeName": "AlphaTone",
+        "values": ["neutral", "brand"]
+      }
+    ],
+    "type": "component"
+  },
+  {
+    "apiReference": [
+      {
+        "comments": "Optional asChild composition.",
+        "defaultValue": null,
+        "displayDescription": "Compound root fixture docs description.",
+        "displayName": "Compound",
+        "propName": "asChild",
+        "type": "boolean",
+        "values": []
+      },
+      {
+        "comments": "Compound root size.",
+        "defaultValue": "sm",
+        "displayDescription": "Compound root fixture docs description.",
+        "displayName": "Compound",
+        "propName": "size",
+        "type": "'sm' | 'lg'",
+        "values": ["sm", "lg"]
+      },
+      {
+        "comments": "Label emphasis.",
+        "defaultValue": "normal",
+        "displayDescription": "Compound label fixture docs description.",
+        "displayName": "Compound.Label",
+        "propName": "emphasis",
+        "type": "'normal' | 'strong'",
+        "values": ["normal", "strong"]
+      }
+    ],
+    "name": "Compound",
+    "exportName": "Compound",
+    "importPath": "@themeshift/ui/components/Compound",
+    "importString": "import { Compound } from '@themeshift/ui/components/Compound';",
+    "meta": null,
+    "slug": "compound",
+    "routeSlug": "compound",
+    "sourceCodeUrl": "https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/Compound",
+    "typesReference": [],
+    "type": "component"
+  },
+  {
+    "apiReference": [
+      {
+        "comments": "Enables striping.",
+        "defaultValue": true,
+        "displayDescription": "Zebra fixture docs description.",
+        "displayName": "Zebra",
+        "propName": "striped",
+        "type": "boolean",
+        "values": []
+      }
+    ],
+    "name": "Zebra",
+    "exportName": "Zebra",
+    "importPath": "@themeshift/ui/components/Zebra",
+    "importString": "import { Zebra } from '@themeshift/ui/components/Zebra';",
+    "meta": null,
+    "slug": "zebra",
+    "routeSlug": "zebra",
+    "sourceCodeUrl": "https://github.com/themeshift-dev/themeshift/tree/develop/packages/ui/src/components/Zebra",
+    "typesReference": [],
+    "type": "component"
+  }
+]
