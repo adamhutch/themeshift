@@ -582,6 +582,113 @@
   --themeshift-components-checkbox-validation-invalid-border: #ef5350;
   --themeshift-components-checkbox-validation-valid-border: #66bb6a;
   --themeshift-components-checkbox-validation-warning-border: #29b6f6;
+  --themeshift-components-chip-avatar-radius: 4rem;
+  --themeshift-components-chip-avatar-size: 1rem;
+  --themeshift-components-chip-group-gap-medium: 0.75rem;
+  --themeshift-components-chip-group-gap-small: 0.5rem;
+  --themeshift-components-chip-group-gap-x-small: 0.25rem;
+  --themeshift-components-chip-layout-gap: 0.25rem;
+  --themeshift-components-chip-layout-gap-large: 0.5rem;
+  --themeshift-components-chip-layout-gap-small: 0.25rem;
+  --themeshift-components-chip-radius-full: 4rem;
+  --themeshift-components-chip-radius-large: 0.5rem;
+  --themeshift-components-chip-radius-medium: 0.25rem;
+  --themeshift-components-chip-radius-none: 0px;
+  --themeshift-components-chip-remove-button-size: 1rem;
+  --themeshift-components-chip-size-large-height: 1.75rem;
+  --themeshift-components-chip-size-large-padding-block: 0.25rem;
+  --themeshift-components-chip-size-large-padding-inline: 0.75rem;
+  --themeshift-components-chip-size-medium-height: 1.5rem;
+  --themeshift-components-chip-size-medium-padding-block: 0.25rem;
+  --themeshift-components-chip-size-medium-padding-inline: 0.5rem;
+  --themeshift-components-chip-size-small-height: 1.25rem;
+  --themeshift-components-chip-size-small-padding-block: 0.25rem;
+  --themeshift-components-chip-size-small-padding-inline: 0.5rem;
+  --themeshift-components-chip-variant-accent-outline-background: transparent;
+  --themeshift-components-chip-variant-accent-outline-border: #3f51b5;
+  --themeshift-components-chip-variant-accent-outline-text: #4fc3f7;
+  --themeshift-components-chip-variant-accent-solid-background: #3f51b5;
+  --themeshift-components-chip-variant-accent-solid-border: #3f51b5;
+  --themeshift-components-chip-variant-accent-solid-text: #fff;
+  --themeshift-components-chip-variant-accent-subtle-background: #1a237e;
+  --themeshift-components-chip-variant-accent-subtle-border: #283593;
+  --themeshift-components-chip-variant-accent-subtle-text: rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+  --themeshift-components-chip-variant-danger-outline-background: transparent;
+  --themeshift-components-chip-variant-danger-outline-border: #f44336;
+  --themeshift-components-chip-variant-danger-outline-text: #e57373;
+  --themeshift-components-chip-variant-danger-solid-background: #f44336;
+  --themeshift-components-chip-variant-danger-solid-border: #f44336;
+  --themeshift-components-chip-variant-danger-solid-text: #000;
+  --themeshift-components-chip-variant-danger-subtle-background: #b71c1c;
+  --themeshift-components-chip-variant-danger-subtle-border: #c62828;
+  --themeshift-components-chip-variant-danger-subtle-text: rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+  --themeshift-components-chip-variant-neutral-outline-background: transparent;
+  --themeshift-components-chip-variant-neutral-outline-border: rgba(
+    255,
+    255,
+    255,
+    0.3
+  );
+  --themeshift-components-chip-variant-neutral-outline-text: rgba(
+    255,
+    255,
+    255,
+    0.8
+  );
+  --themeshift-components-chip-variant-neutral-solid-background: #757575;
+  --themeshift-components-chip-variant-neutral-solid-border: #757575;
+  --themeshift-components-chip-variant-neutral-solid-text: #fff;
+  --themeshift-components-chip-variant-neutral-subtle-background: rgba(
+    255,
+    255,
+    255,
+    0.1
+  );
+  --themeshift-components-chip-variant-neutral-subtle-border: rgba(
+    255,
+    255,
+    255,
+    0.1
+  );
+  --themeshift-components-chip-variant-neutral-subtle-text: rgba(
+    255,
+    255,
+    255,
+    0.8
+  );
+  --themeshift-components-chip-variant-success-outline-background: transparent;
+  --themeshift-components-chip-variant-success-outline-border: #4caf50;
+  --themeshift-components-chip-variant-success-outline-text: #81c784;
+  --themeshift-components-chip-variant-success-solid-background: #4caf50;
+  --themeshift-components-chip-variant-success-solid-border: #4caf50;
+  --themeshift-components-chip-variant-success-solid-text: #000;
+  --themeshift-components-chip-variant-success-subtle-background: #1b5e20;
+  --themeshift-components-chip-variant-success-subtle-border: #2e7d32;
+  --themeshift-components-chip-variant-success-subtle-text: rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+  --themeshift-components-chip-variant-warning-outline-background: transparent;
+  --themeshift-components-chip-variant-warning-outline-border: #d89a00;
+  --themeshift-components-chip-variant-warning-outline-text: #ffd98a;
+  --themeshift-components-chip-variant-warning-solid-background: #d89a00;
+  --themeshift-components-chip-variant-warning-solid-border: #d89a00;
+  --themeshift-components-chip-variant-warning-solid-text: #000;
+  --themeshift-components-chip-variant-warning-subtle-background: #4a3500;
+  --themeshift-components-chip-variant-warning-subtle-border: #5e4300;
+  --themeshift-components-chip-variant-warning-subtle-text: #ffd98a;
   --themeshift-components-field-description: rgba(255, 255, 255, 0.7);
   --themeshift-components-field-error: #ef5350;
   --themeshift-components-field-indicator-optional: rgba(255, 255, 255, 0.6);
@@ -590,6 +697,51 @@
   --themeshift-components-field-layout-inline-control-gap: 0.75rem;
   --themeshift-components-field-layout-inline-row-gap: 0.25rem;
   --themeshift-components-field-layout-label-gap: 0.25rem;
+  --themeshift-components-filter-chip-selected-variant-accent-outline-background: #3f51b5;
+  --themeshift-components-filter-chip-selected-variant-accent-outline-border: #3f51b5;
+  --themeshift-components-filter-chip-selected-variant-accent-outline-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-accent-solid-background: #3f51b5;
+  --themeshift-components-filter-chip-selected-variant-accent-solid-border: #3f51b5;
+  --themeshift-components-filter-chip-selected-variant-accent-solid-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-accent-subtle-background: #3f51b5;
+  --themeshift-components-filter-chip-selected-variant-accent-subtle-border: #3f51b5;
+  --themeshift-components-filter-chip-selected-variant-accent-subtle-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-danger-outline-background: #f44336;
+  --themeshift-components-filter-chip-selected-variant-danger-outline-border: #f44336;
+  --themeshift-components-filter-chip-selected-variant-danger-outline-text: #000;
+  --themeshift-components-filter-chip-selected-variant-danger-solid-background: #f44336;
+  --themeshift-components-filter-chip-selected-variant-danger-solid-border: #f44336;
+  --themeshift-components-filter-chip-selected-variant-danger-solid-text: #000;
+  --themeshift-components-filter-chip-selected-variant-danger-subtle-background: #f44336;
+  --themeshift-components-filter-chip-selected-variant-danger-subtle-border: #f44336;
+  --themeshift-components-filter-chip-selected-variant-danger-subtle-text: #000;
+  --themeshift-components-filter-chip-selected-variant-neutral-outline-background: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-outline-border: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-outline-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-neutral-solid-background: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-solid-border: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-solid-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-neutral-subtle-background: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-subtle-border: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-subtle-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-success-outline-background: #4caf50;
+  --themeshift-components-filter-chip-selected-variant-success-outline-border: #4caf50;
+  --themeshift-components-filter-chip-selected-variant-success-outline-text: #000;
+  --themeshift-components-filter-chip-selected-variant-success-solid-background: #4caf50;
+  --themeshift-components-filter-chip-selected-variant-success-solid-border: #4caf50;
+  --themeshift-components-filter-chip-selected-variant-success-solid-text: #000;
+  --themeshift-components-filter-chip-selected-variant-success-subtle-background: #4caf50;
+  --themeshift-components-filter-chip-selected-variant-success-subtle-border: #4caf50;
+  --themeshift-components-filter-chip-selected-variant-success-subtle-text: #000;
+  --themeshift-components-filter-chip-selected-variant-warning-outline-background: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-outline-border: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-outline-text: #000;
+  --themeshift-components-filter-chip-selected-variant-warning-solid-background: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-solid-border: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-solid-text: #000;
+  --themeshift-components-filter-chip-selected-variant-warning-subtle-background: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-subtle-border: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-subtle-text: #000;
   --themeshift-components-input-adornment: rgba(255, 255, 255, 0.7);
   --themeshift-components-input-background: rgba(255, 255, 255, 0.1);
   --themeshift-components-input-border: rgba(255, 255, 255, 0.2);
@@ -1267,10 +1419,100 @@
   --themeshift-components-checkbox-validation-invalid-border: #ef5350;
   --themeshift-components-checkbox-validation-valid-border: #66bb6a;
   --themeshift-components-checkbox-validation-warning-border: #29b6f6;
+  --themeshift-components-chip-variant-accent-outline-background: transparent;
+  --themeshift-components-chip-variant-accent-outline-border: #7986cb;
+  --themeshift-components-chip-variant-accent-outline-text: #283593;
+  --themeshift-components-chip-variant-accent-solid-background: #3949ab;
+  --themeshift-components-chip-variant-accent-solid-border: #3949ab;
+  --themeshift-components-chip-variant-accent-solid-text: #fff;
+  --themeshift-components-chip-variant-accent-subtle-background: #c5cae9;
+  --themeshift-components-chip-variant-accent-subtle-border: #9fa8da;
+  --themeshift-components-chip-variant-accent-subtle-text: #283593;
+  --themeshift-components-chip-variant-danger-outline-background: transparent;
+  --themeshift-components-chip-variant-danger-outline-border: #e57373;
+  --themeshift-components-chip-variant-danger-outline-text: #c62828;
+  --themeshift-components-chip-variant-danger-solid-background: #e53935;
+  --themeshift-components-chip-variant-danger-solid-border: #e53935;
+  --themeshift-components-chip-variant-danger-solid-text: #000;
+  --themeshift-components-chip-variant-danger-subtle-background: #ffcdd2;
+  --themeshift-components-chip-variant-danger-subtle-border: #ef9a9a;
+  --themeshift-components-chip-variant-danger-subtle-text: #c62828;
+  --themeshift-components-chip-variant-neutral-outline-background: transparent;
+  --themeshift-components-chip-variant-neutral-outline-border: #e0e0e0;
+  --themeshift-components-chip-variant-neutral-outline-text: #424242;
+  --themeshift-components-chip-variant-neutral-solid-background: #757575;
+  --themeshift-components-chip-variant-neutral-solid-border: #757575;
+  --themeshift-components-chip-variant-neutral-solid-text: #fff;
+  --themeshift-components-chip-variant-neutral-subtle-background: #f5f5f5;
+  --themeshift-components-chip-variant-neutral-subtle-border: #eeeeee;
+  --themeshift-components-chip-variant-neutral-subtle-text: #424242;
+  --themeshift-components-chip-variant-success-outline-background: transparent;
+  --themeshift-components-chip-variant-success-outline-border: #81c784;
+  --themeshift-components-chip-variant-success-outline-text: #2e7d32;
+  --themeshift-components-chip-variant-success-solid-background: #43a047;
+  --themeshift-components-chip-variant-success-solid-border: #43a047;
+  --themeshift-components-chip-variant-success-solid-text: #000;
+  --themeshift-components-chip-variant-success-subtle-background: #c8e6c9;
+  --themeshift-components-chip-variant-success-subtle-border: #a5d6a7;
+  --themeshift-components-chip-variant-success-subtle-text: #2e7d32;
+  --themeshift-components-chip-variant-warning-outline-background: transparent;
+  --themeshift-components-chip-variant-warning-outline-border: #f0c75e;
+  --themeshift-components-chip-variant-warning-outline-text: #8a6200;
+  --themeshift-components-chip-variant-warning-solid-background: #d89a00;
+  --themeshift-components-chip-variant-warning-solid-border: #d89a00;
+  --themeshift-components-chip-variant-warning-solid-text: #000;
+  --themeshift-components-chip-variant-warning-subtle-background: #fff4cf;
+  --themeshift-components-chip-variant-warning-subtle-border: #ffe4a3;
+  --themeshift-components-chip-variant-warning-subtle-text: #684c00;
   --themeshift-components-field-description: rgba(0, 0, 0, 0.6);
   --themeshift-components-field-error: #ef5350;
   --themeshift-components-field-indicator-optional: rgba(0, 0, 0, 0.5);
   --themeshift-components-field-indicator-required: #ef5350;
+  --themeshift-components-filter-chip-selected-variant-accent-outline-background: #3949ab;
+  --themeshift-components-filter-chip-selected-variant-accent-outline-border: #3949ab;
+  --themeshift-components-filter-chip-selected-variant-accent-outline-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-accent-solid-background: #3949ab;
+  --themeshift-components-filter-chip-selected-variant-accent-solid-border: #3949ab;
+  --themeshift-components-filter-chip-selected-variant-accent-solid-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-accent-subtle-background: #3949ab;
+  --themeshift-components-filter-chip-selected-variant-accent-subtle-border: #3949ab;
+  --themeshift-components-filter-chip-selected-variant-accent-subtle-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-danger-outline-background: #e53935;
+  --themeshift-components-filter-chip-selected-variant-danger-outline-border: #e53935;
+  --themeshift-components-filter-chip-selected-variant-danger-outline-text: #000;
+  --themeshift-components-filter-chip-selected-variant-danger-solid-background: #e53935;
+  --themeshift-components-filter-chip-selected-variant-danger-solid-border: #e53935;
+  --themeshift-components-filter-chip-selected-variant-danger-solid-text: #000;
+  --themeshift-components-filter-chip-selected-variant-danger-subtle-background: #e53935;
+  --themeshift-components-filter-chip-selected-variant-danger-subtle-border: #e53935;
+  --themeshift-components-filter-chip-selected-variant-danger-subtle-text: #000;
+  --themeshift-components-filter-chip-selected-variant-neutral-outline-background: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-outline-border: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-outline-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-neutral-solid-background: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-solid-border: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-solid-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-neutral-subtle-background: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-subtle-border: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-subtle-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-success-outline-background: #43a047;
+  --themeshift-components-filter-chip-selected-variant-success-outline-border: #43a047;
+  --themeshift-components-filter-chip-selected-variant-success-outline-text: #000;
+  --themeshift-components-filter-chip-selected-variant-success-solid-background: #43a047;
+  --themeshift-components-filter-chip-selected-variant-success-solid-border: #43a047;
+  --themeshift-components-filter-chip-selected-variant-success-solid-text: #000;
+  --themeshift-components-filter-chip-selected-variant-success-subtle-background: #43a047;
+  --themeshift-components-filter-chip-selected-variant-success-subtle-border: #43a047;
+  --themeshift-components-filter-chip-selected-variant-success-subtle-text: #000;
+  --themeshift-components-filter-chip-selected-variant-warning-outline-background: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-outline-border: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-outline-text: #000;
+  --themeshift-components-filter-chip-selected-variant-warning-solid-background: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-solid-border: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-solid-text: #000;
+  --themeshift-components-filter-chip-selected-variant-warning-subtle-background: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-subtle-border: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-subtle-text: #000;
   --themeshift-components-input-adornment: rgba(0, 0, 0, 0.7);
   --themeshift-components-input-background: #fff;
   --themeshift-components-input-border: rgba(0, 0, 0, 0.2);
@@ -1607,10 +1849,140 @@
   --themeshift-components-checkbox-validation-invalid-border: #ef5350;
   --themeshift-components-checkbox-validation-valid-border: #66bb6a;
   --themeshift-components-checkbox-validation-warning-border: #29b6f6;
+  --themeshift-components-chip-variant-accent-outline-background: transparent;
+  --themeshift-components-chip-variant-accent-outline-border: #3f51b5;
+  --themeshift-components-chip-variant-accent-outline-text: #4fc3f7;
+  --themeshift-components-chip-variant-accent-solid-background: #3f51b5;
+  --themeshift-components-chip-variant-accent-solid-border: #3f51b5;
+  --themeshift-components-chip-variant-accent-solid-text: #fff;
+  --themeshift-components-chip-variant-accent-subtle-background: #1a237e;
+  --themeshift-components-chip-variant-accent-subtle-border: #283593;
+  --themeshift-components-chip-variant-accent-subtle-text: rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+  --themeshift-components-chip-variant-danger-outline-background: transparent;
+  --themeshift-components-chip-variant-danger-outline-border: #f44336;
+  --themeshift-components-chip-variant-danger-outline-text: #e57373;
+  --themeshift-components-chip-variant-danger-solid-background: #f44336;
+  --themeshift-components-chip-variant-danger-solid-border: #f44336;
+  --themeshift-components-chip-variant-danger-solid-text: #000;
+  --themeshift-components-chip-variant-danger-subtle-background: #b71c1c;
+  --themeshift-components-chip-variant-danger-subtle-border: #c62828;
+  --themeshift-components-chip-variant-danger-subtle-text: rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+  --themeshift-components-chip-variant-neutral-outline-background: transparent;
+  --themeshift-components-chip-variant-neutral-outline-border: rgba(
+    255,
+    255,
+    255,
+    0.3
+  );
+  --themeshift-components-chip-variant-neutral-outline-text: rgba(
+    255,
+    255,
+    255,
+    0.8
+  );
+  --themeshift-components-chip-variant-neutral-solid-background: #757575;
+  --themeshift-components-chip-variant-neutral-solid-border: #757575;
+  --themeshift-components-chip-variant-neutral-solid-text: #fff;
+  --themeshift-components-chip-variant-neutral-subtle-background: rgba(
+    255,
+    255,
+    255,
+    0.1
+  );
+  --themeshift-components-chip-variant-neutral-subtle-border: rgba(
+    255,
+    255,
+    255,
+    0.1
+  );
+  --themeshift-components-chip-variant-neutral-subtle-text: rgba(
+    255,
+    255,
+    255,
+    0.8
+  );
+  --themeshift-components-chip-variant-success-outline-background: transparent;
+  --themeshift-components-chip-variant-success-outline-border: #4caf50;
+  --themeshift-components-chip-variant-success-outline-text: #81c784;
+  --themeshift-components-chip-variant-success-solid-background: #4caf50;
+  --themeshift-components-chip-variant-success-solid-border: #4caf50;
+  --themeshift-components-chip-variant-success-solid-text: #000;
+  --themeshift-components-chip-variant-success-subtle-background: #1b5e20;
+  --themeshift-components-chip-variant-success-subtle-border: #2e7d32;
+  --themeshift-components-chip-variant-success-subtle-text: rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+  --themeshift-components-chip-variant-warning-outline-background: transparent;
+  --themeshift-components-chip-variant-warning-outline-border: #d89a00;
+  --themeshift-components-chip-variant-warning-outline-text: #ffd98a;
+  --themeshift-components-chip-variant-warning-solid-background: #d89a00;
+  --themeshift-components-chip-variant-warning-solid-border: #d89a00;
+  --themeshift-components-chip-variant-warning-solid-text: #000;
+  --themeshift-components-chip-variant-warning-subtle-background: #4a3500;
+  --themeshift-components-chip-variant-warning-subtle-border: #5e4300;
+  --themeshift-components-chip-variant-warning-subtle-text: #ffd98a;
   --themeshift-components-field-description: rgba(255, 255, 255, 0.7);
   --themeshift-components-field-error: #ef5350;
   --themeshift-components-field-indicator-optional: rgba(255, 255, 255, 0.6);
   --themeshift-components-field-indicator-required: #ef5350;
+  --themeshift-components-filter-chip-selected-variant-accent-outline-background: #3f51b5;
+  --themeshift-components-filter-chip-selected-variant-accent-outline-border: #3f51b5;
+  --themeshift-components-filter-chip-selected-variant-accent-outline-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-accent-solid-background: #3f51b5;
+  --themeshift-components-filter-chip-selected-variant-accent-solid-border: #3f51b5;
+  --themeshift-components-filter-chip-selected-variant-accent-solid-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-accent-subtle-background: #3f51b5;
+  --themeshift-components-filter-chip-selected-variant-accent-subtle-border: #3f51b5;
+  --themeshift-components-filter-chip-selected-variant-accent-subtle-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-danger-outline-background: #f44336;
+  --themeshift-components-filter-chip-selected-variant-danger-outline-border: #f44336;
+  --themeshift-components-filter-chip-selected-variant-danger-outline-text: #000;
+  --themeshift-components-filter-chip-selected-variant-danger-solid-background: #f44336;
+  --themeshift-components-filter-chip-selected-variant-danger-solid-border: #f44336;
+  --themeshift-components-filter-chip-selected-variant-danger-solid-text: #000;
+  --themeshift-components-filter-chip-selected-variant-danger-subtle-background: #f44336;
+  --themeshift-components-filter-chip-selected-variant-danger-subtle-border: #f44336;
+  --themeshift-components-filter-chip-selected-variant-danger-subtle-text: #000;
+  --themeshift-components-filter-chip-selected-variant-neutral-outline-background: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-outline-border: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-outline-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-neutral-solid-background: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-solid-border: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-solid-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-neutral-subtle-background: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-subtle-border: #757575;
+  --themeshift-components-filter-chip-selected-variant-neutral-subtle-text: #fff;
+  --themeshift-components-filter-chip-selected-variant-success-outline-background: #4caf50;
+  --themeshift-components-filter-chip-selected-variant-success-outline-border: #4caf50;
+  --themeshift-components-filter-chip-selected-variant-success-outline-text: #000;
+  --themeshift-components-filter-chip-selected-variant-success-solid-background: #4caf50;
+  --themeshift-components-filter-chip-selected-variant-success-solid-border: #4caf50;
+  --themeshift-components-filter-chip-selected-variant-success-solid-text: #000;
+  --themeshift-components-filter-chip-selected-variant-success-subtle-background: #4caf50;
+  --themeshift-components-filter-chip-selected-variant-success-subtle-border: #4caf50;
+  --themeshift-components-filter-chip-selected-variant-success-subtle-text: #000;
+  --themeshift-components-filter-chip-selected-variant-warning-outline-background: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-outline-border: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-outline-text: #000;
+  --themeshift-components-filter-chip-selected-variant-warning-solid-background: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-solid-border: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-solid-text: #000;
+  --themeshift-components-filter-chip-selected-variant-warning-subtle-background: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-subtle-border: #d89a00;
+  --themeshift-components-filter-chip-selected-variant-warning-subtle-text: #000;
   --themeshift-components-input-adornment: rgba(255, 255, 255, 0.7);
   --themeshift-components-input-background: rgba(255, 255, 255, 0.1);
   --themeshift-components-input-border: rgba(255, 255, 255, 0.2);

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "skipLibCheck": true,
+    "target": "ES2022"
+  },
+  "include": ["src/components/**/*.ts", "src/components/**/*.tsx"]
+}

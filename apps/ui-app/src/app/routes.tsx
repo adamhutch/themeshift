@@ -393,6 +393,32 @@ const AppRoutes = () => (
           />
         </Route>
 
+        <Route path="filter-chip">
+          <Route index element={<ComponentGuides.FilterChipGuide />} />
+          <Route
+            path="customize"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="FilterChip"
+                componentPath="/ui/component/filter-chip"
+                description="FilterChip customization guidance will live here."
+                title="Customize"
+              />
+            }
+          />
+          <Route
+            path="playground"
+            element={
+              <ComponentSubpagePlaceholder
+                componentName="FilterChip"
+                componentPath="/ui/component/filter-chip"
+                description="An interactive FilterChip playground will live here."
+                title="Playground"
+              />
+            }
+          />
+        </Route>
+
         <Route path="radio">
           <Route index element={<ComponentGuides.RadiosGuide />} />
           <Route

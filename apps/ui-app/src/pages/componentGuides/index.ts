@@ -9,6 +9,7 @@ export * from './CopyButtonGuide';
 export * from './ErrorMessageGuide';
 export * from './FieldGuide';
 export * from './FlexGuide';
+export * from './FilterChipGuide';
 export * from './FocusLockGuide';
 export * from './GridGuide';
 export * from './HeadingGuide';

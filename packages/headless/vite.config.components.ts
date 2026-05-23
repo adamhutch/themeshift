@@ -18,6 +18,9 @@ export default defineConfig({
         'components/Chip/index': fileURLToPath(
           new URL('./src/entrypoints/components/Chip.ts', import.meta.url)
         ),
+        'components/FilterChip/index': fileURLToPath(
+          new URL('./src/entrypoints/components/FilterChip.ts', import.meta.url)
+        ),
         'components/Menu/index': fileURLToPath(
           new URL('./src/entrypoints/components/Menu.ts', import.meta.url)
         ),

@@ -70,6 +70,10 @@
       "types": "./dist/components/Field/index.d.ts",
       "import": "./dist/components/Field/index.js"
     },
+    "./components/FilterChip": {
+      "types": "./dist/components/FilterChip/index.d.ts",
+      "import": "./dist/components/FilterChip/index.js"
+    },
     "./components/Flex": {
       "types": "./dist/components/Flex/index.d.ts",
       "import": "./dist/components/Flex/index.js"

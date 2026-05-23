@@ -8,6 +8,7 @@ export * from './Chip';
 export * from './CopyButton';
 export * from './ErrorMessage';
 export * from './Field';
+export * from './FilterChip';
 export * from './Flex';
 export * from './FocusLock';
 export * from './Grid';

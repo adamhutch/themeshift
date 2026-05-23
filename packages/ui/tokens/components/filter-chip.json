@@ -1,0 +1,364 @@
+{
+  "components": {
+    "filterChip": {
+      "selected": {
+        "variant": {
+          "light": {
+            "neutral": {
+              "subtle": {
+                "background": {
+                  "$value": "{components.chip.variant.light.neutral.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.neutral.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.neutral.solid.text}"
+                }
+              },
+              "outline": {
+                "background": {
+                  "$value": "{components.chip.variant.light.neutral.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.neutral.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.neutral.solid.text}"
+                }
+              },
+              "solid": {
+                "background": {
+                  "$value": "{components.chip.variant.light.neutral.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.neutral.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.neutral.solid.text}"
+                }
+              }
+            },
+            "accent": {
+              "subtle": {
+                "background": {
+                  "$value": "{components.chip.variant.light.accent.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.accent.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.accent.solid.text}"
+                }
+              },
+              "outline": {
+                "background": {
+                  "$value": "{components.chip.variant.light.accent.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.accent.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.accent.solid.text}"
+                }
+              },
+              "solid": {
+                "background": {
+                  "$value": "{components.chip.variant.light.accent.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.accent.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.accent.solid.text}"
+                }
+              }
+            },
+            "success": {
+              "subtle": {
+                "background": {
+                  "$value": "{components.chip.variant.light.success.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.success.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.success.solid.text}"
+                }
+              },
+              "outline": {
+                "background": {
+                  "$value": "{components.chip.variant.light.success.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.success.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.success.solid.text}"
+                }
+              },
+              "solid": {
+                "background": {
+                  "$value": "{components.chip.variant.light.success.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.success.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.success.solid.text}"
+                }
+              }
+            },
+            "warning": {
+              "subtle": {
+                "background": {
+                  "$value": "{components.chip.variant.light.warning.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.warning.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.warning.solid.text}"
+                }
+              },
+              "outline": {
+                "background": {
+                  "$value": "{components.chip.variant.light.warning.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.warning.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.warning.solid.text}"
+                }
+              },
+              "solid": {
+                "background": {
+                  "$value": "{components.chip.variant.light.warning.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.warning.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.warning.solid.text}"
+                }
+              }
+            },
+            "danger": {
+              "subtle": {
+                "background": {
+                  "$value": "{components.chip.variant.light.danger.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.danger.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.danger.solid.text}"
+                }
+              },
+              "outline": {
+                "background": {
+                  "$value": "{components.chip.variant.light.danger.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.danger.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.danger.solid.text}"
+                }
+              },
+              "solid": {
+                "background": {
+                  "$value": "{components.chip.variant.light.danger.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.light.danger.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.light.danger.solid.text}"
+                }
+              }
+            }
+          },
+          "dark": {
+            "neutral": {
+              "subtle": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.neutral.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.neutral.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.neutral.solid.text}"
+                }
+              },
+              "outline": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.neutral.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.neutral.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.neutral.solid.text}"
+                }
+              },
+              "solid": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.neutral.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.neutral.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.neutral.solid.text}"
+                }
+              }
+            },
+            "accent": {
+              "subtle": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.accent.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.accent.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.accent.solid.text}"
+                }
+              },
+              "outline": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.accent.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.accent.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.accent.solid.text}"
+                }
+              },
+              "solid": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.accent.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.accent.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.accent.solid.text}"
+                }
+              }
+            },
+            "success": {
+              "subtle": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.success.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.success.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.success.solid.text}"
+                }
+              },
+              "outline": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.success.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.success.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.success.solid.text}"
+                }
+              },
+              "solid": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.success.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.success.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.success.solid.text}"
+                }
+              }
+            },
+            "warning": {
+              "subtle": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.warning.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.warning.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.warning.solid.text}"
+                }
+              },
+              "outline": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.warning.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.warning.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.warning.solid.text}"
+                }
+              },
+              "solid": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.warning.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.warning.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.warning.solid.text}"
+                }
+              }
+            },
+            "danger": {
+              "subtle": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.danger.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.danger.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.danger.solid.text}"
+                }
+              },
+              "outline": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.danger.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.danger.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.danger.solid.text}"
+                }
+              },
+              "solid": {
+                "background": {
+                  "$value": "{components.chip.variant.dark.danger.solid.background}"
+                },
+                "border": {
+                  "$value": "{components.chip.variant.dark.danger.solid.border}"
+                },
+                "text": {
+                  "$value": "{components.chip.variant.dark.danger.solid.text}"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -28,6 +28,10 @@
       "types": "./dist/components/Chip/index.d.ts",
       "import": "./dist/components/Chip/index.js"
     },
+    "./components/FilterChip": {
+      "types": "./dist/components/FilterChip/index.d.ts",
+      "import": "./dist/components/FilterChip/index.js"
+    },
     "./components/Menu": {
       "types": "./dist/components/Menu/index.d.ts",
       "import": "./dist/components/Menu/index.js"
